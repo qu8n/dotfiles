@@ -1,10 +1,5 @@
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
+# Aliases set here override those provided by Oh My Zsh libs,
+# plugins, and themes
 
 # Personal directories
 alias sd="cd /Users/$USER/dev/mskcc/smile-dashboard"
@@ -20,7 +15,7 @@ alias zconf="cd /Users/$USER/.zsh"
 # nvim
 alias vi='nvim'
 
-# ssh shortcuts
+# ssh
 alias ssd='ssh smile@smile-dev.mskcc.org'
 alias ssp='ssh smile@smile.mskcc.org'
 alias sqd="ssh $USER@smile-dev.mskcc.org"
@@ -30,7 +25,9 @@ alias sqp="ssh $USER@smile.mskcc.org"
 alias venv-init='python3 -m venv .venv'
 alias activate='source .venv/bin/activate'
 
-# git (See the aliases added by oh-my-zsh first before adding anything here)
+# git
+# See oh-my-zsh git plugin's aliases first before adding anything here
+# `alias | grep git`
 alias gl='git log --oneline --graph --all'
 alias go='git open' # command added by the git-open oh-my-zsh plugin
 

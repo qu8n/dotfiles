@@ -1,4 +1,4 @@
-# Work
+# Personal variables
 export NEO4J_USERNAME=neo4j
 export NEO4J_PASSWORD=$(pass MSKCC/Neo4j)
 export NEO4J_DATA_HOME="/Users/$USER/dev/mskcc/smile-dashboard/neo4j"
