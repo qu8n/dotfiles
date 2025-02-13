@@ -1,19 +1,21 @@
-# Aliases set here override those provided by Oh My Zsh libs,
-# plugins, and themes
+# Aliases set here override those provided by Oh My Zsh libs, plugins, and themes
 
 # Personal directories
-alias sd="cd /Users/$USER/dev/mskcc/smile-dashboard"
-alias ss="cd /Users/$USER/dev/mskcc/smile-server"
-alias srf="cd /Users/$USER/dev/mskcc/smile-request-filter"
-alias smp="cd /Users/$USER/dev/mskcc/smile-message-publisher"
-alias sconf="cd /Users/$USER/dev/mskcc/smile-configuration"
-alias su="cd /Users/$USER/dev/mskcc/smile-utils"
-alias sc="cd /Users/$USER/dev/mskcc/smile-commons"
-alias nconf="cd /Users/$USER/.config/nvim"
-alias zconf="cd /Users/$USER/.zsh"
+alias sd="cd $HOME/dev/mskcc/smile-dashboard"
+alias ss="cd $HOME/dev/mskcc/smile-server"
+alias srf="cd $HOME/dev/mskcc/smile-request-filter"
+alias smp="cd $HOME/dev/mskcc/smile-message-publisher"
+alias sconf="cd $HOME/dev/mskcc/smile-configuration"
+alias su="cd $HOME/dev/mskcc/smile-utils"
+alias sc="cd $HOME/dev/mskcc/smile-commons"
+alias nconf="cd $HOME/.config/nvim"
+alias zconf="cd $HOME/.zsh"
+alias s="cd $HOME/.scripts"
+alias zs="cd $HOME/.zsh"
 
 # nvim
 alias vi='nvim'
+alias viz='cd && vi ~/.zshrc'
 
 # ssh
 alias ssd='ssh smile@smile-dev.mskcc.org'
@@ -21,7 +23,7 @@ alias ssp='ssh smile@smile.mskcc.org'
 alias sqd="ssh $USER@smile-dev.mskcc.org"
 alias sqp="ssh $USER@smile.mskcc.org"
 
-# venv
+# python venv
 alias venv-init='python3 -m venv .venv'
 alias activate='source .venv/bin/activate'
 
@@ -44,6 +46,10 @@ alias ccam='config commit --all --message'
 alias 'ccan!'='config commit --all --no-edit --amend'
 alias 'ccn!'='config commit --no-edit --amend'
 alias cp='config push'
+
+# System
+alias reload="exec ${SHELL} -l" # reload the shell
+alias path='echo -e ${PATH//:/\\n}' # print each PATH entry on a separate line
 
 # Other
 alias nrd='npm run dev'
