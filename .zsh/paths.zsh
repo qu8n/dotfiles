@@ -1,5 +1,8 @@
 # Personal scripts
-export PATH=$PATH:$HOME/dev/scripts
+export PATH=$PATH:$HOME/.scripts
+for dir in $HOME/.scripts/*/; do # include scripts inside subdirectories
+    export PATH=$PATH:${dir%/}  # remove trailing slash
+done
 
 # Enable running globally-installed yarn packages like `depcheck`
 # export PATH="$(yarn global bin):$PATH"
