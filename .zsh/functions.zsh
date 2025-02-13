@@ -1,4 +1,4 @@
-# `git add` with `fzf` magic
-function gaf() {
-  git add $(git status -s | fzf --multi | awk '{print $2}')
+# Let us run cmds like `git add` or `rm` with `fzf` magic
+function gstf() {
+  git status -s | fzf --multi | awk '{print $2}'
 }

@@ -15,6 +15,7 @@ alias sconf="cd /Users/$USER/dev/mskcc/smile-configuration"
 alias su="cd /Users/$USER/dev/mskcc/smile-utils"
 alias sc="cd /Users/$USER/dev/mskcc/smile-commons"
 alias nconf="cd /Users/$USER/.config/nvim"
+alias zconf="cd /Users/$USER/.zsh"
 
 # nvim
 alias vi='nvim'
