@@ -1,0 +1,33 @@
+[user]
+	name = Quan Nguyen
+	email = 86090707+qu8n@users.noreply.github.com
+	signingkey = 52583FEE12AF877B # public GPG key
+[color]
+	ui = true
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = ~/.gitignore_global
+	pager = delta # git-delta, a better git diff tool
+
+# Recommended default git-delta settings
+# Source: https://github.com/dandavison/delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+	line-numbers = true
+  navigate = true  # use n and N to move between diff sections
+  dark = true      # or light = true, or omit for auto-detection
+[merge]
+  conflictstyle = zdiff3
+
+# Enable Git LFS (Large File Storage)
+[http]
+	postBuffer = 2147483648 # increase HTTP buffer size to 2GB
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
