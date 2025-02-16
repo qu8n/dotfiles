@@ -5,7 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Define path and set theme
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -22,6 +21,10 @@ plugins=(
   git # add extra git aliases
   history # add extra history aliases
 )
+
+# Direct OMZ to save zcompdump files in the cache directory instead of littering $HOME
+# Source: https://stackoverflow.com/a/71271754
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 source $ZSH/oh-my-zsh.sh # oh-my-zsh startup script
 source ~/.p10k.zsh # p10k configs
