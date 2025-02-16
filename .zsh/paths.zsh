@@ -1,7 +1,9 @@
 # Personal scripts
 export PATH=$PATH:$HOME/.scripts
 for dir in $HOME/.scripts/*/; do # include scripts inside subdirectories
-    export PATH=$PATH:${dir%/}  # remove trailing slash
+    if [[ ${dir:t:r} != "raycast" ]]; then  # exclude raycast directory
+        export PATH=$PATH:${dir%/}  # remove trailing slash
+    fi
 done
 
 # Enable running globally-installed yarn packages like `depcheck`
