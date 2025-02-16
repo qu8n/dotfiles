@@ -47,6 +47,7 @@ alias ccam='config commit --all --message'
 alias 'ccan!'='config commit --all --no-edit --amend'
 alias 'ccn!'='config commit --no-edit --amend'
 alias cp='config push'
+alias co='config open'
 
 # System
 alias reload="exec ${SHELL} -l" # reload the shell
