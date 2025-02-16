@@ -46,7 +46,7 @@ alias ccmsg='config commit --message'
 alias ccam='config commit --all --message'
 alias 'ccan!'='config commit --all --no-edit --amend'
 alias 'ccn!'='config commit --no-edit --amend'
-alias cp='config push'
+alias cps='config push'
 alias co='config open'
 
 # System
