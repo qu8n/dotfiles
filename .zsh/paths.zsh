@@ -9,5 +9,8 @@ done
 # Enable running globally-installed yarn packages like `depcheck`
 # export PATH="$(yarn global bin):$PATH"
 
+# Expose asdf packages to the terminal
+export PATH="$HOME/.asdf/shims:$PATH"
+
 # Enable calling `protoc` from the terminal
 # export PATH=$PATH:/Applications/protoc-26.1-osx-aarch_64/bin
