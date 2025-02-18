@@ -53,3 +53,6 @@ vim.keymap.set("n", "<leader>cb", ":BlamerToggle<CR>", { noremap = true, silent 
 
 -- Toggle inline diagnostics via lsp_lines.nvim
 vim.keymap.set("", "<leader>xv", require("lsp_lines").toggle, { desc = "Toggle inline diagnostics (lsp_lines.nvim)" })
+
+-- Temporarily toggle Neotree position to the left
+vim.keymap.set("n", "<leader>ce", ":Neotree position=left<CR>", { noremap = true, silent = true, desc = "Open Neotree on the left temporarily" })
