@@ -11,11 +11,14 @@ alias sc="cd $HOME/dev/mskcc/smile-commons"
 alias nconf="cd $HOME/.config/nvim"
 alias zconf="cd $HOME/.zsh"
 alias s="cd $HOME/.scripts"
-alias zs="cd $HOME/.zsh"
 
 # nvim
 alias vi='nvim'
-alias viz='cd && vi ~/.zshrc'
+
+# nvim quick access
+alias viz='cd && vi ~/.zshrc' # [vi] [z]shrc
+alias vizc="cd $HOME/.zsh && vi" # [vi] [z]sh [c]onfig
+alias vinc="cd $HOME/.config/nvim && vi" # [vi] [n]vim [c]onfig
 
 # ssh
 alias ssd='ssh smile@smile-dev.mskcc.org'
@@ -28,10 +31,8 @@ alias venv-init='python3 -m venv .venv'
 alias activate='source .venv/bin/activate'
 
 # git
-# See oh-my-zsh git plugin's aliases first before adding anything here
-# `alias | grep git`
+# See oh-my-zsh git plugin's aliases before adding anything here: `alias | grep git`
 alias gl='git log --oneline --graph --all'
-alias go='git open' # command added by the git-open oh-my-zsh plugin
 
 # For storing dotfiles in a bare git repository
 # Source: https://www.atlassian.com/git/tutorials/dotfiles
