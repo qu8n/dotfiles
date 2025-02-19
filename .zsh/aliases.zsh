@@ -49,6 +49,12 @@ alias 'ccn!'='config commit --no-edit --amend'
 alias cps='config push'
 alias co='config open'
 
+# Improved ls
+alias ls='eza --icons --color=always --group-directories-first'
+alias l='eza -al --icons --color=always --group-directories-first'
+alias ll='eza -l --icons --color=always --group-directories-first'
+alias la='eza -a --icons --color=always --group-directories-first'
+
 # System
 alias reload="exec ${SHELL} -l" # reload the shell
 alias path='echo -e ${PATH//:/\\n}' # print each PATH entry on a separate line
