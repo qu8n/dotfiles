@@ -32,10 +32,18 @@ To be filled.
 
 ### App setups
 
-#### Brave
+Instructions on how to set up apps after installation.
 
-Back up Brave profile(s) via Google Drive for Desktop by syncing the
-corresponding profile folder(s) at `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
+#### Brave & Google Drive for Desktop
 
+Drop in the backup Brave profile folders from Google Drive for Desktop into
+`~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
+
+Set up the backing up of Brave profile(s) via Google Drive for Desktop by
+syncing the corresponding profile folder(s) at `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
 To see which folder to sync for a profile, go to `brave://version/` and look
 for the `Profile Path`.
+
+#### Rectangle
+
+Import the config from `.rectangle/` by going to `Rectangle > Preferences > Import`.
