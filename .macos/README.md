@@ -1,17 +1,41 @@
-# MacOS settings
+# MacOS
 
-Below are my personal MacOS settings, described in plain English.
+Below are my personal MacOS settings and setup, described in plain English.
 
-I didn’t write a full [automated script](https://github.com/mathiasbynens/dotfiles/blob/main/.macos)
-because I rarely get a new Mac. Spending hours automating something I can do
-in minutes didn’t seem worth it.
+I opted out of having an [automated script](https://github.com/mathiasbynens/dotfiles/blob/main/.macos)
+because I don't set up a new MacOS machine often enough to warrant it,
+and because of the reasons listed in this article:
+[Maybe Don't Bother Scripting Some macOS System Preferences](https://assert.cc/posts/maybe-dont-script-macos-prefs/).
 
-Also, see [Maybe Don't Bother Scripting Some macOS System Preferences](https://assert.cc/posts/maybe-dont-script-macos-prefs/).
-
-## My MacOS settings
+## System Preferences
 
 - Keyboard
   - Key repeat rate: fastest
   - Delay until repeat: shortest
 - Mouse
   - Tracking speed: 6 (with 1st level as 1)
+
+## Application installations
+
+> [!IMPORTANT]
+> Apps, including custom fonts, should be installed if possible via `brew`,
+> `brew cask`, or `mas`. You can search if apps are available via `brew search`
+> and `mas search`.
+
+### Apps installed via Homebrew
+
+See `.homebrew/` for more details.
+
+### Apps to be manually installed
+
+To be filled.
+
+### App setups
+
+#### Brave
+
+Back up Brave profile(s) via Google Drive for Desktop by syncing the
+corresponding profile folder(s) at `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
+
+To see which folder to sync for a profile, go to `brave://version/` and look
+for the `Profile Path`.
