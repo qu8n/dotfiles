@@ -10,9 +10,10 @@ existing packages and install them on a new machine with a single command.
 Save the list of currently installed packages to `Brewfile`:
 
 ```bash
-brew bundle dump --force --file=~/.homebrew/Brewfile
+brew bundle dump --describe --force --file=~/.homebrew/Brewfile
 ```
 
+- `--describe` includes a description of each package
 - `--force` overwrites the existing `Brewfile`
 - `--file` specifies the path to the `Brewfile`
 
@@ -22,7 +23,7 @@ Install packages from `Brewfile`:
 brew bundle install --file=~/.homebrew/Brewfile
 ```
 
-### Organizing Homebrew packages
+### Keeping Homebrew packages organized
 
 When we run `brew install <package>`, Homebrew installs the package and its dependencies.
 This means we often end up with an unruly list of packages when running `brew list`.

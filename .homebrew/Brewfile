@@ -1,39 +1,65 @@
 tap "homebrew/bundle"
 tap "jesseduffield/lazygit"
 tap "nats-io/nats-tools"
-tap "nikitabobko/tap"
 tap "potatolabs/git-redate"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# Modern, maintained replacement for ls
 brew "eza"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU awk utility
 brew "gawk"
+# GitHub command-line tool
 brew "gh"
+# Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Git extension for versioning large files
 brew "git-lfs"
+# Validating, recursive, caching DNS resolver
 brew "unbound"
+# GNU Transport Layer Security (TLS) Library
 brew "gnutls"
+# Assuan IPC Library
 brew "libassuan"
+# Passphrase entry dialog utilizing the Assuan protocol
 brew "pinentry"
+# GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Simple tool to make locally trusted development certificates
 brew "mkcert"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Password manager
 brew "pass"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Terminal multiplexer
 brew "tmux"
+# Extraction utility for .zip compressed archives
 brew "unzip"
+# Internet file retriever
 brew "wget"
+# General-purpose data compression with high compression ratio
 brew "xz"
+# A simple terminal UI for git commands, written in Go
 brew "jesseduffield/lazygit/lazygit"
+# NATS utility
 brew "nats-io/nats-tools/nats"
+# Change the dates of several git commits with a single command
 brew "potatolabs/git-redate/git-redate"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
+# Client for the Google Drive storage service
 cask "google-drive"
+# Keyboard customiser
 cask "karabiner-elements"
+# Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
-cask "podman-desktop"
 vscode "alexcvzz.vscode-sqlite"
 vscode "amazonwebservices.codewhisperer-for-command-line-companion"
 vscode "andenetalexander.vim-cheatsheet"
