@@ -11,3 +11,6 @@ done
 
 # Expose asdf packages to the terminal
 export PATH="$HOME/.asdf/shims:$PATH"
+
+# For the Console Ninja VSCode extension
+export PATH=~/.console-ninja/.bin:$PATH

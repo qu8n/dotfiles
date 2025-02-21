@@ -1,5 +1,7 @@
 # Aliases set here override those provided by Oh My Zsh libs, plugins, and themes
 
+alias zource='source ~/.zshrc'
+
 # Personal directories
 alias sd="cd $HOME/dev/mskcc/smile-dashboard"
 alias ss="cd $HOME/dev/mskcc/smile-server"

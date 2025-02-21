@@ -1,19 +1,18 @@
-function zource() {
-  source ~/.zshrc
+# Run this with cmds like `git add` or `git restore` to pick from `git status` files
+# e.g. `gstf "git add"`, `gstf ga` (alias is OK)
+function gstf() {
+  # -i is for interactive mode to enable accepting an alias arg
+  # -c is for the command to run
+  zsh -i -c "$1 $(git status -s | fzf --multi | awk '{print $2}')"
 }
 
-# Run `git add` with `fzf` magic
-function gaf() {
-  git add $(git status -s | fzf --multi | awk '{print $2}')
-}
-
-# Run `config add` with `fzf` magic
-function caf() {
-  config add $(config status -s | fzf --multi | awk '{print $2}')
+# Similar as above, but for dotfiles management
+function cstf() {
+  zsh -i -c "$1 $(config status -s | fzf --multi | awk '{print $2}')"
 }
 
 function t() {
-  # Defaults to 3 levels deep, do more with `t 5` or `t 1`
+  # Defaults to 3 levels deep, do more with e.g. `t 5`
   tree -I '.git|node_modules|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
 }
 
