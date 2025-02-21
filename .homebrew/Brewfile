@@ -71,8 +71,18 @@ cask "cleanshot"
 cask "cold-turkey-blocker"
 # Track and budget money
 cask "copilot"
+# Write, edit, and chat about your code with AI
+cask "cursor"
+# Voice and text chat software
+cask "discord"
+# App to build and share containerised applications and microservices
+cask "docker"
+# Web browser
+cask "firefox"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
+# Web browser
+cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
 # Keyboard customiser
@@ -81,7 +91,6 @@ cask "karabiner-elements"
 cask "pearcleaner"
 mas "Amphetamine", id: 937984704
 mas "Bitwarden", id: 1352778147
-mas "Goodnotes", id: 1444383602
 mas "iMovie", id: 408981434
 mas "Kindle", id: 302584613
 mas "Klack", id: 6446206067
