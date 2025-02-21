@@ -1,3 +1,4 @@
+tap "buo/cask-upgrade"
 tap "homebrew/bundle"
 tap "jesseduffield/lazygit"
 tap "nats-io/nats-tools"
@@ -30,6 +31,8 @@ brew "pinentry"
 brew "gnupg"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Mac App Store command-line interface
+brew "mas"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -66,6 +69,16 @@ cask "google-drive"
 cask "karabiner-elements"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
+mas "Amphetamine", id: 937984704
+mas "Bitwarden", id: 1352778147
+mas "Goodnotes", id: 1444383602
+mas "iMovie", id: 408981434
+mas "Kindle", id: 302584613
+mas "Klack", id: 6446206067
+mas "PDFgear", id: 6469021132
+mas "Slack", id: 803453959
+mas "Things", id: 904280696
+mas "Xcode", id: 497799835
 vscode "alexcvzz.vscode-sqlite"
 vscode "amazonwebservices.codewhisperer-for-command-line-companion"
 vscode "andenetalexander.vim-cheatsheet"

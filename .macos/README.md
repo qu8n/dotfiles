@@ -29,6 +29,7 @@ xcode-select --install
 # Xcode installed the Apple Git version, but Homebrew's Git is more up-to-date
 brew install git
 ```
+
 ## Set up dotfiles tracker
 
 Follow the instructions at "Installing your dotfiles onto a new system" [here](https://www.atlassian.com/git/tutorials/dotfiles).
@@ -55,6 +56,24 @@ syncing the corresponding profile folder(s) at `~/Library/Application\ Support/B
 To see which folder to sync for a profile, go to `brave://version/` and look
 for the `Profile Path`.
 
+#### Amphetamine
+
+Enable the following in Settings:
+
+- General
+  - Launch Amphetamine at login
+  - Hide Amphetamine in the Dock
+- Session Defaults
+  - End session when Mac is forced to sleep
+  - Move cursor every 5 minutes after 5 minutes of inactivity
+- Triggers
+  - Enable Triggers
+  - Create a trigger:
+    - Name: "9 to 5"
+    - Criterion: Mon-Fri, 9am-5pm
+- Statistics
+  - Disable "Enable statistics collection"
+
 #### Rectangle
 
 Import the config from `.rectangle/` by going to `Rectangle > Preferences > Import`.
@@ -65,6 +84,7 @@ Import the config from `.rectangle/` by going to `Rectangle > Preferences > Impo
 
 ### Amazon Q
 
-Running `q doctor` will show a warning about `zsh\-autosuggestions` not being supported at the same time.
+Running `q doctor` will show a warning about `zsh-autosuggestions` not being
+supported at the same time.
 
 OK to ignore as they can both work together, and it's nice to have both.

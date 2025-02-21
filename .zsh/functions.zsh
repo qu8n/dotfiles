@@ -29,3 +29,8 @@ function go() {
   # `git open` is made available by `git-open` plugin of oh-my-zsh
   git open origin "$branch"
 }
+
+# `config add` all files shown by `config status`
+function caa() {
+  config add $(config status -s | awk '{print $2}')
+}
