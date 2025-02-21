@@ -51,6 +51,8 @@ After confirming which packages we want to remove, run:
 
 ```bash
 brew uninstall <package>
+# Alternative command for cask packages that also remove metadata
+brew uninstall --zap <package>
 ```
 
 ### Resource

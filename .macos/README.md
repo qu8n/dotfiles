@@ -74,6 +74,33 @@ Enable the following in Settings:
 - Statistics
   - Disable "Enable statistics collection"
 
+#### BatFi
+
+Enter the license key found in my password manager.
+
+#### CleanShot X
+
+`brew` installs the latest version of CleanShot X, which isn't covered by my
+license key. Follow these steps to downgrade to the version that is covered:
+
+1. Uninstall the cleanshot brew cask
+
+```zsh
+brew uninstall --zap cleanshot
+```
+2. Install the old version
+
+```zsh
+brew install --HEAD -s ~/.homebrew/archived-versions/cleanshot.rb
+```
+
+> [!TIP]
+> Here is how to find the archived version of a cask, in case I need to repeat
+> this process for another app: Go to the main Homebrew page of the cask (e.g.
+> [cleanshot](https://formulae.brew.sh/cask/cleanshot)) > Cask code on Github >
+> History > click on the commit name of the desired version > ellipsis (...) >
+> View file > Raw > copy the URL, then download it with `curl` or `wget` into ~/.homebrew/archived-versions.
+
 #### Rectangle
 
 Import the config from `.rectangle/` by going to `Rectangle > Preferences > Import`.
