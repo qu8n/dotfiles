@@ -42,7 +42,7 @@ brew bundle --file ~/.homebrew/Brewfile
 
 ### Install apps manually
 
-To be filled.
+To be determined.
 
 ### Set up apps after installation
 
@@ -94,12 +94,18 @@ brew uninstall --zap cleanshot
 brew install --HEAD -s ~/.homebrew/archived-versions/cleanshot.rb
 ```
 
+Finally, enter the license key found in my password manager.
+
 > [!TIP]
 > Here is how to find the archived version of a cask, in case I need to repeat
 > this process for another app: Go to the main Homebrew page of the cask (e.g.
 > [cleanshot](https://formulae.brew.sh/cask/cleanshot)) > Cask code on Github >
 > History > click on the commit name of the desired version > ellipsis (...) >
 > View file > Raw > copy the URL, then download it with `curl` or `wget` into ~/.homebrew/archived-versions.
+
+#### Cold Turkey Blocker
+
+Enter the license key found in my password manager.
 
 #### Rectangle
 

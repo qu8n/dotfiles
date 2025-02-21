@@ -67,6 +67,10 @@ cask "anki"
 cask "batfi"
 # Screen capturing tool
 cask "cleanshot"
+# Block websites, games and applications
+cask "cold-turkey-blocker"
+# Track and budget money
+cask "copilot"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 # Client for the Google Drive storage service
