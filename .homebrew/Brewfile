@@ -36,6 +36,8 @@ brew "neovim"
 brew "tree"
 # Password manager
 brew "pass"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Terminal multiplexer
