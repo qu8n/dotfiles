@@ -12,6 +12,8 @@ brew "fzf"
 brew "gawk"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Git extension for versioning large files
@@ -54,6 +56,8 @@ brew "jesseduffield/lazygit/lazygit"
 brew "nats-io/nats-tools/nats"
 # Change the dates of several git commits with a single command
 brew "potatolabs/git-redate/git-redate"
+# AI-powered productivity tool for the command-line
+cask "amazon-q"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 # Client for the Google Drive storage service

@@ -58,3 +58,13 @@ for the `Profile Path`.
 #### Rectangle
 
 Import the config from `.rectangle/` by going to `Rectangle > Preferences > Import`.
+
+## Appendix
+
+### App quirks
+
+### Amazon Q
+
+Running `q doctor` will show a warning about `zsh\-autosuggestions` not being supported at the same time.
+
+OK to ignore as they can both work together, and it's nice to have both.

@@ -1,3 +1,6 @@
+# System
+export EDITOR=nvim
+
 # Personal variables
 export NEO4J_USERNAME=neo4j
 export NEO4J_PASSWORD=$(pass MSKCC/Neo4j)
