@@ -3,6 +3,11 @@
 Homebrew makes it easy to install packages on MacOS. With Bundle, we can document
 existing packages and install them on a new machine with a single command.
 
+> [!IMPORTANT]
+> Apps, including custom fonts, should be installed when possible via `brew`,
+> `brew cask`, or `mas`. You can search if apps are available via `brew search`
+> and `mas search`.
+
 ## Useful commands
 
 ### Document existing packages and install them on a new machine

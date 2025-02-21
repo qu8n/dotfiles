@@ -1,38 +1,49 @@
 # MacOS
 
-Below are my personal MacOS settings and setup, described in plain English.
+My personal MacOS settings and setup flow on a new machine.
 
-I opted out of having an [automated script](https://github.com/mathiasbynens/dotfiles/blob/main/.macos)
-because I don't set up a new MacOS machine often enough to warrant it,
-and because of the reasons listed in this article:
-[Maybe Don't Bother Scripting Some macOS System Preferences](https://assert.cc/posts/maybe-dont-script-macos-prefs/).
+## Update System Preferences
 
-## System Preferences
+> [!NOTE]
+> There is no automated script like [this nice one](https://github.com/mathiasbynens/dotfiles/blob/main/.macos)
+> because I don't set up a new MacOS machine often enough to warrant it.
+> Also: [Maybe Don't Bother Scripting Some macOS System Preferences](https://assert.cc/posts/maybe-dont-script-macos-prefs/).
 
 - Keyboard
-  - Key repeat rate: fastest
-  - Delay until repeat: shortest
+  - Key repeat rate: max
+  - Delay until repeat: min
 - Mouse
   - Tracking speed: 6 (with 1st level as 1)
 
-## Application installations
+## Install software
 
-> [!IMPORTANT]
-> Apps, including custom fonts, should be installed if possible via `brew`,
-> `brew cask`, or `mas`. You can search if apps are available via `brew search`
-> and `mas search`.
+## Install Xcode Command Line Tools, Homebrew, and Git
 
-### Apps installed via Homebrew
+```zsh
+# Install Xcode Command Line Tools
+xcode-select --install
 
-See `.homebrew/` for more details.
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-### Apps to be manually installed
+# Xcode installed the Apple Git version, but Homebrew's Git is more up-to-date
+brew install git
+```
+## Set up dotfiles tracker
+
+Follow the instructions at "Installing your dotfiles onto a new system" [here](https://www.atlassian.com/git/tutorials/dotfiles).
+
+### Install apps via Homebrew
+
+```zsh
+brew bundle --file ~/.homebrew/Brewfile
+```
+
+### Install apps manually
 
 To be filled.
 
-### App setups
-
-Instructions on how to set up apps after installation.
+### Set up apps after installation
 
 #### Brave & Google Drive for Desktop
 
