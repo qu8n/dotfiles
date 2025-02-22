@@ -83,12 +83,14 @@ Enter the license key found in my password manager.
 `brew` installs the latest version of CleanShot X, which isn't covered by my
 license key. Follow these steps to downgrade to the version that is covered:
 
-1. Uninstall the cleanshot brew cask
+Uninstall the cleanshot brew cask:
 
 ```zsh
 brew uninstall --zap cleanshot
+
 ```
-2. Install the old version
+
+Install the old version:
 
 ```zsh
 brew install --HEAD -s ~/.homebrew/archived-versions/cleanshot.rb
@@ -106,6 +108,22 @@ Finally, enter the license key found in my password manager.
 #### Cold Turkey Blocker
 
 Enter the license key found in my password manager.
+
+#### Logi Options+
+
+Set the pointer speed of the Logitech MX Vertical to 80%.
+
+#### Logitech G HUB
+
+Set the Logitech Brio webcam as follows:
+
+- Preset: ZOOM 1.5x
+- Field of view: 90°
+- Zoom: 150%
+
+#### Lunar
+
+Set each monitor's brightness and contrast to 70% and 75%, respectively.
 
 #### Rectangle
 

@@ -85,8 +85,20 @@ cask "font-jetbrains-mono-nerd-font"
 cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
+# Keyboard shortcuts for every button on your screen
+cask "homerow"
+# Menu bar manager
+cask "jordanbaird-ice"
 # Keyboard customiser
 cask "karabiner-elements"
+# Discover, download, and run local LLMs
+cask "lm-studio"
+# Software for Logitech devices
+cask "logi-options+"
+# Support for Logitech G gear
+cask "logitech-g-hub"
+# Adaptive brightness for external displays
+cask "lunar"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
 mas "Amphetamine", id: 937984704
