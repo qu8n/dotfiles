@@ -107,12 +107,21 @@ cask "netnewswire"
 cask "obsidian"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
+# Screen recorder and editor
+cask "screen-studio"
+# Tool for sending personal documents to Kindles from Macs
+cask "send-to-kindle"
+# Team communication and collaboration software
+cask "slack"
+# Video game digital distribution service
+cask "steam"
+# Native GUI tool for relational databases
+cask "tableplus"
 mas "Amphetamine", id: 937984704
 mas "Bitwarden", id: 1352778147
 mas "iMovie", id: 408981434
 mas "Kindle", id: 302584613
 mas "Klack", id: 6446206067
-mas "Slack", id: 803453959
 mas "Things", id: 904280696
 mas "Xcode", id: 497799835
 vscode "alexcvzz.vscode-sqlite"

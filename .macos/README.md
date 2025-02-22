@@ -133,6 +133,30 @@ Sync to cloud by going to Settings > Accounts > + > iCloud.
 
 Import the config from `.rectangle/` by going to `Rectangle > Preferences > Import`.
 
+#### Screen Studio
+
+Enter the license key found in my password manager.
+
+#### TablePlus
+
+`brew` installs the latest version of TablePlus, which isn't covered by my
+license key. Follow these steps to downgrade to the version that is covered:
+
+Uninstall the tableplus brew cask:
+
+```zsh
+brew uninstall --zap tableplus
+
+```
+
+Install the old version:
+
+```zsh
+brew install --HEAD -s ~/.homebrew/archived-versions/tableplus.rb
+```
+
+Finally, enter the license key found in my password manager.
+
 ## Appendix
 
 ### App quirks
