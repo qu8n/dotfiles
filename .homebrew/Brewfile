@@ -99,6 +99,12 @@ cask "logi-options+"
 cask "logitech-g-hub"
 # Adaptive brightness for external displays
 cask "lunar"
+# Silence embarrassing notifications while screensharing
+cask "muzzle"
+# Free and open-source RSS reader
+cask "netnewswire"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
 mas "Amphetamine", id: 937984704
@@ -106,7 +112,6 @@ mas "Bitwarden", id: 1352778147
 mas "iMovie", id: 408981434
 mas "Kindle", id: 302584613
 mas "Klack", id: 6446206067
-mas "PDFgear", id: 6469021132
 mas "Slack", id: 803453959
 mas "Things", id: 904280696
 mas "Xcode", id: 497799835

@@ -2,13 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- AI tools
 vim.keymap.set("n", "<leader>a", "<Nop>", { desc = "AI Assistant" })
 vim.keymap.set("v", "<leader>a", "<Nop>", { desc = "AI Assistant" })
--- Avante
-vim.keymap.set("n", "<leader>as", "<Nop>", { desc = "avante: switch provider" })
-vim.keymap.set("n", "<leader>aso", ":AvanteSwitchProvider openai", { noremap = true, silent = true, desc = "OpenAI GPT-4.o" })
-vim.keymap.set("n", "<leader>asc", ":AvanteSwitchProvider claude", { noremap = true, silent = true, desc = "Claude 3.5 Sonnet" })
-vim.keymap.set("n", "<leader>asd", ":AvanteSwitchProvider ollama", { noremap = true, silent = true, desc = "DeepSeek Coder v2" })
 -- Copilot toggle
 vim.keymap.set("n", "<leader>ac", function()
   if require("copilot.client").is_disabled() then

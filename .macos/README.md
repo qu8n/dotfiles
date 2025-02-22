@@ -125,6 +125,10 @@ Set the Logitech Brio webcam as follows:
 
 Set each monitor's brightness and contrast to 70% and 75%, respectively.
 
+#### NetNewsWire
+
+Sync to cloud by going to Settings > Accounts > + > iCloud.
+
 #### Rectangle
 
 Import the config from `.rectangle/` by going to `Rectangle > Preferences > Import`.
