@@ -4,6 +4,10 @@
 <dict>
 	<key>AutoCommandHistory</key>
 	<true/>
+	<key>ClickToSelectCommand</key>
+	<false/>
+	<key>CopySelection</key>
+	<false/>
 	<key>Custom Color Presets</key>
 	<dict/>
 	<key>Default Bookmark Guid</key>

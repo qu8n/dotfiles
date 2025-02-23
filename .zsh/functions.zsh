@@ -30,9 +30,25 @@ function go() {
   git open origin "$branch"
 }
 
-# `config add` all files shown by `config status`
+# Improve `config add --all` command
 function caa() {
+  # `config add` all files shown by `config status`
   config add $(config status -s | awk '{print $2}')
+
+  # `config add` all directories currently tracked by `config`
+  # (This is because `config` wouldn't know to track new files in these
+  # directories unless they are added explicitly)
+  echo "Checking for changes inside tracked directories:"
+  curr_dir=$(pwd)
+  cd $HOME
+  # Include all directories in $HOME except .config because we don't track everything there
+  config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$' | grep -v '^\.config$' | \
+      xargs -I {} zsh -ic 'source ~/.zsh/aliases.zsh; test -d {} && echo "~/{}" && config add {}'
+  # Inside .config/, include only the subdirectories that we track
+  cd $HOME/.config
+  config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$' | \
+      xargs -I {} zsh -ic 'source ~/.zsh/aliases.zsh; test -d {} && echo "~/.config/{}" && config add {}'
+  cd "$curr_dir"
 }
 
 # Safeguard `rm` command
