@@ -1,4 +1,4 @@
-# Personal scripts
+# Expose scripts in the `~/.scripts` to the terminal
 export PATH=$PATH:$HOME/.scripts
 for dir in $HOME/.scripts/*/; do # include scripts inside subdirectories
     if [[ ${dir:t:r} != "raycast" ]]; then  # exclude raycast directory
@@ -9,8 +9,9 @@ done
 # Enable running globally-installed yarn packages like `depcheck`
 # export PATH="$(yarn global bin):$PATH"
 
-# Expose asdf packages to the terminal
+# Expose brew packages to the terminal
 export PATH="$HOME/.asdf/shims:$PATH"
+export PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
 
 # For the Console Ninja VSCode extension
 export PATH=~/.console-ninja/.bin:$PATH

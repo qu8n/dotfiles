@@ -61,6 +61,7 @@ alias la='eza -a --icons --color=always --group-directories-first'
 # System
 alias reload="exec ${SHELL} -l" # reload the shell
 alias path='echo -e ${PATH//:/\\n}' # print each PATH entry on a separate line
+alias tp='trash-put' # safer than rm, provided by andreafrancia/trash-cli
 
 # Other
 alias nrd='npm run dev'

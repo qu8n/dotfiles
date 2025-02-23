@@ -34,3 +34,17 @@ function go() {
 function caa() {
   config add $(config status -s | awk '{print $2}')
 }
+
+# Safeguard `rm` command
+# (Don't alias `rm` to `trash-put` because some `rm` flags might not be
+# supported. Also, this introduces bad habits when working in other machines.)
+function rm() {
+  echo "Use trash-put (alias tp) instead. To proceed anyway, prepend a backslash to rm."
+  echo ""
+  echo "All trash-cli commands:"
+  echo "trash-put (tp)      trash files and directories"
+  echo "trash-empty         empty the trashcan(s)"
+  echo "trash-list          list trashed files"
+  echo "trash-restore       restore a trashed file"
+  echo "trash-rm            remove individual files from the trashcan"
+}

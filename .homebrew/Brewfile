@@ -43,16 +43,18 @@ brew "tree"
 brew "pass"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
+# General-purpose data compression with high compression ratio
+brew "xz"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Terminal multiplexer
 brew "tmux"
+# Command-line interface to the freedesktop.org trashcan
+brew "trash-cli"
 # Extraction utility for .zip compressed archives
 brew "unzip"
 # Internet file retriever
 brew "wget"
-# General-purpose data compression with high compression ratio
-brew "xz"
 # A simple terminal UI for git commands, written in Go
 brew "jesseduffield/lazygit/lazygit"
 # NATS utility

@@ -70,7 +70,20 @@ Enter license keys found in my password manager for the following apps:
 - Screen Studio
 - TablePlus
 
-### Configure apps after installation
+### Configure CLI tools after installation
+
+#### trash-cli
+
+Add a cron job to auto delete files older that 30 days:
+
+```zsh
+(crontab -l ; echo "@daily $(which trash-empty) 30") | crontab -
+```
+
+This will update your crontab file with a `trash-empty` command that runs daily
+and removes files older than 30 days. To review your crontab, run `crontab -l`.
+
+### Configure GUI apps after installation
 
 #### Amphetamine
 
