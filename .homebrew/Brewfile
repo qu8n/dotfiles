@@ -115,6 +115,8 @@ cask "obsidian"
 cask "pearcleaner"
 # Control your tools with a few keystrokes
 cask "raycast"
+# App icon replacement utility
+cask "replacicon"
 # Screen recorder and editor
 cask "screen-studio"
 # Tool for sending personal documents to Kindles from Macs

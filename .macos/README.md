@@ -67,6 +67,7 @@ Enter license keys found in my password manager for the following apps:
 - BatFi
 - CleanShot X
 - Cold Turkey Blocker
+- Replacicon
 - Screen Studio
 - TablePlus
 
