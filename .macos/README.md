@@ -17,7 +17,7 @@ My personal MacOS settings and setup flow on a new machine.
 
 ## Install software
 
-## Install Xcode Command Line Tools, Homebrew, and Git
+### Prerequisites
 
 ```zsh
 # Install Xcode Command Line Tools
@@ -30,7 +30,7 @@ xcode-select --install
 brew install git
 ```
 
-## Set up dotfiles tracker
+### Set up dotfiles tracker
 
 Follow the instructions at "Installing your dotfiles onto a new system" [here](https://www.atlassian.com/git/tutorials/dotfiles).
 
@@ -40,21 +40,37 @@ Follow the instructions at "Installing your dotfiles onto a new system" [here](h
 brew bundle --file ~/.homebrew/Brewfile
 ```
 
-### Install apps manually
+#### Versioning & licensing
 
-To be determined.
+I've purchased the license keys for older versions of some apps. `brew install`
+downloads the binary for the latest version, which isn't covered by my license.
+Run these commands to downgrade to the version that is covered:
 
-### Set up apps after installation
+```zsh
+# Uninstall the latest version
+brew uninstall --zap cleanshot
+brew uninstall --zap tableplus
+# Install the old version
+brew install --HEAD -s ~/.homebrew/archived-versions/cleanshot.rb
+brew install --HEAD -s ~/.homebrew/archived-versions/tableplus.rb
+```
 
-#### Brave & Google Drive for Desktop
+> [!TIP]
+> Here is how to find the archived version of a cask, in case I need to repeat
+> this process for another app: Go to the main Homebrew page of the cask (e.g.
+> [cleanshot](https://formulae.brew.sh/cask/cleanshot)) > Cask code on Github >
+> History > click on the commit name of the desired version > ellipsis (...) >
+> View file > Raw > copy the URL, then download it with `curl` or `wget` into ~/.homebrew/archived-versions.
 
-Drop in the backup Brave profile folders from Google Drive for Desktop into
-`~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
+Enter license keys found in my password manager for the following apps:
 
-Set up the backing up of Brave profile(s) via Google Drive for Desktop by
-syncing the corresponding profile folder(s) at `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
-To see which folder to sync for a profile, go to `brave://version/` and look
-for the `Profile Path`.
+- BatFi
+- CleanShot X
+- Cold Turkey Blocker
+- Screen Studio
+- TablePlus
+
+### Configure apps after installation
 
 #### Amphetamine
 
@@ -74,40 +90,24 @@ Enable the following in Settings:
 - Statistics
   - Disable "Enable statistics collection"
 
-#### BatFi
+#### Brave & Google Drive for Desktop
 
-Enter the license key found in my password manager.
+Drop in the backup Brave profile folders from Google Drive for Desktop into
+`~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
 
-#### CleanShot X
+Set up the backing up of Brave profile(s) via Google Drive for Desktop by
+syncing the corresponding profile folder(s) at `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
+To see which folder to sync for a profile, go to `brave://version/` and look
+for the `Profile Path`.
 
-`brew` installs the latest version of CleanShot X, which isn't covered by my
-license key. Follow these steps to downgrade to the version that is covered:
+#### iTerm2
 
-Uninstall the cleanshot brew cask:
+Load settings by following these steps:
 
-```zsh
-brew uninstall --zap cleanshot
-
-```
-
-Install the old version:
-
-```zsh
-brew install --HEAD -s ~/.homebrew/archived-versions/cleanshot.rb
-```
-
-Finally, enter the license key found in my password manager.
-
-> [!TIP]
-> Here is how to find the archived version of a cask, in case I need to repeat
-> this process for another app: Go to the main Homebrew page of the cask (e.g.
-> [cleanshot](https://formulae.brew.sh/cask/cleanshot)) > Cask code on Github >
-> History > click on the commit name of the desired version > ellipsis (...) >
-> View file > Raw > copy the URL, then download it with `curl` or `wget` into ~/.homebrew/archived-versions.
-
-#### Cold Turkey Blocker
-
-Enter the license key found in my password manager.
+1. Settings > General > Settings > Enable "Load settings from a custom folder
+or URL" and set it to `~/.iterm/`
+2. Quit and restart iTerm2
+3. In the same Settings section, change Save change to "Automatically"
 
 #### Logi Options+
 
@@ -127,43 +127,29 @@ Set each monitor's brightness and contrast to 70% and 75%, respectively.
 
 #### NetNewsWire
 
-Sync to cloud by going to Settings > Accounts > + > iCloud.
+Sync to the cloud by going to Settings > Accounts > + > iCloud.
+
+#### Raycast
+
+Run `restore.sh` in `~/.raycast/` to unzip the `.gz` file back to `.rayconfig`.
+
+Copy the zip password from my password manager.
+
+Open the app. During onboarding, set Command + Space as the hotkey.
+
+After onboarding, import the config from `~/.raycast/` by going to Raycast
+Settings > Advanced > Import > select the `.rayconfig` file > enter the password.
 
 #### Rectangle
 
 Import the config from `.rectangle/` by going to `Rectangle > Preferences > Import`.
 
-#### Screen Studio
-
-Enter the license key found in my password manager.
-
-#### TablePlus
-
-`brew` installs the latest version of TablePlus, which isn't covered by my
-license key. Follow these steps to downgrade to the version that is covered:
-
-Uninstall the tableplus brew cask:
-
-```zsh
-brew uninstall --zap tableplus
-
-```
-
-Install the old version:
-
-```zsh
-brew install --HEAD -s ~/.homebrew/archived-versions/tableplus.rb
-```
-
-Finally, enter the license key found in my password manager.
-
 ## Appendix
 
 ### App quirks
 
-### Amazon Q
+#### Amazon Q
 
 Running `q doctor` will show a warning about `zsh-autosuggestions` not being
-supported at the same time.
-
-OK to ignore as they can both work together, and it's nice to have both.
+supported at the same time. This is OK to ignore as they can both work together,
+and it's nice to have both.
