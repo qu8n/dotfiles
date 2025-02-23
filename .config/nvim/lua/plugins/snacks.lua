@@ -4,7 +4,10 @@ return {
   opts = {
     dashboard = {
       preset = {
-        header = [[【  Neovim 💤  】]]
+        header = [[
+NeoVim
+____________________________________________________________
+        ]]
       }
     }
   }
