@@ -14,25 +14,32 @@ alias nconf="cd $HOME/.config/nvim"
 alias zconf="cd $HOME/.zsh"
 alias s="cd $HOME/.scripts"
 
-# nvim
+# NeoVim
 alias vi='nvim'
-
-# nvim quick access
 alias viz='cd && vi ~/.zshrc' # [vi] [z]shrc
 alias vizc="cd $HOME/.zsh && vi" # [vi] [z]sh [c]onfig
 alias vinc="cd $HOME/.config/nvim && vi" # [vi] [n]vim [c]onfig
 
 # ssh
-alias ssd='ssh smile@smile-dev.mskcc.org'
-alias ssp='ssh smile@smile.mskcc.org'
-alias sqd="ssh $USER@smile-dev.mskcc.org"
-alias sqp="ssh $USER@smile.mskcc.org"
+function ssh_with_pass() {
+  local user=$1
+  local host=$2
+
+  SSHPASS=$(pass MSKCC/${user}) || { echo "Failed to retrieve password from pass"; return 1; }
+  export SSHPASS
+  sshpass -e ssh ${user}@${host} # sshpass by default reads the password from SSHPASS
+  unset SSHPASS
+}
+alias ssd='ssh_with_pass smile smile-dev.mskcc.org'
+alias ssp='ssh_with_pass smile smile.mskcc.org'
+alias sqd='ssh_with_pass ${USER} smile-dev.mskcc.org'
+alias sqp='ssh_with_pass ${USER} smile.mskcc.org'
 
 # python venv
-alias venv-init='python3 -m venv .venv'
+alias vinit='python3 -m venv .venv'
 alias activate='source .venv/bin/activate'
 
-# git
+# Git
 # See oh-my-zsh git plugin's aliases before adding anything here: `alias | grep git`
 alias gl='git log --oneline --graph --all'
 
@@ -52,17 +59,15 @@ alias 'ccn!'='config commit --no-edit --amend'
 alias cps='config push'
 alias co='config open'
 
-# Improved ls
+# Better ls
 alias ls='eza --icons --color=always --group-directories-first'
 alias l='eza -al --icons --color=always --group-directories-first'
 alias ll='eza -l --icons --color=always --group-directories-first'
 alias la='eza -a --icons --color=always --group-directories-first'
 
-# System
-alias reload="exec ${SHELL} -l" # reload the shell
-alias path='echo -e ${PATH//:/\\n}' # print each PATH entry on a separate line
-alias tp='trash-put' # safer than rm, provided by andreafrancia/trash-cli
-
-# Other
+# Miscellaneous
+alias reload="exec ${SHELL} -l" # reload the shell, including login shell
+alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
+alias tp='trash-put' # safer rm, from andreafrancia/trash-cli
 alias nrd='npm run dev'
 alias yay='curl parrot.live'

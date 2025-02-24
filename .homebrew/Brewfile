@@ -47,6 +47,8 @@ brew "protobuf"
 brew "xz"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Non-interactive SSH password auth
+brew "sshpass"
 # Terminal multiplexer
 brew "tmux"
 # Command-line interface to the freedesktop.org trashcan
