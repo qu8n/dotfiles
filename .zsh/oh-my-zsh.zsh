@@ -14,17 +14,22 @@ export GPG_TTY=$TTY # fix GPG singing issues caused by p10k
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  zsh-syntax-highlighting # highlight commands in the CLI
-  zsh-autosuggestions # suggest commands based on history in grey text, press <right arrow> to accept
-  you-should-use # remind user to use available aliases when typing out full commands
-  git-open # add `git open` command to open the GitHub page of the current repo
-  git # add extra git aliases
-  history # add extra history aliases
+  # Highlight commands in the CLI
+  zsh-syntax-highlighting
+  # Suggest commands based on history in grey text, press <right arrow> to accept
+  zsh-autosuggestions
+  # Remind user to use available aliases when typing out full commands
+  you-should-use
+  # Add `git open` command to open the GitHub page of the current repo
+  git-open
+  # Add extra git aliases
+  git
 )
 
-# Direct OMZ to save zcompdump files in the cache directory instead of littering $HOME
+# Make OMZ save zcompdump files inside $ZSH instead of littering $HOME
 # Source: https://stackoverflow.com/a/71271754
-export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+# (These are caches for zsh completion system to make completions faster)
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdumps
 
 source $ZSH/oh-my-zsh.sh # oh-my-zsh startup script
 source ~/.p10k.zsh # p10k configs

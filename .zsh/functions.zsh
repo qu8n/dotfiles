@@ -64,3 +64,8 @@ function rm() {
   echo "trash-restore       restore a trashed file"
   echo "trash-rm            remove individual files from the trashcan"
 }
+
+# Create a directory and cd into it
+mkd() {
+  mkdir -p "$@" && cd "$_"
+}

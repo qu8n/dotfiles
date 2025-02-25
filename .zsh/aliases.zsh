@@ -65,9 +65,15 @@ alias l='eza -al --icons --color=always --group-directories-first'
 alias ll='eza -l --icons --color=always --group-directories-first'
 alias la='eza -a --icons --color=always --group-directories-first'
 
+# History
+alias h='history'
+alias hg='history | grep'
+alias hgi='history | grep -i'
+
 # Miscellaneous
+alias yay='curl parrot.live'
 alias reload="exec ${SHELL} -l" # reload the shell, including login shell
 alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
 alias tp='trash-put' # safer rm, from andreafrancia/trash-cli
 alias nrd='npm run dev'
-alias yay='curl parrot.live'
+alias cmx='chmod +x'
