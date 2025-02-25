@@ -45,14 +45,16 @@ vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true, desc = 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- Toggle git blame via Blamer.nvim
-vim.keymap.set("n", "<leader>cb", ":BlamerToggle<CR>", { noremap = true, silent = true, desc = "Toggle blame message (blamer.nvim)" })
+vim.keymap.set("n", "<leader>cb", ":BlamerToggle<CR>", { noremap = true, silent = true, desc = "Toggle Blame Message (blamer.nvim)" })
 
 -- Toggle inline diagnostics via lsp_lines.nvim
-vim.keymap.set("", "<leader>xv", require("lsp_lines").toggle, { desc = "Toggle inline diagnostics (lsp_lines.nvim)" })
+vim.keymap.set("", "<leader>xv", require("lsp_lines").toggle, { desc = "Toggle Inline Diagnostics (lsp_lines.nvim)" })
 
 -- Open Neotree position for the current Nvim session
 vim.keymap.set("n", "<leader>fw", "<Nop>", { desc = "Open Neotree by position" })
-vim.keymap.set("n", "<leader>fwf", ":Neotree position=float<CR>", { noremap = true, silent = true, desc = "Float (default)" })
+vim.keymap.set("n", "<leader>fwf", ":Neotree position=float<CR>", { noremap = true, silent = true, desc = "Float (Default)" })
 vim.keymap.set("n", "<leader>fwl", ":Neotree position=left<CR>", { noremap = true, silent = true, desc = "Left" })
 vim.keymap.set("n", "<leader>fwr", ":Neotree position=right<CR>", { noremap = true, silent = true, desc = "Right" })
 vim.keymap.set("n", "<leader>fwu", ":Neotree position=current<CR>", { noremap = true, silent = true, desc = "Full" })
+
+vim.keymap.set('n', '<leader>uo', function() vim.opt.scrolloff = 999 - vim.o.scrolloff end, { nowait = true, desc = "Toggle Cursor Centering" })

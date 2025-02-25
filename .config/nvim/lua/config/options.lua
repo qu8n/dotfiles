@@ -17,3 +17,7 @@ vim.g.blamer_date_format = "%m-%d-%Y"
 
 -- Turn off relative line number (use `s` to search via leap.nvim instead)
 vim.opt.relativenumber = false
+
+-- Keep cursor always centered on the buffer
+-- Toggle with <leade>uo
+vim.opt.scrolloff = 999
