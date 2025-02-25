@@ -34,6 +34,13 @@ brew install git
 
 Follow the instructions at "Installing your dotfiles onto a new system" [here](https://www.atlassian.com/git/tutorials/dotfiles).
 
+Create symlinks for these directories:
+
+```zsh
+ln -s ~/nvim ~/.config/nvim
+ln -s ~/karabiner ~/.config/karabiner
+```
+
 ### Install apps via Homebrew
 
 ```zsh

@@ -41,13 +41,8 @@ function caa() {
   echo "Checking for changes inside tracked directories:"
   curr_dir=$(pwd)
   cd $HOME
-  # Include all directories in $HOME except .config because we don't track everything there
-  config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$' | grep -v '^\.config$' | \
-      xargs -I {} zsh -ic 'source ~/zsh/aliases.zsh; test -d {} && echo "~/{}" && config add {}'
-  # Inside .config/, include only the subdirectories that we track
-  cd $HOME/.config
   config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$' | \
-      xargs -I {} zsh -ic 'source ~/zsh/aliases.zsh; test -d {} && echo "~/.config/{}" && config add {}'
+      xargs -I {} zsh -ic 'source ~/zsh/aliases.zsh; test -d {} && echo "~/{}" && config add {}'
   cd "$curr_dir"
 }
 
@@ -65,7 +60,17 @@ function rm() {
   echo "trash-rm            remove individual files from the trashcan"
 }
 
-# Create a directory and cd into it
+# Create a directory and `cd` into it in one go
 mkd() {
   mkdir -p "$@" && cd "$_"
+}
+
+# `cd` into a directory and `vi` in one go
+cv() {
+  if [[ -d "$1" ]]; then
+    cd "$1" && vi
+  else
+    echo "Error: '$1' is not a directory." >&2
+    return 1
+  fi
 }
