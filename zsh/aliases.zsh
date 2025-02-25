@@ -11,13 +11,13 @@ alias sconf="cd $HOME/dev/mskcc/smile-configuration"
 alias su="cd $HOME/dev/mskcc/smile-utils"
 alias sc="cd $HOME/dev/mskcc/smile-commons"
 alias nconf="cd $HOME/.config/nvim"
-alias zconf="cd $HOME/.zsh"
-alias s="cd $HOME/.scripts"
+alias zconf="cd $HOME/zsh"
+alias s="cd $HOME/scripts"
 
 # NeoVim
 alias vi='nvim'
 alias viz='cd && vi ~/.zshrc' # [vi] [z]shrc
-alias vizc="cd $HOME/.zsh && vi" # [vi] [z]sh [c]onfig
+alias vizc="cd $HOME/zsh && vi" # [vi] [z]sh [c]onfig
 alias vinc="cd $HOME/.config/nvim && vi" # [vi] [n]vim [c]onfig
 
 # ssh

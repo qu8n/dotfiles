@@ -43,11 +43,11 @@ function caa() {
   cd $HOME
   # Include all directories in $HOME except .config because we don't track everything there
   config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$' | grep -v '^\.config$' | \
-      xargs -I {} zsh -ic 'source ~/.zsh/aliases.zsh; test -d {} && echo "~/{}" && config add {}'
+      xargs -I {} zsh -ic 'source ~/zsh/aliases.zsh; test -d {} && echo "~/{}" && config add {}'
   # Inside .config/, include only the subdirectories that we track
   cd $HOME/.config
   config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$' | \
-      xargs -I {} zsh -ic 'source ~/.zsh/aliases.zsh; test -d {} && echo "~/.config/{}" && config add {}'
+      xargs -I {} zsh -ic 'source ~/zsh/aliases.zsh; test -d {} && echo "~/.config/{}" && config add {}'
   cd "$curr_dir"
 }
 
