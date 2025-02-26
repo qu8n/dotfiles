@@ -10,6 +10,17 @@ command.
 > and `mas search`. Only download apps from the official website or the App Store
 > if they are not available via `brew` or `mas`.
 
+<!-- mtoc-start -->
+
+* [Usage guide](#usage-guide)
+  * [Exporting and importing Homebrew packages](#exporting-and-importing-homebrew-packages)
+  * [Keeping Homebrew packages organized](#keeping-homebrew-packages-organized)
+    * [Automatic cleanup](#automatic-cleanup)
+    * [Manual cleanup](#manual-cleanup)
+* [Resources](#resources)
+
+<!-- mtoc-end -->
+
 ## Usage guide
 
 ### Exporting and importing Homebrew packages

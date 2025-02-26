@@ -2,6 +2,32 @@
 
 My personal MacOS settings and setup flow on a new machine.
 
+<!-- mtoc-start -->
+
+* [Update System Preferences](#update-system-preferences)
+* [Install software](#install-software)
+  * [Prerequisites](#prerequisites)
+  * [Set up dotfiles tracker](#set-up-dotfiles-tracker)
+  * [Install apps via Homebrew](#install-apps-via-homebrew)
+    * [Versioning & licensing](#versioning--licensing)
+  * [CLI tool configurations](#cli-tool-configurations)
+    * [trash-cli](#trash-cli)
+  * [GUI app configurations](#gui-app-configurations)
+    * [Amphetamine](#amphetamine)
+    * [Brave & Google Drive for Desktop](#brave--google-drive-for-desktop)
+    * [iTerm2](#iterm2)
+    * [Logi Options+](#logi-options)
+    * [Logitech G HUB](#logitech-g-hub)
+    * [Lunar](#lunar)
+    * [NetNewsWire](#netnewswire)
+    * [Raycast](#raycast)
+    * [Rectangle](#rectangle)
+* [Appendix](#appendix)
+  * [App quirks](#app-quirks)
+    * [Amazon Q](#amazon-q)
+
+<!-- mtoc-end -->
+
 ## Update System Preferences
 
 > [!NOTE]
@@ -9,11 +35,11 @@ My personal MacOS settings and setup flow on a new machine.
 > because I don't set up a new MacOS machine often enough to warrant it.
 > Also: [Maybe Don't Bother Scripting Some macOS System Preferences](https://assert.cc/posts/maybe-dont-script-macos-prefs/).
 
-- Keyboard
-  - Key repeat rate: max
-  - Delay until repeat: min
-- Mouse
-  - Tracking speed: 6 (with 1st level as 1)
+* Keyboard
+  * Key repeat rate: max
+  * Delay until repeat: min
+* Mouse
+  * Tracking speed: 6 (with 1st level as 1)
 
 ## Install software
 
@@ -71,14 +97,14 @@ brew install --HEAD -s ~/homebrew/archived-versions/tableplus.rb
 
 Enter license keys found in my password manager for the following apps:
 
-- BatFi
-- CleanShot X
-- Cold Turkey Blocker
-- Replacicon
-- Screen Studio
-- TablePlus
+* BatFi
+* CleanShot X
+* Cold Turkey Blocker
+* Replacicon
+* Screen Studio
+* TablePlus
 
-### Configure CLI tools after installation
+### CLI tool configurations
 
 #### trash-cli
 
@@ -91,25 +117,25 @@ Add a cron job to auto delete files older that 30 days:
 This will update your crontab file with a `trash-empty` command that runs daily
 and removes files older than 30 days. To review your crontab, run `crontab -l`.
 
-### Configure GUI apps after installation
+### GUI app configurations
 
 #### Amphetamine
 
 Enable the following in Settings:
 
-- General
-  - Launch Amphetamine at login
-  - Hide Amphetamine in the Dock
-- Session Defaults
-  - End session when Mac is forced to sleep
-  - Move cursor every 5 minutes after 5 minutes of inactivity
-- Triggers
-  - Enable Triggers
-  - Create a trigger:
-    - Name: "9 to 5"
-    - Criterion: Mon-Fri, 9am-5pm
-- Statistics
-  - Disable "Enable statistics collection"
+* General
+  * Launch Amphetamine at login
+  * Hide Amphetamine in the Dock
+* Session Defaults
+  * End session when Mac is forced to sleep
+  * Move cursor every 5 minutes after 5 minutes of inactivity
+* Triggers
+  * Enable Triggers
+  * Create a trigger:
+    * Name: "9 to 5"
+    * Criterion: Mon*Fri, 9am*5pm
+* Statistics
+  * Disable "Enable statistics collection"
 
 #### Brave & Google Drive for Desktop
 
@@ -138,9 +164,9 @@ Set the pointer speed of the Logitech MX Vertical to 80%.
 
 Set the Logitech Brio webcam as follows:
 
-- Preset: ZOOM 1.5x
-- Field of view: 90°
-- Zoom: 150%
+* Preset: ZOOM 1.5x
+* Field of view: 90°
+* Zoom: 150%
 
 #### Lunar
 
