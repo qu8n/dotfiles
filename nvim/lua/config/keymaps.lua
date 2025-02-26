@@ -57,4 +57,5 @@ vim.keymap.set("n", "<leader>fwl", ":Neotree position=left<CR>", { noremap = tru
 vim.keymap.set("n", "<leader>fwr", ":Neotree position=right<CR>", { noremap = true, silent = true, desc = "Right" })
 vim.keymap.set("n", "<leader>fwu", ":Neotree position=current<CR>", { noremap = true, silent = true, desc = "Full" })
 
+-- Toggle cursor centering
 vim.keymap.set('n', '<leader>uo', function() vim.opt.scrolloff = 999 - vim.o.scrolloff end, { nowait = true, desc = "Toggle Cursor Centering" })

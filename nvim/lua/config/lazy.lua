@@ -22,13 +22,10 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    -- USER SETTINGS
-    -- Enable language-specific plugins
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.python" },
-    { import = "lazyvim.plugins.extras.lang.json" },
-    -- Enable animation for leap.nvim
-    { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    -- Enable LazyExtra plugins
+    -- Example: { import = "lazyvim.plugins.extras.lang.typescript" },
+    -- Enabling via the LazyExtra UI (`:LazyExtras`) will add these imports to
+    -- `lazyvim.json` instead, and is preferred
 
     -- import/override with your plugins
     { import = "plugins" },

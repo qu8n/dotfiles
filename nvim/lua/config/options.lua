@@ -17,3 +17,7 @@ vim.g.blamer_date_format = "%m-%d-%Y"
 
 -- Turn off relative line number (use `s` to search via leap.nvim instead)
 vim.opt.relativenumber = false
+
+-- Enable showing copilot completion when starting a new line
+-- (vs. having to type a character first)
+vim.g.ai_cmp = false
