@@ -5,15 +5,18 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    provider = "claude", -- default provider
-    vendors = { -- custom providers
-      -- Start ollama with `ollama serve` and deepseek with `ollama run deepseek-coder-v2:16b --keepalive=-1m`
-      -- (Warning: this runs very slow)
-      ollama = {
+    -- provider = "claude", -- set default provider (defaults to claude)
+    -- Custom providers
+    vendors = {
+      -- To set up a local model server with LM Studio, open the app > Developer
+      -- > select the model > Command + R to start the server
+      -- Suggestion: click on the Load tab, then increase the context length
+      -- for a faster response (e.g. set to max of 163,840 tokens)
+      lmstudio = {
         __inherited_from = "openai",
         api_key_name = "",
-        endpoint = "http://localhost:11434/v1",
-        model = "deepseek-coder-v2:16b",
+        endpoint = "http://localhost:1234/v1",
+        model = "deepseek-coder-v2-lite-instruct-mlx:16b",
       },
     },
   },

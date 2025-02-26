@@ -42,6 +42,7 @@ alias activate='source .venv/bin/activate'
 # Git
 # See oh-my-zsh git plugin's aliases before adding anything here: `alias | grep git`
 alias gl='git log --oneline --graph --all'
+alias gbda='git branch | grep -v "master" | grep -v "main" | xargs git branch -D'
 
 # For storing dotfiles in a bare git repository
 # Source: https://www.atlassian.com/git/tutorials/dotfiles
