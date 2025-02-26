@@ -32,18 +32,20 @@ function go() {
 
 # Improve `config add --all` command
 function caa() {
-  # `config add` all files shown by `config status`
+  # `config add` all files currently tracked by `config`
   config add $(config status -s | awk '{print $2}')
 
   # `config add` all directories currently tracked by `config`
-  # (This is because `config` wouldn't know to track new files in these
-  # directories unless they are added explicitly)
-  echo "Checking for changes inside tracked directories:"
+  # (`config` wouldn't know to track new files in these directories unless they
+  # are added explicitly)
   curr_dir=$(pwd)
   cd $HOME
-  # TODO: improve this to avoid sourcing aliases.zsh for each directory
-  config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$' | \
-      xargs -I {} zsh -ic 'source ~/zsh/aliases.zsh; test -d {} && echo "~/{}" && config add {}'
+  for dir in $(config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$'); do
+    if [[ -d $dir ]]; then
+      echo "~/$dir"
+      config add "$dir"
+    fi
+  done
   cd "$curr_dir"
 }
 
