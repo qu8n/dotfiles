@@ -1,5 +1,9 @@
-# Rectangle
+# [Rectangle](https://rectangleapp.com/)
 
-This directory stores the config of Rectangle, an open-source window manager for MacOS.
+The missing window manager feature in macOS.
 
-Manually export the config by going to Rectangle > Preferences > Export and select this directory.
+![demo](https://i.imgur.com/ELkHH1x.gif)
+
+## Exporting and importing settings
+
+Go to Rectangle Preferences > Export or Import.

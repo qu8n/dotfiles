@@ -1,3 +1,5 @@
+# This file is used by `asdf` to set the default, global version of packages
+
 nodejs 20.17.0
 yarn 1.22.22
 java microsoft-21.0.4

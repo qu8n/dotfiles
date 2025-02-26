@@ -41,6 +41,7 @@ function caa() {
   echo "Checking for changes inside tracked directories:"
   curr_dir=$(pwd)
   cd $HOME
+  # TODO: improve this to avoid sourcing aliases.zsh for each directory
   config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$' | \
       xargs -I {} zsh -ic 'source ~/zsh/aliases.zsh; test -d {} && echo "~/{}" && config add {}'
   cd "$curr_dir"

@@ -44,7 +44,7 @@ ln -s ~/karabiner ~/.config/karabiner
 ### Install apps via Homebrew
 
 ```zsh
-brew bundle --file ~/.homebrew/Brewfile
+brew bundle --file ~/homebrew/Brewfile
 ```
 
 #### Versioning & licensing
@@ -58,8 +58,8 @@ Run these commands to downgrade to the version that is covered:
 brew uninstall --zap cleanshot
 brew uninstall --zap tableplus
 # Install the old version
-brew install --HEAD -s ~/.homebrew/archived-versions/cleanshot.rb
-brew install --HEAD -s ~/.homebrew/archived-versions/tableplus.rb
+brew install --HEAD -s ~/homebrew/archived-versions/cleanshot.rb
+brew install --HEAD -s ~/homebrew/archived-versions/tableplus.rb
 ```
 
 > [!TIP]
@@ -67,7 +67,7 @@ brew install --HEAD -s ~/.homebrew/archived-versions/tableplus.rb
 > this process for another app: Go to the main Homebrew page of the cask (e.g.
 > [cleanshot](https://formulae.brew.sh/cask/cleanshot)) > Cask code on Github >
 > History > click on the commit name of the desired version > ellipsis (...) >
-> View file > Raw > copy the URL, then download it with `curl` or `wget` into ~/.homebrew/archived-versions.
+> View file > Raw > copy the URL, then download it with `curl` or `wget` into ~/homebrew/archived-versions.
 
 Enter license keys found in my password manager for the following apps:
 
@@ -126,7 +126,7 @@ for the `Profile Path`.
 Load settings by following these steps:
 
 1. Settings > General > Settings > Enable "Load settings from a custom folder
-or URL" and set it to `~/.iterm/`
+or URL" and set it to `~/iterm2/`
 2. Quit and restart iTerm2
 3. In the same Settings section, change Save change to "Automatically"
 
@@ -152,18 +152,18 @@ Sync to the cloud by going to Settings > Accounts > + > iCloud.
 
 #### Raycast
 
-Run `restore.sh` in `~/.raycast/` to unzip the `.gz` file back to `.rayconfig`.
+Run `restore.sh` in `~/raycast/` to unzip the `.gz` file back to `.rayconfig`.
 
 Copy the zip password from my password manager.
 
 Open the app. During onboarding, set Command + Space as the hotkey.
 
-After onboarding, import the config from `~/.raycast/` by going to Raycast
+After onboarding, import the config from `~/raycast/` by going to Raycast
 Settings > Advanced > Import > select the `.rayconfig` file > enter the password.
 
 #### Rectangle
 
-Import the config from `.rectangle/` by going to `Rectangle > Preferences > Import`.
+Import the config from `rectangle/` by going to `Rectangle > Preferences > Import`.
 
 ## Appendix
 
