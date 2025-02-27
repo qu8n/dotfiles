@@ -7,14 +7,14 @@ My personal MacOS settings and setup flow on a new machine.
 * [Update System Preferences](#update-system-preferences)
 * [Install software](#install-software)
   * [Prerequisites](#prerequisites)
-  * [Set up dotfiles tracker](#set-up-dotfiles-tracker)
-  * [Install apps via Homebrew](#install-apps-via-homebrew)
-    * [Versioning & licensing](#versioning--licensing)
   * [CLI tool configurations](#cli-tool-configurations)
+    * [asdf](#asdf)
+    * [pass](#pass)
     * [trash-cli](#trash-cli)
   * [GUI app configurations](#gui-app-configurations)
+    * [License keys](#license-keys)
     * [Amphetamine](#amphetamine)
-    * [Brave & Google Drive for Desktop](#brave--google-drive-for-desktop)
+    * [Brave](#brave)
     * [iTerm2](#iterm2)
     * [Logi Options+](#logi-options)
     * [Logitech G HUB](#logitech-g-hub)
@@ -45,66 +45,41 @@ My personal MacOS settings and setup flow on a new machine.
 
 ### Prerequisites
 
-```zsh
-# Install Xcode Command Line Tools
-xcode-select --install
+Sign into the laptop with an Apple ID.
 
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Xcode installed the Apple Git version, but Homebrew's Git is more up-to-date
-brew install git
-```
-
-### Set up dotfiles tracker
-
-Follow the instructions at "Installing your dotfiles onto a new system" [here](https://www.atlassian.com/git/tutorials/dotfiles).
-
-Create symlinks for these directories:
+Run the install script:
 
 ```zsh
-ln -s ~/nvim ~/.config/nvim
-ln -s ~/karabiner ~/.config/karabiner
+curl -Lks https://raw.githubusercontent.com/qu8n/dotfiles/refs/heads/main/macos/install.sh | /bin/zsh
 ```
-
-### Install apps via Homebrew
-
-```zsh
-brew bundle --file ~/homebrew/Brewfile
-```
-
-#### Versioning & licensing
-
-I've purchased the license keys for older versions of some apps. `brew install`
-downloads the binary for the latest version, which isn't covered by my license.
-Run these commands to downgrade to the version that is covered:
-
-```zsh
-# Uninstall the latest version
-brew uninstall --zap cleanshot
-brew uninstall --zap tableplus
-# Install the old version
-brew install --HEAD -s ~/homebrew/archived-versions/cleanshot.rb
-brew install --HEAD -s ~/homebrew/archived-versions/tableplus.rb
-```
-
-> [!TIP]
-> Here is how to find the archived version of a cask, in case I need to repeat
-> this process for another app: Go to the main Homebrew page of the cask (e.g.
-> [cleanshot](https://formulae.brew.sh/cask/cleanshot)) > Cask code on Github >
-> History > click on the commit name of the desired version > ellipsis (...) >
-> View file > Raw > copy the URL, then download it with `curl` or `wget` into ~/homebrew/archived-versions.
-
-Enter license keys found in my password manager for the following apps:
-
-* BatFi
-* CleanShot X
-* Cold Turkey Blocker
-* Replacicon
-* Screen Studio
-* TablePlus
 
 ### CLI tool configurations
+
+#### asdf
+
+1. `cd` to `$HOME`
+2. Run `asdf plugin add <plugin-name>` for each plugin in `~/.tool-versions`
+(e.g. `asdf plugin add nodejs`)
+3. Run `asdf install` once to install all versions
+
+#### pass
+
+Reference my password manager and insert these passwords:
+e.g. `pass insert APIKey/Anthropic`
+
+```console
+> pass show
+Password Store
+├── APIKey
+│   ├── Anthropic
+│   └── OpenAI
+├── MSKCC
+│   ├── Neo4j
+│   ├── nguyenq2
+│   └── smile
+└── Raycast
+    └── BackupZip
+```
 
 #### trash-cli
 
@@ -118,6 +93,17 @@ This will update your crontab file with a `trash-empty` command that runs daily
 and removes files older than 30 days. To review your crontab, run `crontab -l`.
 
 ### GUI app configurations
+
+#### License keys
+
+Enter license keys found in my password manager for the following apps:
+
+* BatFi
+* CleanShot X
+* Cold Turkey Blocker
+* Replacicon
+* Screen Studio
+* TablePlus
 
 #### Amphetamine
 
@@ -133,19 +119,21 @@ Enable the following in Settings:
   * Enable Triggers
   * Create a trigger:
     * Name: "9 to 5"
-    * Criterion: Mon*Fri, 9am*5pm
+    * Criterion: Mon-Fri, 9am*5pm
 * Statistics
   * Disable "Enable statistics collection"
 
-#### Brave & Google Drive for Desktop
+#### Brave
 
 Drop in the backup Brave profile folders from Google Drive for Desktop into
 `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
 
 Set up the backing up of Brave profile(s) via Google Drive for Desktop by
 syncing the corresponding profile folder(s) at `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
-To see which folder to sync for a profile, go to `brave://version/` and look
-for the `Profile Path`.
+
+> [!NOTE]
+> To see which folder to sync for a profile, go to `brave://version/` and look
+> for the `Profile Path`.
 
 #### iTerm2
 

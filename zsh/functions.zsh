@@ -77,3 +77,9 @@ cv() {
     return 1
   fi
 }
+
+# Get 10 samples of shell startup time
+# (The 1st column shows the total startup time in each run)
+timezsh() {
+  for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
+}

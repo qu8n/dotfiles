@@ -131,8 +131,6 @@ cask "steam"
 cask "tableplus"
 # Calling and messaging application focusing on security
 cask "viber"
-# Open-source code editor
-cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
 # Video communication and virtual meeting platform
@@ -143,4 +141,3 @@ mas "iMovie", id: 408981434
 mas "Kindle", id: 302584613
 mas "Klack", id: 6446206067
 mas "Things", id: 904280696
-mas "Xcode", id: 497799835

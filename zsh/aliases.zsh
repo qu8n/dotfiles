@@ -78,3 +78,4 @@ alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
 alias tp='trash-put' # safer rm, from andreafrancia/trash-cli
 alias nrd='npm run dev'
 alias cmx='chmod +x'
+alias bbd='brew bundle dump --describe --force --file=~/homebrew/Brewfile'
