@@ -64,7 +64,7 @@ function rm() {
 }
 
 # Create a directory and `cd` into it in one go
-mkd() {
+mc() {
   mkdir -p "$@" && cd "$_"
 }
 

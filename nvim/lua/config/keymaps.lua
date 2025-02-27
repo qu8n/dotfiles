@@ -3,10 +3,10 @@
 -- Add any additional keymaps here
 
 -- AI tools
-vim.keymap.set("n", "<leader>a", "<Nop>", { desc = "AI Assistant" })
-vim.keymap.set("v", "<leader>a", "<Nop>", { desc = "AI Assistant" })
+vim.keymap.set({'n', 'v'}, "<leader>a", "<Nop>", { desc = "AI Assistant" })
+vim.keymap.set("n", "<leader>aH", ":AvanteClear<CR>", { desc = "avante: clear chat history" })
 -- Copilot toggle
-vim.keymap.set("n", "<leader>ac", function()
+vim.keymap.set("n", "<leader>ap", function()
   if require("copilot.client").is_disabled() then
     require("copilot.command").enable()
   else
