@@ -1,11 +1,18 @@
 #!/bin/zsh
 
-# ==============================================================================
-# Install the prerequisites
-# ==============================================================================
+# Ask for the administrator password upfront, and keep that access until the end
+echo "Enter root password."
+sudo -v
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
-echo # empty line
-echo "INSTALLING PREREQUISITES..."
+echo
+echo "------------------------------------------------------------"
+echo "INSTALLING HOMEBREW..."
+echo "------------------------------------------------------------"
 echo
 
 # Install Homebrew
@@ -29,13 +36,19 @@ else
   echo "Homebrew already installed, skipping installation."
 fi
 
-# Install Git (Xcode installed an older version of Git, we want the latest)
-echo "Updating Git to latest version..."
-brew install git
+# Exit if Homebrew fails to be installed
+if ! command -v brew &> /dev/null; then
+  echo "Error: Homebrew failed to be installed or found in PATH."
+  exit 1
+fi
+
+echo
+echo "------------------------------------------------------------"
+echo "INSTALLING OH MY ZSH..."
+echo "------------------------------------------------------------"
+echo
 
 # Install Oh My Zsh
-# (The `--unattended` flag prevents the reloading of the shell after installation,
-# which would prevent the rest of the script from running)
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing Oh My Zsh..."
   # (The `--unattended` flag prevents the reloading of the shell after installation,
@@ -46,10 +59,37 @@ else
 fi
 
 # Install Oh My Zsh plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
-git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
+safe_git_clone() {
+  local repo_url="$1"
+  local target_dir="$2"
+  local plugin_name
+
+  # Extract plugin name from repo URL
+  plugin_name=$(basename "$repo_url" .git)
+
+  # Check if the target directory already exists
+  if [[ -d "$target_dir" ]]; then
+    echo "Warning: Directory '$target_dir' already exists. Skipping clone for $plugin_name."
+    return 1
+  fi
+
+  # Create parent directories if they don't exist
+  mkdir -p "$(dirname "$target_dir")"
+
+  # Clone the repository
+  if git clone "$repo_url" "$target_dir"; then
+    echo "Successfully cloned $plugin_name to $target_dir"
+    return 0
+  else
+    echo "Error: Failed to clone $plugin_name to $target_dir"
+    return 1
+  fi
+}
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}" # set ZSH_CUSTOM if not already set
+safe_git_clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+safe_git_clone "https://github.com/zsh-users/zsh-autosuggestions.git" "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+safe_git_clone "https://github.com/MichaelAquilina/zsh-you-should-use.git" "$ZSH_CUSTOM/plugins/you-should-use"
+safe_git_clone "https://github.com/paulirish/git-open.git" "$ZSH_CUSTOM/plugins/git-open"
 
 # Install Powerlevel10k theme
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
@@ -59,12 +99,10 @@ else
   echo "Powerlevel10k theme already installed, skipping installation."
 fi
 
-# ==============================================================================
-# Set up the local dotfiles repo
-# ==============================================================================
-
 echo
+echo "------------------------------------------------------------"
 echo "SETTING UP DOTFILES..."
+echo "------------------------------------------------------------"
 echo
 
 # Clone the remote dotfiles repo into a bare Git repo of the new machine's $HOME
@@ -120,14 +158,12 @@ create_symlink() {
 create_symlink ~/nvim ~/.config/nvim
 create_symlink ~/karabiner ~/.config/karabiner
 
-# ==============================================================================
-# Install Homebrew formulaes and casks
-# ==============================================================================
-
 echo
+echo "------------------------------------------------------------"
 echo "INSTALLING HOMEBREW PACKAGES..."
+echo
 echo "Prepare to enter login password for select packages."
-echo "Ignore failure message from Logitech G Hub installation."
+echo "------------------------------------------------------------"
 echo
 
 # Install Rosetta 2 if on Apple Silicon
@@ -147,12 +183,14 @@ fi
 # Install Homebrew formulaes and casks
 if [ -f ~/homebrew/Brewfile ]; then
   echo "Installing Homebrew packages from Brewfile..."
-  brew bundle --file ~/homebrew/Brewfile
+  brew bundle --file ~/homebrew/Brewfile || true # ignore failures
 else
   echo "Error: ~/homebrew/Brewfile not found!"
   exit 1
 fi
 
+# Install archived versions of apps
+# ------------------------------------------------------------
 # I've purchased the license keys for older versions of some apps. `brew install`
 # downloads the binary for the latest version, which isn't covered by my license.
 # Next, we need to revert to the archived versions of these apps.
@@ -165,7 +203,6 @@ fi
 # 5. Click on the ellipsis (...)
 # 6. Click on "View file" > "Raw"
 # 7. Copy the URL, then `curl` it into ~/homebrew/archived-versions
-
 install_archived_app() {
   local app_name="$1"
   local rb_file="$2"
@@ -187,14 +224,24 @@ install_archived_app() {
     return 1
   fi
 }
-
-# Install archived versions of apps
 install_archived_app "cleanshot" ~/homebrew/archived-versions/cleanshot.rb
 install_archived_app "tableplus" ~/homebrew/archived-versions/tableplus.rb
 
-# ==============================================================================
-# ==============================================================================
+echo
+echo "------------------------------------------------------------"
+echo "INSTALLING ASDF PLUGINS AND VERSIONS..."
+echo "------------------------------------------------------------"
+echo
+
+# Install asdf plugins from ~/.tool-versions
+# ('!/^#/ && NF { print $1 }' removes comments and empty lines)
+awk '!/^#/ && NF { print $1 }' ~/.tool-versions | sort -u | xargs -I{} asdf plugin add {}
+
+# Install asdf versions from ~/.tool-versions
+asdf install
 
 echo
+echo "------------------------------------------------------------"
 echo "INSTALLATION COMPLETE!"
+echo "------------------------------------------------------------"
 echo

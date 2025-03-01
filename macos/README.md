@@ -6,9 +6,8 @@ My personal MacOS settings and setup flow on a new machine.
 
 * [Update System Preferences](#update-system-preferences)
 * [Install software](#install-software)
-  * [Prerequisites](#prerequisites)
+  * [Run the install script](#run-the-install-script)
   * [CLI tool configurations](#cli-tool-configurations)
-    * [asdf](#asdf)
     * [pass](#pass)
     * [trash-cli](#trash-cli)
   * [GUI app configurations](#gui-app-configurations)
@@ -43,7 +42,7 @@ My personal MacOS settings and setup flow on a new machine.
 
 ## Install software
 
-### Prerequisites
+### Run the install script
 
 Sign into the laptop with an Apple ID.
 
@@ -53,14 +52,15 @@ Run the install script:
 curl -Lks https://raw.githubusercontent.com/qu8n/dotfiles/refs/heads/main/macos/install.sh | /bin/zsh
 ```
 
+During the execution of the script, ignore errors related to the following installs:
+
+* `logitech-g-hub` Homebrew cask
+* `cleanshot` Homebrew cask (archived version)
+* `tableplus` Homebrew cask (archived version)
+
+Delete the old configs that were moved to `~/.config-backup` if no longer needed.
+
 ### CLI tool configurations
-
-#### asdf
-
-1. `cd` to `$HOME`
-2. Run `asdf plugin add <plugin-name>` for each plugin in `~/.tool-versions`
-(e.g. `asdf plugin add nodejs`)
-3. Run `asdf install` once to install all versions
 
 #### pass
 

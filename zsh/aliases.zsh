@@ -79,3 +79,4 @@ alias tp='trash-put' # safer rm, from andreafrancia/trash-cli
 alias nrd='npm run dev'
 alias cmx='chmod +x'
 alias bbd='brew bundle dump --describe --force --file=~/homebrew/Brewfile'
+alias python='python3'
