@@ -41,6 +41,8 @@ brew "neovim"
 brew "tree"
 # Password manager
 brew "pass"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # General-purpose data compression with high compression ratio

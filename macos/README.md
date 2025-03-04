@@ -8,6 +8,8 @@ My personal MacOS settings and setup flow on a new machine.
 * [Install software](#install-software)
   * [Run the install script](#run-the-install-script)
   * [CLI tool configurations](#cli-tool-configurations)
+    * [Prerequisites](#prerequisites)
+    * [gpg](#gpg)
     * [pass](#pass)
     * [trash-cli](#trash-cli)
   * [GUI app configurations](#gui-app-configurations)
@@ -17,15 +19,14 @@ My personal MacOS settings and setup flow on a new machine.
       * [Import settings](#import-settings)
     * [Amphetamine](#amphetamine)
     * [Brave](#brave)
-    * [iTerm2](#iterm2)
     * [Logi Options+](#logi-options)
     * [Logitech G HUB](#logitech-g-hub)
     * [Lunar](#lunar)
     * [NetNewsWire](#netnewswire)
     * [Rectangle](#rectangle)
-* [Appendix](#appendix)
-  * [App quirks](#app-quirks)
-    * [Amazon Q](#amazon-q)
+* [Diagnostics](#diagnostics)
+  * [dotfiles](#dotfiles)
+  * [Amazon Q](#amazon-q)
 
 <!-- mtoc-end -->
 
@@ -65,6 +66,61 @@ During the execution of the script, ignore errors related to the following insta
 Delete the old configs that were moved to `~/.config-backup` if no longer needed.
 
 ### CLI tool configurations
+
+#### Prerequisites
+
+Open iTerm2. Load settings by following these steps:
+
+1. Settings > General > Settings > Enable "Load settings from a custom folder
+or URL" and set it to `~/iterm2/`
+2. Quit and restart iTerm2
+3. Ensure the settings were loaded successfully e.g. running `l` and check that
+all icons are properly displayed. If not, repeat the steps above.
+4. In the same Settings section, change Save change to "Automatically"
+
+Start using iTerm2 as the default terminal.
+
+#### gpg
+
+On the source machine, export the GPG public and private keys and trust settings:
+
+```zsh
+# Replace <keyid>'s with the short public GPG key
+gpg --export-secret-keys <keyid> > keys.gpg
+gpg --export <keyid> >> keys.gpg
+gpg --export-ownertrust > ownertrust.txt
+```
+
+Transfer `keys.gpg` and `~/.gnupg` to the new machine's $HOME using a secure method.
+
+On the target machine, import the GPG keys and trust settings:
+
+```zsh
+gpg --import keys.gpg
+gpg --import-ownertrust < ownertrust.txt
+```
+
+Fix permissions on the target machine:
+
+```zsh
+chown -R $(whoami) ~/.gnupg/
+chmod 600 ~/.gnupg/*
+chmod 700 ~/.gnupg
+```
+
+Create or edit `~/.gnupg/gpg-agent.conf` and add:
+
+```zsh
+pinentry-program /opt/homebrew/bin/pinentry-mac
+default-cache-ttl 34560000
+max-cache-ttl 34560000
+```
+
+Remove the transferred files on both machines:
+
+```zsh
+rm keys.gpg ownertrust.txt
+```
 
 #### pass
 
@@ -156,15 +212,6 @@ syncing the corresponding profile folder(s) at `~/Library/Application\ Support/B
 > To see which folder to sync for a profile, go to `brave://version/` and look
 > for the `Profile Path`.
 
-#### iTerm2
-
-Load settings by following these steps:
-
-1. Settings > General > Settings > Enable "Load settings from a custom folder
-or URL" and set it to `~/iterm2/`
-2. Quit and restart iTerm2
-3. In the same Settings section, change Save change to "Automatically"
-
 #### Logi Options+
 
 Set the pointer speed of the Logitech MX Vertical to 80%.
@@ -189,11 +236,20 @@ Sync to the cloud by going to Settings > Accounts > + > iCloud.
 
 Import the config from `rectangle/` by going to `Rectangle > Preferences > Import`.
 
-## Appendix
+## Diagnostics
 
-### App quirks
+### dotfiles
 
-#### Amazon Q
+If `config list` doesn't show the latest changes from the remote dotfiles repo
+and the `config pull` command doesn't work, then Git didn't fetch named branches
+properly. Try the following:
+
+```zsh
+config fetch origin "+refs/heads/*:refs/remotes/origin/*"
+config reset --hard origin/main
+```
+
+### Amazon Q
 
 Running `q doctor` will show a warning about `zsh-autosuggestions` not being
 supported at the same time. This is OK to ignore as they can both work together,
