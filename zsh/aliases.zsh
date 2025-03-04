@@ -65,6 +65,7 @@ alias ls='eza --icons --color=always --group-directories-first'
 alias l='eza -al --icons --color=always --group-directories-first'
 alias ll='eza -l --icons --color=always --group-directories-first'
 alias la='eza -a --icons --color=always --group-directories-first'
+alias lg='eza -al --icons --color=always --group-directories-first | grep'
 
 # History
 alias h='history'

@@ -12,6 +12,9 @@ My personal MacOS settings and setup flow on a new machine.
     * [trash-cli](#trash-cli)
   * [GUI app configurations](#gui-app-configurations)
     * [License keys](#license-keys)
+    * [Raycast](#raycast)
+      * [Onboarding](#onboarding)
+      * [Import settings](#import-settings)
     * [Amphetamine](#amphetamine)
     * [Brave](#brave)
     * [iTerm2](#iterm2)
@@ -19,7 +22,6 @@ My personal MacOS settings and setup flow on a new machine.
     * [Logitech G HUB](#logitech-g-hub)
     * [Lunar](#lunar)
     * [NetNewsWire](#netnewswire)
-    * [Raycast](#raycast)
     * [Rectangle](#rectangle)
 * [Appendix](#appendix)
   * [App quirks](#app-quirks)
@@ -37,6 +39,8 @@ My personal MacOS settings and setup flow on a new machine.
 * Keyboard
   * Key repeat rate: max
   * Delay until repeat: min
+  * Keyboard Shortcuts
+    * Disable Spotlight shortcuts (for Raycast)
 * Mouse
   * Tracking speed: 6 (with 1st level as 1)
 
@@ -105,6 +109,23 @@ Enter license keys found in my password manager for the following apps:
 * Screen Studio
 * TablePlus
 
+#### Raycast
+
+##### Onboarding
+
+* Set Command + Space as the hotkey
+* Don't opt for Raycast emoji picker
+* Enable access to everything
+
+##### Import settings
+
+Run `restore.sh` in `~/raycast/` to unzip the `.gz` file back to `.rayconfig`.
+
+Copy the zip password from my password manager.
+
+Import the config from `~/raycast/` by going to Raycast
+Settings > Advanced > Import > select the `.rayconfig` file > enter the password.
+
 #### Amphetamine
 
 Enable the following in Settings:
@@ -163,17 +184,6 @@ Set each monitor's brightness and contrast to 70% and 75%, respectively.
 #### NetNewsWire
 
 Sync to the cloud by going to Settings > Accounts > + > iCloud.
-
-#### Raycast
-
-Run `restore.sh` in `~/raycast/` to unzip the `.gz` file back to `.rayconfig`.
-
-Copy the zip password from my password manager.
-
-Open the app. During onboarding, set Command + Space as the hotkey.
-
-After onboarding, import the config from `~/raycast/` by going to Raycast
-Settings > Advanced > Import > select the `.rayconfig` file > enter the password.
 
 #### Rectangle
 

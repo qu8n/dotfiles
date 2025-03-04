@@ -105,19 +105,20 @@ echo "SETTING UP DOTFILES..."
 echo "------------------------------------------------------------"
 echo
 
+# Define the `config` function instead of an alias so it works within the script
+config() {
+  git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
+}
+
 # Clone the remote dotfiles repo into a bare Git repo of the new machine's $HOME
 # (What's a bare repo? https://craftquest.io/articles/what-is-a-bare-git-repository)
 if [ ! -d "$HOME/.cfg" ]; then
   echo "Cloning dotfiles repository..."
   git clone --bare https://github.com/qu8n/dotfiles.git $HOME/.cfg
 else
-  echo "Dotfiles repository already exists, skipping clone."
+  echo "Dotfiles repository already exists, skipping clone. Pulling latest changes..."
+  config pull
 fi
-
-# Define the `config` function instead of an alias so it works within the script
-config() {
-  /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
-}
 
 # Checkout the actual content from the bare repository to the $HOME directory
 # If the command above fails because there are existing files that would be

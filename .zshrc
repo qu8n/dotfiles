@@ -1,3 +1,7 @@
+# Uncomment this command to profile the zsh startup time
+# After sourcing this file, run `zprof` to see the results
+# zmodload zsh/zprof
+
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 
