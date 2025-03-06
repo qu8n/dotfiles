@@ -5,6 +5,7 @@ My personal MacOS settings and setup flow on a new machine.
 <!-- mtoc-start -->
 
 * [Update System Preferences](#update-system-preferences)
+  * [Login Items](#login-items)
 * [Install software](#install-software)
   * [Run the install script](#run-the-install-script)
   * [CLI tool configurations](#cli-tool-configurations)
@@ -17,6 +18,8 @@ My personal MacOS settings and setup flow on a new machine.
     * [Raycast](#raycast)
     * [Amphetamine](#amphetamine)
     * [Brave](#brave)
+    * [Homerow](#homerow)
+    * [Ice](#ice)
     * [Logi Options+](#logi-options)
     * [Logitech G HUB](#logitech-g-hub)
     * [Lunar](#lunar)
@@ -35,6 +38,18 @@ My personal MacOS settings and setup flow on a new machine.
 > because I don't set up a new MacOS machine often enough to warrant it.
 > Also: [Maybe Don't Bother Scripting Some macOS System Preferences](https://assert.cc/posts/maybe-dont-script-macos-prefs/).
 
+* Desktop & Dock
+  * Dock
+    * Enable "Automatically hide and show the Dock"
+    * Disable "Show suggested and recent apps in Dock"
+  * Windows
+    * Enable "Ask to keep changes when closing documents"
+  * Hot Corners button
+    * Set top left to "Desktop"
+    * Disable all other corners
+* General
+  * Login Items
+    * See the list below
 * Keyboard
   * Key repeat rate: max
   * Delay until repeat: min
@@ -42,6 +57,18 @@ My personal MacOS settings and setup flow on a new machine.
     * Disable Spotlight shortcuts (for Raycast)
 * Mouse
   * Tracking speed: 6 (with 1st level as 1)
+
+### Login Items
+
+* Amphetamine
+* BatFi
+* Bitwarden
+* CleanShot X
+* Homerow
+* Ice
+* Raycast
+* Rectangle
+* Things
 
 ## Install software
 
@@ -198,15 +225,46 @@ Enable the following in Settings:
 
 #### Brave
 
-Drop in the backup Brave profile folders from Google Drive for Desktop into
-`~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
-
-Set up the backing up of Brave profile(s) via Google Drive for Desktop by
-syncing the corresponding profile folder(s) at `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`.
+* Replace the default profile folder with backup
+  * Drop in the backup Brave profile folders from Google Drive for Desktop into
+`~/Library/Application\ Support/BraveSoftware/Brave-Browser/`
+  * Set up the backing up of Brave profile(s) via Google Drive for Desktop by
+syncing the corresponding profile folder(s) at `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`
+  * Note: On the source machine, to see which folder to sync for a profile, go
+to `brave://version/` and look for the `Profile Path`
+* Sync profile using Brave's Sync Chain
+  * Follow the steps [here](https://support.brave.com/hc/en-us/articles/360021218111-How-do-I-set-up-Sync)
+  * Note: Initialize the sync chain with the source machine
 
 > [!NOTE]
-> To see which folder to sync for a profile, go to `brave://version/` and look
-> for the `Profile Path`.
+> We use both syncing methods above because neither method is perfect. After testing
+> separately, the first method resulted in missing extensions, while the second
+> method resulted in missing settings. Doing both seems to be the best way to
+> ensure everything is synced.
+
+#### Homerow
+
+Update the app settings as follows:
+
+* General
+  * Enable "Launch on login"
+* Clicking
+  * Set "Search Shortcut" as `Shift + Command + S`
+  * Enable "Hide labels before search"
+* Scrolling
+  * Set "Shortcut" as `Shift + Command + O`
+  * Set "Arrow keys" for "Scroll"
+
+#### Ice
+
+Update the app settings as follows:
+
+* General
+  * Enable "Launch on login"
+  * Set "Ice icon" as the "Chevron"
+  * Disable "Show on click" and "Show on scroll"
+* Menu Bar Layout
+  * Hide everything but Amphetamine, Wi-Fi, and Battery
 
 #### Logi Options+
 
