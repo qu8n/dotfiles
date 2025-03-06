@@ -15,8 +15,6 @@ My personal MacOS settings and setup flow on a new machine.
   * [GUI app configurations](#gui-app-configurations)
     * [License keys](#license-keys)
     * [Raycast](#raycast)
-      * [Onboarding](#onboarding)
-      * [Import settings](#import-settings)
     * [Amphetamine](#amphetamine)
     * [Brave](#brave)
     * [Logi Options+](#logi-options)
@@ -167,20 +165,18 @@ Enter license keys found in my password manager for the following apps:
 
 #### Raycast
 
-##### Onboarding
+Onboarding:
 
 * Set Command + Space as the hotkey
 * Don't opt for Raycast emoji picker
 * Enable access to everything
 
-##### Import settings
+Import settings:
 
-Run `restore.sh` in `~/raycast/` to unzip the `.gz` file back to `.rayconfig`.
-
-Copy the zip password from my password manager.
-
-Import the config from `~/raycast/` by going to Raycast
-Settings > Advanced > Import > select the `.rayconfig` file > enter the password.
+* Run `restore.sh` in `~/raycast/` to unzip the `.gz` file back to `.rayconfig`
+* Copy the zip password from my password manager
+* Import the config from `~/raycast/` by going to Raycast Settings > Advanced >
+Import > select the `.rayconfig` file > enter the password
 
 #### Amphetamine
 
@@ -188,9 +184,9 @@ Enable the following in Settings:
 
 * General
   * Launch Amphetamine at login
-  * Hide Amphetamine in the Dock
 * Session Defaults
   * End session when Mac is forced to sleep
+* System Control
   * Move cursor every 5 minutes after 5 minutes of inactivity
 * Triggers
   * Enable Triggers

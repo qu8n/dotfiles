@@ -6,9 +6,9 @@ return {
 
   -- Middle ground option
   -- Looks at the first few 100 lines of the file to guess the indentation
-  -- "nmac427/guess-indent.nvim",
+  "nmac427/guess-indent.nvim",
 
   -- Slowest & smartest option
   -- Looks at the current file or other files in the same directory
-  "tpope/vim-sleuth",
+  -- "tpope/vim-sleuth",
 }

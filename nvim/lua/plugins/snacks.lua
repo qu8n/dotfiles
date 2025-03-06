@@ -4,15 +4,25 @@ return {
   opts = {
     dashboard = {
       preset = {
-        header = false,
+        header = [[
+  _______________
+  |  ___________  |
+  | |           | |
+  | | $ nvim    | |
+  | |           | |
+  | '-----------' |
+  |_____________-_|
+ __/_______\__
+________________
+/:::::::::':::'::\
+ /::======::: .:.:::\
+ `""""""""""""""""""`]]
       },
       sections = {
         { section = "header" },
-        { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-        { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-        { section = "startup" },
+        { section = "keys", padding = 2 },
+        { title = "Recent Files", section = "recent_files" },
       },
-    },
+    }
   },
 }
