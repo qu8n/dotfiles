@@ -3,10 +3,20 @@ tap "homebrew/bundle"
 tap "jesseduffield/lazygit"
 tap "nats-io/nats-tools"
 tap "potatolabs/git-redate"
+# General-purpose data compression with high compression ratio
+brew "xz"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
 # Modern, maintained replacement for ls
 brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU awk utility
@@ -19,16 +29,14 @@ brew "git"
 brew "git-delta"
 # Git extension for versioning large files
 brew "git-lfs"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
-# GNU Transport Layer Security (TLS) Library
-brew "gnutls"
 # Assuan IPC Library
 brew "libassuan"
 # Passphrase entry dialog utilizing the Assuan protocol
 brew "pinentry"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Mac App Store command-line interface
@@ -43,12 +51,14 @@ brew "tree"
 brew "pass"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
-# General-purpose data compression with high compression ratio
-brew "xz"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
 # Non-interactive SSH password auth
 brew "sshpass"
 # Terminal multiplexer
@@ -59,6 +69,10 @@ brew "trash-cli"
 brew "unzip"
 # Internet file retriever
 brew "wget"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # A simple terminal UI for git commands, written in Go
 brew "jesseduffield/lazygit/lazygit"
 # NATS utility
@@ -89,6 +103,7 @@ cask "docker"
 cask "firefox"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
+cask "font-symbols-only-nerd-font"
 # Web browser
 cask "google-chrome"
 # Client for the Google Drive storage service

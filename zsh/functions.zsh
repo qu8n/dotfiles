@@ -104,3 +104,14 @@ mfd() {
 timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 }
+
+# Change the current working directory when exiting Yazi
+# Source: https://yazi-rs.github.io/docs/quick-start#shell-wrapper
+y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
