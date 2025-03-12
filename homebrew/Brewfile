@@ -109,6 +109,8 @@ cask "logi-options+"
 cask "logitech-g-hub"
 # Adaptive brightness for external displays
 cask "lunar"
+# Speech recognition tool
+cask "macwhisper"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
 # Free and open-source RSS reader

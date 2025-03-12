@@ -23,6 +23,7 @@ My personal MacOS settings and setup flow on a new machine.
     * [Logi Options+](#logi-options)
     * [Logitech G HUB](#logitech-g-hub)
     * [Lunar](#lunar)
+    * [MacWhisper](#macwhisper)
     * [NetNewsWire](#netnewswire)
     * [Rectangle](#rectangle)
 * [Diagnostics](#diagnostics)
@@ -51,21 +52,29 @@ My personal MacOS settings and setup flow on a new machine.
   * Login Items
     * See the list below
 * Keyboard
-  * Key repeat rate: max
-  * Delay until repeat: min
-  * Keyboard Shortcuts
+  * Glide "Key repeat rate" to the fastest
+  * Glide "Delay until repeat" to the shortest
+  * Set "Press Globe key to" to "Do Nothing"
+  * Enable "Keyboard navigation"
+  * Touch Bar Settings button (if applicable)
+    * Set both dropdown options to "Expanded Control Strip"
+    * Disable "Show typing suggestions"
+  * Keyboard Shortcuts button
     * Disable Spotlight shortcuts (for Raycast)
 * Mouse
   * Tracking speed: 6 (with 1st level as 1)
 
 ### Login Items
 
+* Amazon Q
 * Amphetamine
 * BatFi
 * Bitwarden
 * CleanShot X
 * Homerow
 * Ice
+* Karabiner-Elements
+* Muzzle
 * Raycast
 * Rectangle
 * Things
@@ -281,6 +290,15 @@ Set the Logitech Brio webcam as follows:
 #### Lunar
 
 Set each monitor's brightness and contrast to 70% and 75%, respectively.
+
+#### MacWhisper
+
+Update the app settings > Dictation as follows:
+
+* Enable "Dictation"
+* Set "Custom Keyboard Button" as "Custom"
+* Set "Custom Keyboard Shortcut" as `Shift + Command + ;`
+* Enable "Play Dictation Sounds"
 
 #### NetNewsWire
 
