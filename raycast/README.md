@@ -8,7 +8,9 @@ of other third-party apps.
 
 ![demo](https://stadt-bremerhaven.de/wp-content/uploads/2023/05/raycast_.jpg)
 
-## Exporting and importing settings
+## File structure
+
+### backup/
 
 I'm on the Free plan, which means I occasionally do a manual backup of my settings.
 
@@ -22,3 +24,12 @@ Import steps:
 
 1. Run the `restore.sh` script to unzip the config file
 2. Go to Raycast Settings > Advanced > Import
+
+### scripts/
+
+These scripts are designed to be accessible via Raycast.
+
+To enable accessing these scripts via Raycast, open Raycast > Settings >
+Extensions > Scripts > Script Commands > Add Directories and select this folder.
+
+After adding a new script, run "Refresh Apps and Settings" from Raycast.

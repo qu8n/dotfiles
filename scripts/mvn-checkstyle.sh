@@ -1,4 +1,5 @@
 #!/bin/zsh
+# Run Maven checkstyle and output the results to a file
 
 mvn checkstyle:checkstyle
 find * -name checkstyle_report.txt -print | xargs grep -v -E "^Starting audit|^Audit done" > checkstyle_report_compiled.txt

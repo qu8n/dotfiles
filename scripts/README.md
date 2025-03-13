@@ -1,7 +1,7 @@
 # Scripts
 
-Scripts in this directory or its subdirectories (except `raycast/`) can be ran
-from anywhere as they were added to the PATH in `zsh/paths.zsh`.
+Scripts in this directory or its subdirectories can be ran from anywhere. (They
+are programmatically added to PATH in `zsh/paths.zsh`.
 
 ## Steps to creating a new script
 

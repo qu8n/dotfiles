@@ -209,10 +209,10 @@ Onboarding:
 
 Import settings:
 
-* Run `restore.sh` in `~/raycast/` to unzip the `.gz` file back to `.rayconfig`
+* Run `restore.sh` in `~/raycast/backup/` to unzip the `.gz` file back to `.rayconfig`
 * Copy the zip password from my password manager
-* Import the config from `~/raycast/` by going to Raycast Settings > Advanced >
-Import > select the `.rayconfig` file > enter the password
+* Import the config by going to Raycast Settings > Advanced > Import > select the
+`.rayconfig` file in `~/raycast/backup/` > enter the password
 
 #### Amphetamine
 
