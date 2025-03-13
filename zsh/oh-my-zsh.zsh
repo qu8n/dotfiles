@@ -20,10 +20,12 @@ plugins=(
   zsh-autosuggestions
   # Remind user to use available aliases when typing out full commands
   you-should-use
-  # Add `git open` command to open the GitHub page of the current repo
+  # Enable opening the current repo in the browser with `git open`
   git-open
   # Add extra git aliases
   git
+  # Isolate environment variables for each directory instead of global
+  direnv
 )
 
 # Make OMZ save zcompdump files inside $ZSH instead of littering $HOME
