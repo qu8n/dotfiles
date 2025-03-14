@@ -16,7 +16,7 @@ cstf() {
 # List files in a tree-like structure
 t() {
   # Defaults to 3 levels deep, do more with e.g. `t 5`
-  tree -I '.git|node_modules|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
+  tree -I '.git|node_modules|.DS_Store' --dirsfirst --filelimit 30 -L ${1:-3} -aC $2
 }
 
 # Open the current branch in browser

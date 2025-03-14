@@ -1,4 +1,5 @@
 tap "buo/cask-upgrade"
+tap "gromgit/fuse"
 tap "homebrew/bundle"
 tap "jesseduffield/lazygit"
 tap "nats-io/nats-tools"
@@ -75,6 +76,8 @@ brew "wget"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# File system client based on SSH File Transfer Protocol
+brew "gromgit/fuse/sshfs-mac"
 # A simple terminal UI for git commands, written in Go
 brew "jesseduffield/lazygit/lazygit"
 # NATS utility
@@ -126,10 +129,10 @@ cask "logi-options+"
 cask "logitech-g-hub"
 # Adaptive brightness for external displays
 cask "lunar"
+# File system integration
+cask "macfuse"
 # Speech recognition tool
 cask "macwhisper"
-# Silence embarrassing notifications while screensharing
-cask "muzzle"
 # Free and open-source RSS reader
 cask "netnewswire"
 # Knowledge base that works on top of a local folder of plain text Markdown files

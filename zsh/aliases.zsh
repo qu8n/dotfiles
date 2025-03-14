@@ -20,21 +20,6 @@ alias viz='cd && vi ~/.zshrc' # [vi] [z]shrc
 alias vizc="cd $HOME/zsh && vi" # [vi] [z]sh [c]onfig
 alias vinc="cd $HOME/nvim && vi" # [vi] [n]vim [c]onfig
 
-# ssh
-function ssh_with_pass() {
-  local user=$1
-  local host=$2
-
-  SSHPASS=$(pass MSKCC/${user}) || { echo "Failed to retrieve password from pass"; return 1; }
-  export SSHPASS
-  sshpass -e ssh ${user}@${host} # sshpass by default reads the password from SSHPASS
-  unset SSHPASS
-}
-alias ssd='ssh_with_pass smile smile-dev.mskcc.org'
-alias ssp='ssh_with_pass smile smile.mskcc.org'
-alias sqd='ssh_with_pass ${USER} smile-dev.mskcc.org'
-alias sqp='ssh_with_pass ${USER} smile.mskcc.org'
-
 # python venv
 alias vinit='python3 -m venv .venv'
 alias activate='source .venv/bin/activate'

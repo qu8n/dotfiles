@@ -12,6 +12,7 @@ source $HOME/zsh/exports.zsh
 source $HOME/zsh/sources.zsh
 source $HOME/zsh/aliases.zsh
 source $HOME/zsh/functions.zsh
+source $HOME/zsh/ssh.zsh
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
