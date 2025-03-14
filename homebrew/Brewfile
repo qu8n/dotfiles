@@ -64,6 +64,8 @@ brew "ripgrep"
 brew "sevenzip"
 # Non-interactive SSH password auth
 brew "sshpass"
+# Simplified and community-driven man pages
+brew "tldr"
 # Terminal multiplexer
 brew "tmux"
 # Command-line interface to the freedesktop.org trashcan
