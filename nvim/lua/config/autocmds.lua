@@ -6,7 +6,6 @@
 -- Add line length limit guides
 -------------------------------------
 
--- Set colorcolumn=72 for git commit messages
 vim.api.nvim_create_autocmd("BufRead", {
   pattern = "COMMIT_EDITMSG",
   callback = function()
@@ -14,10 +13,16 @@ vim.api.nvim_create_autocmd("BufRead", {
   end,
 })
 
--- Set colorcolumn=80 for Markdown files
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
     vim.opt_local.colorcolumn = "80"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    vim.opt_local.colorcolumn = "110"
   end,
 })
