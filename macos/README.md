@@ -21,7 +21,6 @@ My personal MacOS settings and setup flow on a new machine.
     * [Homerow](#homerow)
     * [Ice](#ice)
     * [Logi Options+](#logi-options)
-    * [Logitech G HUB](#logitech-g-hub)
     * [Lunar](#lunar)
     * [MacWhisper](#macwhisper)
     * [NetNewsWire](#netnewswire)
@@ -74,10 +73,13 @@ My personal MacOS settings and setup flow on a new machine.
 * Homerow
 * Ice
 * Karabiner-Elements
-* Muzzle
+* Logi Options+
+* Logi Tune
+* MacWhisper
 * Raycast
 * Rectangle
 * Things
+* Things Helper
 
 ## Install software
 
@@ -93,7 +95,6 @@ curl -Lks https://raw.githubusercontent.com/qu8n/dotfiles/refs/heads/main/macos/
 
 During the execution of the script, ignore errors related to the following installs:
 
-* `logitech-g-hub` Homebrew cask
 * `cleanshot` Homebrew cask (archived version)
 * `tableplus` Homebrew cask (archived version)
 
@@ -278,14 +279,6 @@ Update the app settings as follows:
 #### Logi Options+
 
 Set the pointer speed of the Logitech MX Vertical to 80%.
-
-#### Logitech G HUB
-
-Set the Logitech Brio webcam as follows:
-
-* Preset: ZOOM 1.5x
-* Field of view: 90°
-* Zoom: 150%
 
 #### Lunar
 

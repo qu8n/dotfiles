@@ -127,8 +127,8 @@ cask "karabiner-elements"
 cask "lm-studio"
 # Software for Logitech devices
 cask "logi-options+"
-# Support for Logitech G gear
-cask "logitech-g-hub"
+# Optimise your webcam, headset, and Logi Dock for video meetings
+cask "logitune"
 # Adaptive brightness for external displays
 cask "lunar"
 # File system integration
@@ -169,3 +169,16 @@ mas "iMovie", id: 408981434
 mas "Kindle", id: 302584613
 mas "Klack", id: 6446206067
 mas "Things", id: 904280696
+vscode "amazonwebservices.codewhisperer-for-command-line-companion"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode-remote.remote-containers"
+vscode "redhat.java"
+vscode "visualstudioexptteam.intellicode-api-usage-examples"
+vscode "visualstudioexptteam.vscodeintellicode"
+vscode "vscjava.vscode-gradle"
+vscode "vscjava.vscode-java-debug"
+vscode "vscjava.vscode-java-dependency"
+vscode "vscjava.vscode-java-pack"
+vscode "vscjava.vscode-java-test"
+vscode "vscjava.vscode-maven"
+vscode "vscodevim.vim"

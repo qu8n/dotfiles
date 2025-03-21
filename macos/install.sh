@@ -228,6 +228,9 @@ install_archived_app() {
 install_archived_app "cleanshot" ~/homebrew/archived-versions/cleanshot.rb
 install_archived_app "tableplus" ~/homebrew/archived-versions/tableplus.rb
 
+# Manual installs for select apps
+open /opt/homebrew/Caskroom/logitune/*/LogiTuneInstaller.app 2>/dev/null
+
 echo
 echo "------------------------------------------------------------"
 echo "INSTALLING ASDF PLUGINS AND VERSIONS..."
