@@ -90,6 +90,8 @@ brew "potatolabs/git-redate/git-redate"
 cask "amazon-q"
 # Memory training application
 cask "anki"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
 # App for managing battery charging
 cask "batfi"
 # Web browser focusing on privacy
@@ -108,8 +110,6 @@ cask "discord"
 cask "docker"
 # Web browser
 cask "firefox"
-cask "font-jetbrains-mono"
-cask "font-jetbrains-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
 # Web browser
 cask "google-chrome"
