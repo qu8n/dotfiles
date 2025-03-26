@@ -44,6 +44,7 @@ alias 'ccan!'='config commit --all --no-edit --amend'
 alias 'ccn!'='config commit --no-edit --amend'
 alias cps='config push'
 alias co='config open'
+alias cb='config blame main --' # usage: cb <file>
 
 # Better ls
 alias ls='eza --icons --color=always --group-directories-first'
