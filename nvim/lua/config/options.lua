@@ -21,3 +21,8 @@ vim.opt.relativenumber = false
 -- Enable showing copilot completion when starting a new line
 -- (vs. having to type a character first)
 vim.g.ai_cmp = false
+
+-- Enable showing the current file path in the title bar
+vim.opt.title = true
+vim.opt.titlelen = 0 -- do not shorten title
+vim.opt.titlestring = 'nvim %{expand("%:p")}'
