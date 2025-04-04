@@ -158,6 +158,7 @@ create_symlink() {
 
 create_symlink ~/nvim ~/.config/nvim
 create_symlink ~/karabiner ~/.config/karabiner
+create_symlink ~/ghostty ~/.config/ghostty
 
 echo
 echo "------------------------------------------------------------"

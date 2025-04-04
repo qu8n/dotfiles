@@ -1,0 +1,19 @@
+# File location: /Users/nguyenq2/Library/Application Support/com.mitchellh.ghostty/config
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = false
+
+# Appearance
+# See available themes with `ghostty +list-themes`
+theme = "iTerm2 Pastel Dark Background"
+font-size = 15
+font-thicken = true
+
+# Temporarily resolve closing tab warning
+# See issue discussion at https://github.com/ghostty-org/ghostty/discussions/3070
+confirm-close-surface = false
+
+# Combine title bar and tabs into one row to save space
+macos-titlebar-style = tabs
