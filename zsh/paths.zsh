@@ -1,4 +1,4 @@
-# Expose scripts in the `~/scripts` to the terminal
+# Expose scripts in $HOME/scripts to the terminal
 export PATH=$PATH:$HOME/scripts
 for dir in $HOME/scripts/*/; do # include scripts inside subdirectories
   export PATH=$PATH:${dir%/}  # remove trailing slash
@@ -12,4 +12,4 @@ export PATH="$HOME/.asdf/shims:$PATH"
 export PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
 
 # For the Console Ninja VSCode extension
-export PATH=~/.console-ninja/.bin:$PATH
+export PATH="$HOME/.console-ninja/.bin:$PATH"

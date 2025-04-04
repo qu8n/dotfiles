@@ -2,4 +2,4 @@
 source <(fzf --zsh)
 
 # Set JAVA_HOME using asdf
-. ~/.asdf/plugins/java/set-java-home.zsh
+source $HOME/.asdf/plugins/java/set-java-home.zsh

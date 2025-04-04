@@ -47,7 +47,7 @@ caa() {
   cd $HOME
   for dir in $(config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$'); do
     if [[ -d $dir ]]; then
-      echo "~/$dir"
+      echo "$HOME/$dir"
       config add "$dir"
     fi
   done
@@ -85,7 +85,7 @@ cv() {
   fi
 }
 
-# Move a file from ~/Downloads to the current directory
+# Move a file from $HOME/Downloads to the current directory
 # [m]ove [f]rom [d]ownloads
 # Usage: `mfd filename` or `mfd "dirname"`
 mfd() {
@@ -94,7 +94,7 @@ mfd() {
     mv "$src" .
     echo "Moved $1 to $(pwd)"
   else
-    echo "Error: '$1' not found in ~/Downloads" >&2
+    echo "Error: '$1' not found in $HOME/Downloads" >&2
     return 1
   fi
 }

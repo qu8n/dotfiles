@@ -34,4 +34,4 @@ plugins=(
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdumps
 
 source $ZSH/oh-my-zsh.sh # oh-my-zsh startup script
-source ~/.p10k.zsh # p10k configs
+source $HOME/.p10k.zsh # p10k configs

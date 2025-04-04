@@ -1,6 +1,6 @@
 # Aliases set here override those provided by Oh My Zsh libs, plugins, and themes
 
-alias zource='source ~/.zshrc'
+alias zource="source $HOME/.zshrc"
 
 # Personal directories
 alias sd="cd $HOME/dev/mskcc/smile-dashboard"
@@ -16,9 +16,10 @@ alias s="cd $HOME/scripts"
 
 # NeoVim
 alias vi='nvim'
-alias viz='cd && vi ~/.zshrc' # [vi] [z]shrc
+alias viz="cd && vi $HOME/.zshrc" # [vi] [z]shrc
 alias vizc="cd $HOME/zsh && vi" # [vi] [z]sh [c]onfig
 alias vinc="cd $HOME/nvim && vi" # [vi] [n]vim [c]onfig
+alias vigc="vi $HOME/ghostty/config" # [vi] [g]hostty [c]onfig
 
 # python venv
 alias vinit='python3 -m venv .venv'
@@ -31,7 +32,7 @@ alias gbda='git branch | grep -v "master" | grep -v "main" | xargs git branch -D
 
 # For storing dotfiles in a bare git repository
 # Source: https://www.atlassian.com/git/tutorials/dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias c='config'
 alias cst='config status'
 alias cdf='config diff'
@@ -65,5 +66,5 @@ alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
 alias tp='trash-put' # safer rm, from andreafrancia/trash-cli
 alias nrd='npm run dev'
 alias cmx='chmod +x'
-alias bbd='brew bundle dump --describe --force --file=~/homebrew/Brewfile'
+alias bbd="brew bundle dump --describe --force --file=$HOME/homebrew/Brewfile"
 alias python='python3'
