@@ -1,3 +1,6 @@
+# SETTINGS
+# Helpful configurator tool: https://ghostty.zerebos.com
+
 # Clipboard
 clipboard-read = allow
 clipboard-write = allow
@@ -9,13 +12,15 @@ theme = "iTerm2 Pastel Dark Background"
 font-size = 15
 font-thicken = true
 
-# Temporarily resolve closing tab warning
-# See issue discussion at https://github.com/ghostty-org/ghostty/discussions/3070
-confirm-close-surface = false
-
 # Combine title bar and tabs into one row to save space
 macos-titlebar-style = tabs
 
-# Temporarily add Crtl+F to search scrollback as Ghostty does not support Cmd+F
-# See issue discussion at https://github.com/ghostty-org/ghostty/issues/189
+# TEMPORARY WORKAROUNDS FOR CURRENT ISSUES
+
+# Add Crtl+F to search scrollback as Ghostty does not support Cmd+F
+# https://github.com/ghostty-org/ghostty/issues/189
 keybind = "ctrl+f=write_scrollback_file:open"
+
+# Stop show closing tab warning
+# https://github.com/ghostty-org/ghostty/discussions/3070
+confirm-close-surface = false
