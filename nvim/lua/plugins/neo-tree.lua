@@ -2,7 +2,7 @@
 return {
   "neo-tree.nvim",
   opts = {
-    window = { position = "right" },
+    window = { position = "left" },
     filesystem = {
       filtered_items = {
         -- Show hidden files, but dim/gray them out for less visual clutter

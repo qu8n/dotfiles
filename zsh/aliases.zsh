@@ -18,7 +18,7 @@ alias s="cd $HOME/scripts"
 alias vi='nvim'
 alias viz="cd && vi $HOME/.zshrc" # [vi] [z]shrc
 alias vizc="cd $HOME/zsh && vi" # [vi] [z]sh [c]onfig
-alias vinc="cd $HOME/nvim && vi" # [vi] [n]vim [c]onfig
+alias vivc="cd $HOME/nvim && vi" # [vi] neo[v]im [c]onfig
 alias vigc="vi $HOME/ghostty/config" # [vi] [g]hostty [c]onfig
 
 # python venv
