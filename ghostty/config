@@ -1,5 +1,7 @@
+# --------------------------------------------------------------------
 # SETTINGS
 # Helpful configurator tool: https://ghostty.zerebos.com
+# --------------------------------------------------------------------
 
 # Clipboard
 clipboard-read = allow
@@ -8,19 +10,25 @@ clipboard-paste-protection = false
 
 # Appearance
 # See available themes with `ghostty +list-themes`
-theme = "iTerm2 Pastel Dark Background"
+theme = "tokyonight_night"
 font-size = 15
 font-thicken = true
 
 # Combine title bar and tabs into one row to save space
 macos-titlebar-style = tabs
 
+# Scroll up and down the scrollback buffer
+keybind = shift+up=scroll_page_lines:-50
+keybind = shift+down=scroll_page_lines:50
+
+# --------------------------------------------------------------------
 # TEMPORARY WORKAROUNDS FOR CURRENT ISSUES
+# --------------------------------------------------------------------
 
 # Add Crtl+F to search scrollback as Ghostty does not support Cmd+F
 # https://github.com/ghostty-org/ghostty/issues/189
 keybind = "ctrl+f=write_scrollback_file:open"
 
-# Stop show closing tab warning
+# Stop showing closing tab warning
 # https://github.com/ghostty-org/ghostty/discussions/3070
 confirm-close-surface = false
