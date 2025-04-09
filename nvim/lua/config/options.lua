@@ -19,9 +19,5 @@ vim.g.blamer_date_format = "%m-%d-%Y"
 vim.opt.relativenumber = false
 
 -- Enable showing copilot completion when starting a new line
--- (vs. having to type a character first)
+-- (vs. the default of having to type a character first)
 vim.g.ai_cmp = false
-
--- Show 'nvim [project name]' in the title bar
-vim.opt.title = true
-vim.opt.titlestring = "nvim " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")

@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 -- AI tools
-vim.keymap.set({'n', 'v'}, "<leader>a", "<Nop>", { desc = "AI Assistant" })
+vim.keymap.set({ "n", "v" }, "<leader>a", "<Nop>", { desc = "AI Assistant" })
 vim.keymap.set("n", "<leader>aH", ":AvanteClear<CR>", { desc = "avante: clear chat history" })
 -- Copilot toggle
 vim.keymap.set("n", "<leader>ap", function()
@@ -33,10 +33,20 @@ vim.api.nvim_create_user_command("CopyFullPath", function()
   vim.fn.setreg("+", full_path) -- Copy to system clipboard
   print("Copied: " .. full_path) -- Optional: Display message
 end, {})
-vim.keymap.set("n", "<leader>fP", ":CopyFullPath<CR>", { noremap = true, silent = true, desc = "pbcopy ABSOLUTE File Path" })
+vim.keymap.set(
+  "n",
+  "<leader>fP",
+  ":CopyFullPath<CR>",
+  { noremap = true, silent = true, desc = "pbcopy ABSOLUTE File Path" }
+)
 
 -- Copy current file name to clipboard
-vim.keymap.set("n", "<leader>fm", ":!echo %:t | pbcopy<CR>", { noremap = true, silent = true, desc = "pbcopy File Name" })
+vim.keymap.set(
+  "n",
+  "<leader>fm",
+  ":!echo %:t | pbcopy<CR>",
+  { noremap = true, silent = true, desc = "pbcopy File Name" }
+)
 
 -- Copy visually highlighted text to clipboard
 vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy to Clipboard" })
@@ -45,17 +55,32 @@ vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true, desc = 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- Toggle git blame via Blamer.nvim
-vim.keymap.set("n", "<leader>cb", ":BlamerToggle<CR>", { noremap = true, silent = true, desc = "Toggle Blame Message (blamer.nvim)" })
-
--- Toggle inline diagnostics via lsp_lines.nvim
-vim.keymap.set("", "<leader>xv", require("lsp_lines").toggle, { desc = "Toggle Inline Diagnostics (lsp_lines.nvim)" })
+vim.keymap.set(
+  "n",
+  "<leader>cb",
+  ":BlamerToggle<CR>",
+  { noremap = true, silent = true, desc = "Toggle Blame Message (blamer.nvim)" }
+)
 
 -- Open Neotree position for the current Nvim session
 vim.keymap.set("n", "<leader>fw", "<Nop>", { desc = "Open Neotree by position" })
-vim.keymap.set("n", "<leader>fwf", ":Neotree position=float<CR>", { noremap = true, silent = true, desc = "Float (Default)" })
+vim.keymap.set(
+  "n",
+  "<leader>fwf",
+  ":Neotree position=float<CR>",
+  { noremap = true, silent = true, desc = "Float (Default)" }
+)
 vim.keymap.set("n", "<leader>fwl", ":Neotree position=left<CR>", { noremap = true, silent = true, desc = "Left" })
 vim.keymap.set("n", "<leader>fwr", ":Neotree position=right<CR>", { noremap = true, silent = true, desc = "Right" })
 vim.keymap.set("n", "<leader>fwu", ":Neotree position=current<CR>", { noremap = true, silent = true, desc = "Full" })
 
 -- Toggle cursor centering
-vim.keymap.set('n', '<leader>uo', function() vim.opt.scrolloff = 999 - vim.o.scrolloff end, { nowait = true, desc = "Toggle Cursor Centering" })
+vim.keymap.set("n", "<leader>uo", function()
+  vim.opt.scrolloff = 999 - vim.o.scrolloff
+end, { nowait = true, desc = "Toggle Cursor Centering" })
+
+-- Toggle virtual lines for diagnostics
+vim.keymap.set("n", "<leader>xv", function()
+  local config = vim.diagnostic.config() or {}
+  vim.diagnostic.config({ virtual_lines = not config.virtual_lines })
+end, { desc = "Toggle Virtual Lines" })
