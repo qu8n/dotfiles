@@ -1,11 +1,12 @@
 {
   "keyMappings": "map F LinkHints.activateModeToOpenInNewForegroundTab\nmap w LinkHints.activateModeToOpenInNewTab\nunmap <a-p>\nmap ap togglePinTab\nunmap r\nunmap x\nunmap J\nunmap K",
+  "linkHintCharacters": "arstneiofpcluh",
   "scrollStepSize": 70,
-  "settingsVersion": "2.1.2",
+  "settingsVersion": "2.2.1",
   "exclusionRules": [
     {
       "passKeys": "",
-      "pattern": "https?://docs.google.com/*"
+      "pattern": "https://docs.google.com/*"
     }
   ]
 }
