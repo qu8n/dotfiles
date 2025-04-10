@@ -16,13 +16,7 @@
                         "is_keyboard": true,
                         "product_id": 60205,
                         "vendor_id": 1240
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": { "key_code": "escape" },
-                            "to": [{ "key_code": "caps_lock" }]
-                        }
-                    ]
+                    }
                 }
             ],
             "name": "Default profile",

@@ -10,14 +10,4 @@ return {
       return opts
     end,
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function(_, opts)
-      opts = opts or {}
-      opts.sources = opts.sources or {}
-      local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.formatting.black)
-      return opts
-    end,
-  },
 }
