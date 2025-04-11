@@ -119,8 +119,6 @@ cask "google-chrome"
 cask "google-drive"
 # Keyboard shortcuts for every button on your screen
 cask "homerow"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
 # Menu bar manager
 cask "jordanbaird-ice"
 # Keyboard customiser
