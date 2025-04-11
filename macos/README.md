@@ -9,7 +9,6 @@ My personal MacOS settings and setup flow on a new machine.
 * [Install software](#install-software)
   * [Run the install script](#run-the-install-script)
   * [CLI tool configurations](#cli-tool-configurations)
-    * [Prerequisites](#prerequisites)
     * [gpg](#gpg)
     * [pass](#pass)
     * [trash-cli](#trash-cli)
@@ -101,19 +100,6 @@ During the execution of the script, ignore errors related to the following insta
 Delete the old configs that were moved to `~/.config-backup` if no longer needed.
 
 ### CLI tool configurations
-
-#### Prerequisites
-
-Open iTerm2. Load settings by following these steps:
-
-1. Settings > General > Settings > Enable "Load settings from a custom folder
-or URL" and set it to `~/iterm2/`
-2. Quit and restart iTerm2
-3. Ensure the settings were loaded successfully e.g. running `l` and check that
-all icons are properly displayed. If not, repeat the steps above.
-4. In the same Settings section, change Save change to "Automatically"
-
-Start using iTerm2 as the default terminal.
 
 #### gpg
 

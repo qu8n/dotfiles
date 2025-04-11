@@ -157,7 +157,7 @@ create_symlink() {
 }
 
 create_symlink ~/nvim ~/.config/nvim
-create_symlink ~/karabiner ~/.config/karabiner
+create_symlink ~/keyboard/karabiner-elements/ ~/.config/karabiner
 create_symlink ~/ghostty ~/.config/ghostty
 
 echo
