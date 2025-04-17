@@ -12,3 +12,7 @@ export EZA_COLORS="uu=2:gu=2" # dim the user/group columns
 
 # ghostty
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# fzf
+# Enable multi-select by default: TAB to select, Shift+TAB to un-select
+export FZF_DEFAULT_OPTS='--multi --no-height --extended'

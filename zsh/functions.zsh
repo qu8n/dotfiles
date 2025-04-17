@@ -19,9 +19,9 @@ t() {
   tree -I '.git|node_modules|.DS_Store' --dirsfirst --filelimit 30 -L ${1:-3} -aC $2
 }
 
-# Open the current branch in browser
-# [g]it [o]pen
-go() {
+# Open the current Git branch in browser
+# [g]it [op]en
+gop() {
   local branch
   branch=$(git branch --format '%(refname:short)' | grep -E '^(main|master)$' | head -n 1)
 
