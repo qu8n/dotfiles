@@ -26,7 +26,6 @@ My personal MacOS settings and setup flow on a new machine.
     * [Rectangle](#rectangle)
 * [Diagnostics](#diagnostics)
   * [dotfiles](#dotfiles)
-  * [Amazon Q](#amazon-q)
 
 <!-- mtoc-end -->
 
@@ -64,7 +63,6 @@ My personal MacOS settings and setup flow on a new machine.
 
 ### Login Items
 
-* Amazon Q
 * Amphetamine
 * BatFi
 * Bitwarden
@@ -300,9 +298,3 @@ properly. Try the following:
 config fetch origin "+refs/heads/*:refs/remotes/origin/*"
 config reset --hard origin/main
 ```
-
-### Amazon Q
-
-Running `q doctor` will show a warning about `zsh-autosuggestions` not being
-supported at the same time. This is OK to ignore as they can both work together,
-and it's nice to have both.

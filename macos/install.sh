@@ -90,6 +90,7 @@ safe_git_clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$ZSH_
 safe_git_clone "https://github.com/zsh-users/zsh-autosuggestions.git" "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 safe_git_clone "https://github.com/MichaelAquilina/zsh-you-should-use.git" "$ZSH_CUSTOM/plugins/you-should-use"
 safe_git_clone "https://github.com/paulirish/git-open.git" "$ZSH_CUSTOM/plugins/git-open"
+safe_git_clone "https://github.com/Aloxaf/fzf-tab.git" "$ZSH_CUSTOM/plugins/fzf-tab"
 
 # Install Powerlevel10k theme
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
