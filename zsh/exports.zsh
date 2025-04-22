@@ -4,6 +4,7 @@ export EDITOR=nvim
 # avante.nvim
 export OPENAI_API_KEY=$(pass APIKey/OpenAI)
 export ANTHROPIC_API_KEY=$(pass APIKey/Anthropic)
+export TAVILY_API_KEY=$(pass APIKey/Tavily)
 
 # eza
 export LS_COLORS="" # reset colors set by oh-my-zsh

@@ -6,7 +6,10 @@
 vim.opt.winbar = "%m %f"
 
 -- Disable autoformat on save
+-- Enable this by project with .lazy.lua. See https://kezhenxu94.me/blog/lazyvim-project-specific-settings
 vim.g.autoformat = false
+vim.g.lazyvim_eslint_auto_format = false
+
 
 -- Enable switching away from current buffer without saving
 -- (This only works if the buffer being switched to already exists)

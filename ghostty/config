@@ -21,6 +21,9 @@ macos-titlebar-style = tabs
 keybind = shift+up=scroll_page_lines:-50
 keybind = shift+down=scroll_page_lines:50
 
+# Disable popups that show the size of the terminal
+resize-overlay = never
+
 # --------------------------------------------------------------------
 # TEMPORARY WORKAROUNDS FOR CURRENT ISSUES
 # --------------------------------------------------------------------

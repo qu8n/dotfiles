@@ -154,6 +154,7 @@ Password Store
 ├── APIKey
 │   ├── Anthropic
 │   └── OpenAI
+│   └── Tavily
 ├── MSKCC
 │   ├── Neo4j
 │   ├── nguyenq2
