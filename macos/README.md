@@ -26,6 +26,7 @@ My personal MacOS settings and setup flow on a new machine.
     * [Rectangle](#rectangle)
 * [Diagnostics](#diagnostics)
   * [dotfiles](#dotfiles)
+  * [Ghostty](#ghostty)
 
 <!-- mtoc-end -->
 
@@ -43,8 +44,7 @@ My personal MacOS settings and setup flow on a new machine.
   * Windows
     * Enable "Ask to keep changes when closing documents"
   * Hot Corners button
-    * Set top left to "Desktop"
-    * Disable all other corners
+    * Disable all corners
 * General
   * Login Items
     * See the list below
@@ -298,3 +298,12 @@ properly. Try the following:
 config fetch origin "+refs/heads/*:refs/remotes/origin/*"
 config reset --hard origin/main
 ```
+
+### Ghostty
+
+Ghostty is a work in progress. Here are workarounds for some of the current
+limitations, in addition to the ones addressed in the `config` file:
+
+- When using `ssh` to connect to a remote server, backspace outputs a space
+instead of deleting characters => [configure](https://ghostty.org/docs/help/terminfo#configure-ssh-to-fall-back-to-a-known-terminfo-entry)
+the local `~/.ssh/config` file to fall back to a known `TERM` type

@@ -8,7 +8,7 @@ clipboard-read = allow
 clipboard-write = allow
 clipboard-paste-protection = false
 
-# Appearance
+# Font
 font-size = 15
 font-thicken = true
 
@@ -35,6 +35,10 @@ palette = 12=#74b2ff
 palette = 13=#ae81ff
 palette = 14=#85dc85
 palette = 15=#e4e4e4
+
+# Disable cursor style being set to bar (instead of block) in shell integration
+shell-integration-features = no-cursor
+cursor-style = block
 
 # Combine title bar and tabs into one row to save space
 macos-titlebar-style = tabs
