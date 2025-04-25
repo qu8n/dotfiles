@@ -50,6 +50,8 @@ keybind = shift+down=scroll_page_lines:50
 # Disable popups that show the size of the terminal
 resize-overlay = never
 
+split-divider-color = #323437
+
 # --------------------------------------------------------------------
 # TEMPORARY WORKAROUNDS FOR CURRENT ISSUES
 # --------------------------------------------------------------------

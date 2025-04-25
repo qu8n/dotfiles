@@ -248,6 +248,22 @@ asdf install
 
 echo
 echo "------------------------------------------------------------"
+echo "OTHER CONFIGURATIONS..."
+echo "------------------------------------------------------------"
+echo
+
+# Disable the beeps when resizing split panes in Ghostty
+mkdir -p ~/Library/KeyBindings
+cat > ~/Library/KeyBindings/DefaultKeyBinding.dict << EOF
+{
+    "@^\\UF701" = "noop:";
+    "@^\\UF702" = "noop:";
+    "@^\\UF703" = "noop:";
+}
+EOF
+
+echo
+echo "------------------------------------------------------------"
 echo "INSTALLATION COMPLETE!"
 echo "------------------------------------------------------------"
 echo
