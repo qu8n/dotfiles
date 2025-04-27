@@ -69,14 +69,14 @@ rm() {
 }
 
 # Create a directory and `cd` into it in one go
-# [m]kdir and [c]d
-mc() {
+# "mkdir and cd"
+mnc() {
   mkdir -p "$@" && cd "$_"
 }
 
 # `cd` into a directory and `vi` in one go
-# [c]d and [v]i
-cv() {
+# "cd and vi"
+cnv() {
   if [[ -d "$1" ]]; then
     cd "$1" && vi
   else
@@ -86,7 +86,7 @@ cv() {
 }
 
 # Move a file from $HOME/Downloads to the current directory
-# [m]ove [f]rom [d]ownloads
+# "move from downloads"
 # Usage: `mfd filename` or `mfd "dirname"`
 mfd() {
   local src="$HOME/Downloads/$1"
@@ -114,4 +114,35 @@ y() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+# Run `pip install` safely
+# If the current directory has a Python virtual environment that's not activated, activate it first
+# Do not proceed if the virtual environment is not found to avoid global installs
+pip() {
+  if [[ "$1" == "install" ]]; then
+    if [[ -d ".venv" ]]; then
+      if [[ -z "$VIRTUAL_ENV" ]]; then
+        echo "Activating virtual environment first..."
+        source .venv/bin/activate
+      fi
+      command pip "$@" # Call the original pip command
+    else
+      echo "Error: No .venv directory found. Please create a virtual environment first."
+      return 1 # Exit with a non-zero status to indicate failure
+    fi
+  else
+    command pip "$@" # Call the original pip command for non-install commands
+  fi
+}
+
+# Run `npm run dev` safely
+# If the current directory has a Python virtual environment that's not activated, activate it first
+nrd() {
+  if [[ -d ".venv" && -z "$VIRTUAL_ENV" ]]; then
+    echo "Activating virtual environment first..."
+    source .venv/bin/activate
+  fi
+
+  npm run dev
 }

@@ -1,6 +1,7 @@
 # Aliases set here override those provided by Oh My Zsh libs, plugins, and themes
 
 alias zource="source $HOME/.zshrc"
+alias ag="alias | grep"
 
 # Personal directories
 alias sd="cd $HOME/dev/mskcc/smile-dashboard"
@@ -16,10 +17,10 @@ alias s="cd $HOME/scripts"
 
 # NeoVim
 alias vi='nvim'
-alias viz="cd && vi $HOME/.zshrc" # [vi] [z]shrc
-alias vizc="cd $HOME/zsh && vi" # [vi] [z]sh [c]onfig
-alias vivc="cd $HOME/nvim && vi" # [vi] neo[v]im [c]onfig
-alias vigc="vi $HOME/ghostty/config" # [vi] [g]hostty [c]onfig
+alias vizz="cd && vi $HOME/.zshrc"
+alias viz="cd $HOME/zsh && vi" # [vi] [z]sh config
+alias viv="cd $HOME/nvim && vi" # [vi] neo[v]im config
+alias vig="vi $HOME/ghostty/config" # [vi] [g]hostty config
 
 # python venv
 alias vinit='python3 -m venv .venv'
@@ -42,29 +43,22 @@ alias cl='config log --oneline --graph --all'
 alias ccmsg='config commit --message'
 alias ccam='config commit --all --message'
 alias 'ccan!'='config commit --all --no-edit --amend'
-alias 'ccn!'='config commit --no-edit --amend'
 alias cps='config push'
-alias co='config open'
+alias cop='config open'
 alias cb='config blame main --' # usage: cb <file>
 
 # Better ls
-alias ls='eza --icons --color=always --group-directories-first'
 alias l='eza -al --icons --color=always --group-directories-first'
-alias ll='eza -l --icons --color=always --group-directories-first'
-alias la='eza -a --icons --color=always --group-directories-first'
 alias lg='eza -al --icons --color=always --group-directories-first | grep'
 
 # History
 alias h='history'
 alias hg='history | grep'
-alias hgi='history | grep -i'
 
 # Miscellaneous
 alias yay='curl parrot.live'
 alias reload="exec ${SHELL} -l" # reload the shell, including login shell
 alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
 alias tp='trash-put' # safer rm, from andreafrancia/trash-cli
-alias nrd='npm run dev'
-alias cmx='chmod +x'
 alias bbd="brew bundle dump --describe --force --file=$HOME/homebrew/Brewfile"
 alias python='python3'
