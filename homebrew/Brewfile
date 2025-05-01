@@ -44,8 +44,6 @@ brew "go"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Mac App Store command-line interface
-brew "mas"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -159,18 +157,14 @@ cask "slack"
 cask "steam"
 # Native GUI tool for relational databases
 cask "tableplus"
+# Helper application for Things
+cask "thingsmacsandboxhelper"
 # Calling and messaging application focusing on security
 cask "viber"
 # Multimedia player
 cask "vlc"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "Amphetamine", id: 937984704
-mas "Bitwarden", id: 1352778147
-mas "iMovie", id: 408981434
-mas "Kindle", id: 302584613
-mas "Klack", id: 6446206067
-mas "Things", id: 904280696
 vscode "amazonwebservices.codewhisperer-for-command-line-companion"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-python.debugpy"

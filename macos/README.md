@@ -12,6 +12,7 @@ My personal MacOS settings and setup flow on a new machine.
     * [gpg](#gpg)
     * [pass](#pass)
     * [trash-cli](#trash-cli)
+  * [Mac App Store app installations](#mac-app-store-app-installations)
   * [GUI app configurations](#gui-app-configurations)
     * [License keys](#license-keys)
     * [Raycast](#raycast)
@@ -33,9 +34,8 @@ My personal MacOS settings and setup flow on a new machine.
 ## Update System Preferences
 
 > [!NOTE]
-> There is no automated script like [this nice one](https://github.com/mathiasbynens/dotfiles/blob/main/.macos)
-> because I don't set up a new MacOS machine often enough to warrant it.
-> Also: [Maybe Don't Bother Scripting Some macOS System Preferences](https://assert.cc/posts/maybe-dont-script-macos-prefs/).
+> Consider automating this process with a script like [this one](https://github.com/mathiasbynens/dotfiles/blob/main/.macos)
+> if I end up having to set up a new MacOS machine often.
 
 * Desktop & Dock
   * Dock
@@ -171,6 +171,21 @@ Add a cron job to auto delete files older that 30 days:
 
 This will update your crontab file with a `trash-empty` command that runs daily
 and removes files older than 30 days. To review your crontab, run `crontab -l`.
+
+### Mac App Store app installations
+
+Install the following apps from the Mac App Store:
+
+* Amphetamine
+* Bitwarden
+* iMovie
+* Kindle
+* Klack
+* Things
+
+> [!NOTE]
+> This process can be automated with `mas-cli`, but I found it to be buggy. To
+> revisit it if I have to set up a new MacOS machine often.
 
 ### GUI app configurations
 

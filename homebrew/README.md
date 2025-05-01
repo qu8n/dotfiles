@@ -5,14 +5,14 @@ can document existing packages and install them on a new machine with a single
 command.
 
 > [!IMPORTANT]
-> Apps, including custom fonts, should be installed when possible via `brew`,
-> `brew cask`, or `mas`. You can search if apps are available via `brew search`
-> and `mas search`. Only download apps from the official website or the App Store
-> if they are not available via `brew` or `mas`.
+> Apps, including custom fonts, should be installed when possible via `brew` or
+> `brew cask`. Search if apps are available via `brew search`. Only download apps
+> from the official website or the App Store if they are not available via `brew`.
 
 <!-- mtoc-start -->
 
 * [Usage guide](#usage-guide)
+  * [Updating Homebrew casks automatically](#updating-homebrew-casks-automatically)
   * [Exporting and importing Homebrew packages](#exporting-and-importing-homebrew-packages)
   * [Keeping Homebrew packages organized](#keeping-homebrew-packages-organized)
     * [Automatic cleanup](#automatic-cleanup)
@@ -22,6 +22,12 @@ command.
 <!-- mtoc-end -->
 
 ## Usage guide
+
+### Updating Homebrew casks automatically
+
+```zsh
+brew cu --all # update all casks, including those with auto-updates
+```
 
 ### Exporting and importing Homebrew packages
 
