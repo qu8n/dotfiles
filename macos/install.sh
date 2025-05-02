@@ -222,6 +222,8 @@ install_archived_app() {
   if [ -f "$rb_file" ]; then
     echo "Installing archived version of $app_name..."
     brew install --HEAD -s "$rb_file"
+    echo "Pinning this version of $app_name to prevent updates by `brew cu`..."
+    brew cu pin "$app_name"
   else
     echo "Error: Archived version file not found: $rb_file"
     return 1
