@@ -146,3 +146,19 @@ nrd() {
 
   npm run dev
 }
+
+# Run `git commit` with sign-off when working on work projects
+function git() {
+  if [[ "$1" == "commit" ]]; then
+    shift
+    # Check if we're in a path that includes 'mskcc/'
+    if [[ "$PWD" == */mskcc/* ]]; then
+      command git commit -s "$@"
+    else
+      command git commit "$@"
+    fi
+  else
+    # Forward all other git commands
+    command git "$@"
+  fi
+}
