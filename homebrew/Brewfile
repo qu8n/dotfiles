@@ -157,8 +157,6 @@ cask "slack"
 cask "steam"
 # Native GUI tool for relational databases
 cask "tableplus"
-# Helper application for Things
-cask "thingsmacsandboxhelper"
 # Calling and messaging application focusing on security
 cask "viber"
 # Multimedia player
