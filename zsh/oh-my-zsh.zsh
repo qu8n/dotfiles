@@ -26,8 +26,6 @@ plugins=(
   git
   # Isolate environment variables for each directory instead of global
   direnv
-  # Replace zsh's default completion selection menu with fzf
-  fzf-tab
 )
 
 # Make OMZ save zcompdump files inside $ZSH instead of littering $HOME

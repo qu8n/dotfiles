@@ -63,6 +63,7 @@ My personal MacOS settings and setup flow on a new machine.
 
 ### Login Items
 
+* Amazon Q
 * Amphetamine
 * BatFi
 * Bitwarden

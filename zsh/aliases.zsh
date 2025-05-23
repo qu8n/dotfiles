@@ -31,7 +31,7 @@ alias activate='source .venv/bin/activate'
 alias gl='git log --oneline --graph --all'
 alias gbda='git branch | grep -v "master" | grep -v "main" | xargs git branch -D'
 
-# For storing dotfiles in a bare git repository
+# dotfile management following the "Git Bare Repo" pattern
 # Source: https://www.atlassian.com/git/tutorials/dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias c='config'
@@ -39,6 +39,7 @@ alias cst='config status'
 alias cdf='config diff'
 alias ca='config add'
 alias crs='config restore'
+alias crst='config restore --staged'
 alias cl='config log --oneline --graph --all'
 alias ccmsg='config commit --message'
 alias ccam='config commit --all --message'
