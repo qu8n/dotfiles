@@ -111,3 +111,17 @@ function git() {
     command git "$@"
   fi
 }
+
+# Move a file from $HOME/Downloads to the current directory
+# "move from downloads"
+# Usage: `mfd filename` or `mfd "dirname"`
+mfd() {
+  local src="$HOME/Downloads/$1"
+  if [[ -e "$src" ]]; then
+    mv "$src" .
+    echo "Moved $1 to $(pwd)"
+  else
+    echo "Error: '$1' not found in $HOME/Downloads" >&2
+    return 1
+  fi
+}
