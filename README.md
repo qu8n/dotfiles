@@ -4,7 +4,7 @@ My development environment configuration files, scripts, and tools on macOS.
 
 ## Features
 
-![screenshot](https://i.postimg.cc/DyRmkZhv/Clean-Shot-2025-05-23-at-18-59-56.jpg)
+![screenshot](https://i.postimg.cc/66sY5bdR/Clean-Shot-2025-05-25-at-08-26-53.jpg)
 
 Selected features:
 
