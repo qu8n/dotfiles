@@ -157,8 +157,9 @@ create_symlink() {
 }
 
 create_symlink ~/nvim ~/.config/nvim
-create_symlink ~/keyboard/karabiner-elements/ ~/.config/karabiner
+create_symlink ~/keyboard/karabiner-elements ~/.config/karabiner
 create_symlink ~/ghostty ~/.config/ghostty
+create_symlink ~/bat ~/.config/bat
 
 echo
 echo "------------------------------------------------------------"
@@ -262,6 +263,9 @@ cat > ~/Library/KeyBindings/DefaultKeyBinding.dict << EOF
     "@^\\UF703" = "noop:";
 }
 EOF
+
+# Rebuild the bat cache to include custom themes in ~/.config/bat/themes
+bat cache --build
 
 echo
 echo "------------------------------------------------------------"

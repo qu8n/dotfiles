@@ -3,11 +3,18 @@ tap "gromgit/fuse"
 tap "homebrew/bundle"
 tap "jesseduffield/lazygit"
 tap "nats-io/nats-tools"
+tap "osx-cross/arm"
+tap "osx-cross/avr"
 tap "potatolabs/git-redate"
+tap "qmk/qmk"
 # General-purpose data compression with high compression ratio
 brew "xz"
+# Distributed revision control system
+brew "git"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # Modern, maintained replacement for ls
@@ -26,8 +33,6 @@ brew "fzf"
 brew "gawk"
 # GitHub command-line tool
 brew "gh"
-# Distributed revision control system
-brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Git extension for versioning large files
@@ -44,6 +49,8 @@ brew "go"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# International domain name library
+brew "libidn"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -74,16 +81,14 @@ brew "trash-cli"
 brew "unzip"
 # Internet file retriever
 brew "wget"
-# Blazing fast terminal file manager written in Rust, based on async I/O
-brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# File system client based on SSH File Transfer Protocol
-brew "gromgit/fuse/sshfs-mac"
 # NATS utility
 brew "nats-io/nats-tools/nats"
 # Change the dates of several git commits with a single command
 brew "potatolabs/git-redate/git-redate"
+# Quantum Mechanical Keyboard (QMK) Firmware
+brew "qmk/qmk/qmk"
 # AI-powered productivity tool for the command-line
 cask "amazon-q"
 # Memory training application

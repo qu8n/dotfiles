@@ -63,3 +63,4 @@ alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
 alias tp='trash-put' # safer rm, from andreafrancia/trash-cli
 alias bbd="brew bundle dump --describe --force --file=$HOME/homebrew/Brewfile"
 alias python='python3'
+alias cat='bat' # cat clone with syntax highlighting
