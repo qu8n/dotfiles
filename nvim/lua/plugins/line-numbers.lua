@@ -1,7 +1,6 @@
 -- Display both absolute and relative line numbers
 return {
-  "qu8n/line-numbers.nvim",
-  branch = "add-current-line-highlight",
+  "shrynx/line-numbers.nvim",
   opts = {
     abs_highlight = { fg = "#B2B2B2" },
     current_abs_highlight = { bold = true },

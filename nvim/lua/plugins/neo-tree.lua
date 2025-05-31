@@ -1,6 +1,12 @@
 -- Add custom configs to the built-in file explorer plugin
 return {
-  "neo-tree.nvim",
+  "nvim-neo-tree/neo-tree.nvim",
+  -- Disable these quick access keys for Oil's usage instead
+  -- Can still be accessed via <leader>fe and <leader>fE
+  keys = {
+    { "<leader>e", false },
+    { "<leader>E", false },
+  },
   opts = {
     window = { position = "left" },
     filesystem = {
