@@ -57,6 +57,7 @@ alias h='history'
 alias hg='history | grep'
 
 # Miscellaneous
+alias eg='env | grep'
 alias yay='curl parrot.live'
 alias reload="exec ${SHELL} -l" # reload the shell, including login shell
 alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
