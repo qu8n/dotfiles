@@ -7,7 +7,7 @@ return {
   opts = {
     provider = "claude", -- set default provider (defaults to claude)
     -- Custom providers
-    vendors = {
+    providers = {
       -- To set up a local model server with LM Studio, open the app > Developer
       -- > select the model > Command + R to start the server
       -- Suggestion: click on the Load tab, then increase the context length
@@ -18,6 +18,9 @@ return {
         endpoint = "http://localhost:1234/v1",
         model = "deepseek-coder-v2-lite-instruct-mlx:16b",
       },
+      claude = {
+        disable_tools = true,
+      }
     },
     -- OpenAI example
     -- openai = {

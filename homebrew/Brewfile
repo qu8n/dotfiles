@@ -97,8 +97,6 @@ cask "anki"
 cask "balenaetcher"
 # App for managing battery charging
 cask "batfi"
-# Web browser focusing on privacy
-cask "brave-browser"
 # Screen capturing tool
 cask "cleanshot"
 # Block websites, games and applications

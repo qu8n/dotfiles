@@ -17,7 +17,7 @@ My personal MacOS settings and setup flow on a new machine.
     * [License keys](#license-keys)
     * [Raycast](#raycast)
     * [Amphetamine](#amphetamine)
-    * [Brave](#brave)
+    * [Google Drive](#google-drive)
     * [Homerow](#homerow)
     * [Ice](#ice)
     * [Logi Options+](#logi-options)
@@ -63,11 +63,14 @@ My personal MacOS settings and setup flow on a new machine.
 
 ### Login Items
 
+Enable the following apps to launch at login/startup:
+
 * Amazon Q
 * Amphetamine
 * BatFi
 * Bitwarden
 * CleanShot X
+* Google Drive
 * Homerow
 * Ice
 * Karabiner-Elements
@@ -234,24 +237,13 @@ Enable the following in Settings:
 * Statistics
   * Disable "Enable statistics collection"
 
-#### Brave
+#### Google Drive
 
-* Replace the default profile folder with backup
-  * Drop in the backup Brave profile folders from Google Drive for Desktop into
-`~/Library/Application\ Support/BraveSoftware/Brave-Browser/`
-  * Set up the backing up of Brave profile(s) via Google Drive for Desktop by
-syncing the corresponding profile folder(s) at `~/Library/Application\ Support/BraveSoftware/Brave-Browser/`
-  * Note: On the source machine, to see which folder to sync for a profile, go
-to `brave://version/` and look for the `Profile Path`
-* Sync profile using Brave's Sync Chain
-  * Follow the steps [here](https://support.brave.com/hc/en-us/articles/360021218111-How-do-I-set-up-Sync)
-  * Note: Initialize the sync chain with the source machine
-
-> [!NOTE]
-> We use both syncing methods above because neither method is perfect. After testing
-> separately, the first method resulted in missing extensions, while the second
-> method resulted in missing settings. Doing both seems to be the best way to
-> ensure everything is synced.
+1. Sign in with my personal Google account & open Preferences
+2. From the local machine, sync the "Documents" folder to Google Drive
+3. From Google Drive, opt for the "Stream files" option
+4. Settings > Turn off "Prompt me to back up devices"
+5. Let the app sync in the background
 
 #### Homerow
 
