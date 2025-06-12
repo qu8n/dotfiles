@@ -113,7 +113,7 @@ cask "docker"
 cask "firefox"
 cask "font-symbols-only-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
+cask "ghostty@tip"
 # Web browser
 cask "google-chrome"
 # Client for the Google Drive storage service
@@ -136,8 +136,6 @@ cask "logitune"
 cask "lunar"
 # File system integration
 cask "macfuse"
-# Speech recognition tool
-cask "macwhisper"
 # Free and open-source RSS reader
 cask "netnewswire"
 # Knowledge base that works on top of a local folder of plain text Markdown files
@@ -164,6 +162,8 @@ cask "tableplus"
 cask "viber"
 # Multimedia player
 cask "vlc"
+# AI-powered app for recording, transcribing and summarising voice notes
+cask "voicenotes"
 # Video communication and virtual meeting platform
 cask "zoom"
 vscode "amazonwebservices.codewhisperer-for-command-line-companion"

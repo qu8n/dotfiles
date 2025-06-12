@@ -50,6 +50,9 @@ keybind = shift+down=scroll_page_lines:50
 # Disable popups that show the size of the terminal
 resize-overlay = never
 
+# Open new Ghostty windows in a maximized state
+maximize = true
+
 split-divider-color = #323437
 
 # --------------------------------------------------------------------
