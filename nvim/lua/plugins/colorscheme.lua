@@ -1,5 +1,5 @@
+-- Add external colorschemes
 return {
-  -- Add external colorschemes
   {
     "Mofiqul/vscode.nvim",
   },

@@ -1,3 +1,4 @@
+-- GitHub Copilot plugin configuration
 return {
   "zbirenbaum/copilot.lua",
   opts = {

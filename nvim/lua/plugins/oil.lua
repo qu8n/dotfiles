@@ -1,7 +1,9 @@
+-- Vim-like file explorer
 return {
   "stevearc/oil.nvim",
   keys = {
-    { "<leader>e", "<cmd>Oil<cr>", desc = "Open Oil" },
+    -- Open Oil with preview and float modes pre-enabled
+    { "<leader>e", "<cmd>Oil --preview --float<cr>", desc = "Open Oil" },
   },
   opts = {
     default_file_explorer = true,
