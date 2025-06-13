@@ -1,4 +1,7 @@
 -- Emulate the behavior of the Cursor IDE
+-- Tips:
+-- * Press `ct` quickly to accept Avante's suggestion
+-- * Type `@codebase` in chat to include the entire codebase in the context
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
