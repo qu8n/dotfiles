@@ -15,6 +15,7 @@ My personal MacOS settings and setup flow on a new machine.
   * [Mac App Store app installations](#mac-app-store-app-installations)
   * [GUI app configurations](#gui-app-configurations)
     * [License keys](#license-keys)
+    * [Amazon Q](#amazon-q)
     * [Raycast](#raycast)
     * [Amphetamine](#amphetamine)
     * [Google Drive](#google-drive)
@@ -73,14 +74,14 @@ Enable the following apps to launch at login/startup:
 * Google Drive
 * Homerow
 * Ice
-* Karabiner-Elements
 * Logi Options+
 * Logi Tune
-* MacWhisper
+* NetNewsWire
 * Raycast
 * Rectangle
 * Things
 * Things Helper
+* Voicenotes
 
 ## Install software
 
@@ -203,6 +204,11 @@ Enter license keys found in my password manager for the following apps:
 * Replacicon
 * Screen Studio
 * TablePlus
+
+#### Amazon Q
+
+Go to CLI Completions > Developer section, (1) enable "Dev mode" and (2) set the
+"Specs folder" to `~/amazon-q/autocomplete/build`
 
 #### Raycast
 
