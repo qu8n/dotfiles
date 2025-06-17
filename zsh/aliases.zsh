@@ -1,7 +1,6 @@
 # Aliases set here override those provided by Oh My Zsh libs, plugins, and themes
 
 alias zource="source $HOME/.zshrc"
-alias ag="alias | grep"
 
 # Personal directories
 alias sd="cd $HOME/dev/mskcc/smile-dashboard"
@@ -11,9 +10,6 @@ alias smp="cd $HOME/dev/mskcc/smile-message-publisher"
 alias sconf="cd $HOME/dev/mskcc/smile-configuration"
 alias su="cd $HOME/dev/mskcc/smile-utils"
 alias sc="cd $HOME/dev/mskcc/smile-commons"
-alias nconf="cd $HOME/nvim"
-alias zconf="cd $HOME/zsh"
-alias s="cd $HOME/scripts"
 
 # NeoVim
 alias vi='nvim'
@@ -48,17 +44,16 @@ alias cps='config push'
 alias cop='config open'
 alias cb='config blame main --' # usage: cb <file>
 
-# Better ls
-alias l='eza -al --icons --color=always --group-directories-first'
+# Quick greps
 alias lg='eza -al --icons --color=always --group-directories-first | grep'
-
-# History
-alias h='history'
+alias eg='env | grep'
+alias ag="alias | grep"
 alias hg='history | grep'
+alias brg='brew list --versions | grep'
 
 # Miscellaneous
-alias eg='env | grep'
-alias brg='brew list --versions | grep'
+alias l='eza -al --icons --color=always --group-directories-first'
+alias h='history'
 alias yay='curl parrot.live'
 alias reload="exec ${SHELL} -l" # reload the shell, including login shell
 alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables

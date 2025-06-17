@@ -26,6 +26,7 @@ My personal MacOS settings and setup flow on a new machine.
     * [MacWhisper](#macwhisper)
     * [NetNewsWire](#netnewswire)
     * [Rectangle](#rectangle)
+    * [Voicenotes](#voicenotes)
 * [Diagnostics](#diagnostics)
   * [dotfiles](#dotfiles)
   * [Ghostty](#ghostty)
@@ -299,6 +300,15 @@ Sync to the cloud by going to Settings > Accounts > + > iCloud.
 #### Rectangle
 
 Import the config from `rectangle/` by going to `Rectangle > Preferences > Import`.
+
+#### Voicenotes
+
+Set the following hotkeys in the app settings:
+
+* `Alt + Q` for recording meeting (like Vim's `q` command to start recording)
+* `Alt + O` for recording note
+* `Alt + X` to stop recording
+* `Right Cmd + Right Ctrl` for dictation
 
 ## Diagnostics
 

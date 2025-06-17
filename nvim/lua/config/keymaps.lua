@@ -63,7 +63,7 @@ vim.keymap.set(
 )
 
 -- Open Neotree position for the current Nvim session
-vim.keymap.set("n", "<leader>fw", "<Nop>", { desc = "Open Neotree by position" })
+vim.keymap.set("n", "<leader>fN", "<Nop>", { desc = "Open Neotree by position" })
 vim.keymap.set(
   "n",
   "<leader>fwf",
@@ -84,3 +84,6 @@ vim.keymap.set("n", "<leader>xv", function()
   local config = vim.diagnostic.config() or {}
   vim.diagnostic.config({ virtual_lines = not config.virtual_lines })
 end, { desc = "Toggle Virtual Lines" })
+
+-- Delete all buffers
+vim.keymap.set("n", "<leader>ba", ":%bd<CR>", { desc = "Delete all buffers" })
