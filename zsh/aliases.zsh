@@ -51,12 +51,15 @@ alias ag="alias | grep"
 alias hg='history | grep'
 alias brg='brew list --versions | grep'
 
-# Miscellaneous
+# Shortcuts for common commands
+alias tp='trash-put' # safer rm
 alias l='eza -al --icons --color=always --group-directories-first'
 alias h='history'
+alias python='python3'
+alias cat='bat' # cat clone with syntax highlighting
+
+# Miscellaneous
 alias yay='curl parrot.live'
 alias reload="exec ${SHELL} -l" # reload the shell, including login shell
 alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
 alias bbd="brew bundle dump --describe --force --file=$HOME/homebrew/Brewfile"
-alias python='python3'
-alias cat='bat' # cat clone with syntax highlighting

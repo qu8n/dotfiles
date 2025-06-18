@@ -17,3 +17,7 @@ to create a new spec and build it.
 
 3. In the Amazon Q GUI > CLI Completions > Developer section, (1) enable "Dev
 mode" and (2) set the "Specs folder" to this directory's `build` sub-directory.
+
+> [!NOTE]
+> To enable completions for a shell alias, take the `tp` alias for command
+> `trash-put` as an example, build the specs for both `tp` and `trash-put`.
