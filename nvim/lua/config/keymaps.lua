@@ -2,17 +2,14 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- AI tools
-vim.keymap.set({ "n", "v" }, "<leader>a", "<Nop>", { desc = "AI Assistant" })
-vim.keymap.set("n", "<leader>aH", ":AvanteClear<CR>", { desc = "avante: clear chat history" })
 -- Copilot toggle
-vim.keymap.set("n", "<leader>ap", function()
+vim.keymap.set("n", "<leader>a", function()
   if require("copilot.client").is_disabled() then
     require("copilot.command").enable()
   else
     require("copilot.command").disable()
   end
-end, { desc = "copilot: toggle" })
+end, { desc = "Toggle Copilot AI" })
 
 -- Copy file path to clipboard (relative)
 vim.api.nvim_create_user_command("CopyRelPath", function()
