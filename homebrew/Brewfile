@@ -1,6 +1,7 @@
 tap "buo/cask-upgrade"
 tap "gromgit/fuse"
 tap "homebrew/bundle"
+tap "homebrew/cask"
 tap "jesseduffield/lazygit"
 tap "nats-io/nats-tools"
 tap "osx-cross/arm"
@@ -61,6 +62,8 @@ brew "tree"
 brew "pass"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Fast, disk space efficient package manager
+brew "pnpm"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Protocol buffers (Google's data interchange format)

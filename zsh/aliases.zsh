@@ -44,19 +44,19 @@ alias cps='config push'
 alias cop='config open'
 alias cb='config blame main --' # usage: cb <file>
 
-# Quick greps
-alias lg='eza -al --icons --color=always --group-directories-first | grep'
-alias eg='env | grep'
-alias ag="alias | grep"
-alias hg='history | grep'
-alias brg='brew list --versions | grep'
-
 # Shortcuts for common commands
 alias tp='trash-put' # safer rm
 alias l='eza -al --icons --color=always --group-directories-first'
 alias h='history'
 alias python='python3'
 alias cat='bat' # cat clone with syntax highlighting
+
+# Quick greps
+alias lg='eza -al --icons --color=always --group-directories-first | grep'
+alias eg='env | grep'
+alias ag="alias | grep"
+alias hg='history | grep'
+alias brg='brew list --versions | grep'
 
 # Miscellaneous
 alias yay='curl parrot.live'

@@ -20,6 +20,8 @@ My development environment configuration files, scripts, and tools on macOS.
 * Start search forward on current word: `*`
 * Start search backward on current word: `#`
 * Toggle `flash.nvim` labels during search `/`: `Ctrl + s`
+* Search through previous commands: `q:` or `<leader>sc` (LazyVim)
+* Search through previous searches: `q/`
 
 #### Editing
 
@@ -33,8 +35,8 @@ My development environment configuration files, scripts, and tools on macOS.
 * Remove characters inside brackets or quotes: `ci(`, `ci"`, etc.
   * Apply similar operations with [d]elete and [y]ank
 * Add surrounding characters (normal and visual modes):
-  * For the word under the cursor: `gsaiw + <char>`
-  * For the visually selected text: `gsa + <char>`
+  * For the word under the cursor: `gs + aiw + <char>`
+  * For the visually selected text: `gs + a + <char>`
   * When adding brackets, use the closing bracket (e.g. `)`) to avoid
   adding space around the selection
 

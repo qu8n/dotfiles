@@ -2,29 +2,22 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- Copilot toggle
-vim.keymap.set("n", "<leader>a", function()
+-- AI
+vim.keymap.set("n", "<leader>a", "<Nop>", { desc = "AI" })
+vim.keymap.set("n", "<leader>ac", function()
   if require("copilot.client").is_disabled() then
     require("copilot.command").enable()
   else
     require("copilot.command").disable()
   end
-end, { desc = "Toggle Copilot AI" })
+end, { desc = " Toggle Copilot AI" })
+vim.keymap.set("n", "<leader>aC", function()
+  local cwd = vim.fn.getcwd()
+  local cmd = "open -a Cursor " .. cwd
+  vim.fn.system(cmd)
+end, { desc = " Open cwd in Cursor" })
 
--- Copy file path to clipboard (relative)
-vim.api.nvim_create_user_command("CopyRelPath", function()
-  local rel_path = vim.fn.expand("%:.") -- Get relative file path
-  vim.fn.setreg("+", rel_path) -- Copy to system clipboard
-  print("Copied: " .. rel_path) -- Optional: Display message
-end, {})
-vim.keymap.set(
-  "n",
-  "<leader>fp",
-  ":CopyRelPath<CR>",
-  { noremap = true, silent = true, desc = "pbcopy RELATIVE File Path" }
-)
-
--- Copy file path to clipboard (absolute)
+-- Copy file path/name to clipboard
 vim.api.nvim_create_user_command("CopyFullPath", function()
   local full_path = vim.fn.expand("%:p") -- Get full file path
   vim.fn.setreg("+", full_path) -- Copy to system clipboard
@@ -32,44 +25,30 @@ vim.api.nvim_create_user_command("CopyFullPath", function()
 end, {})
 vim.keymap.set(
   "n",
-  "<leader>fP",
+  "<leader>f0",
   ":CopyFullPath<CR>",
-  { noremap = true, silent = true, desc = "pbcopy ABSOLUTE File Path" }
+  { noremap = true, silent = true, desc = "Copy to clipboard: absolute file path" }
 )
-
--- Copy current file name to clipboard
+vim.api.nvim_create_user_command("CopyRelPath", function()
+  local rel_path = vim.fn.expand("%:.") -- Get relative file path
+  vim.fn.setreg("+", rel_path) -- Copy to system clipboard
+  print("Copied: " .. rel_path) -- Optional: Display message
+end, {})
 vim.keymap.set(
   "n",
-  "<leader>fm",
-  ":!echo %:t | pbcopy<CR>",
-  { noremap = true, silent = true, desc = "pbcopy File Name" }
+  "<leader>f1",
+  ":CopyRelPath<CR>",
+  { noremap = true, silent = true, desc = "Copy to clipboard: relative file path" }
 )
-
--- Copy visually highlighted text to clipboard
-vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy to Clipboard" })
+vim.keymap.set(
+  "n",
+  "<leader>f2",
+  ":!echo %:t | pbcopy<CR>",
+  { noremap = true, silent = true, desc = "Copy to clipboard: file name" }
+)
 
 -- Escape toggleterm's Terminal mode (in order to split with 2 + Ctrl + /)
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
-
--- Toggle git blame via Blamer.nvim
-vim.keymap.set(
-  "n",
-  "<leader>cb",
-  ":BlamerToggle<CR>",
-  { noremap = true, silent = true, desc = "Toggle Blame Message (blamer.nvim)" }
-)
-
--- Open Neotree position for the current Nvim session
-vim.keymap.set("n", "<leader>fN", "<Nop>", { desc = "Open Neotree by position" })
-vim.keymap.set(
-  "n",
-  "<leader>fwf",
-  ":Neotree position=float<CR>",
-  { noremap = true, silent = true, desc = "Float (Default)" }
-)
-vim.keymap.set("n", "<leader>fwl", ":Neotree position=left<CR>", { noremap = true, silent = true, desc = "Left" })
-vim.keymap.set("n", "<leader>fwr", ":Neotree position=right<CR>", { noremap = true, silent = true, desc = "Right" })
-vim.keymap.set("n", "<leader>fwu", ":Neotree position=current<CR>", { noremap = true, silent = true, desc = "Full" })
 
 -- Toggle cursor centering
 vim.keymap.set("n", "<leader>uo", function()
@@ -83,4 +62,4 @@ vim.keymap.set("n", "<leader>xv", function()
 end, { desc = "Toggle Virtual Lines" })
 
 -- Delete all buffers
-vim.keymap.set("n", "<leader>ba", ":%bd<CR>", { desc = "Delete all buffers" })
+vim.keymap.set("n", "<leader>ba", ":%bd<CR>", { desc = "Delete All Buffers" })
