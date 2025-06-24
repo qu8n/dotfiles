@@ -21,7 +21,7 @@ return {
           "package-lock.json",
         },
         -- Do not show these files/folders at all
-        never_show = { ".git" },
+        never_show = { ".git", ".DS_Store" },
       },
     },
   },

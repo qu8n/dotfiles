@@ -46,7 +46,7 @@ alias cb='config blame main --' # usage: cb <file>
 
 # Shortcuts for common commands
 alias tp='trash-put' # safer rm
-alias l='eza -al --icons --color=always --group-directories-first'
+alias l='eza -al --icons --color=always --group-directories-first | grep -v .DS_Store'
 alias h='history'
 alias python='python3'
 alias cat='bat' # cat clone with syntax highlighting
