@@ -4,14 +4,19 @@
 
 -- AI
 vim.keymap.set("n", "<leader>a", "<Nop>", { desc = "AI" })
-vim.keymap.set("n", "<leader>ac", function()
+-- CodeCompanion
+vim.keymap.set("v", "<leader>C", ":'<,'>CodeCompanion", { desc = " CodeCompanion Inline Assistant" })
+vim.keymap.set("n", "<leader>ac", ":CodeCompanionChat", { desc = " CodeCompanion Chat" })
+-- Copilot
+vim.keymap.set("n", "<leader>ap", function()
   if require("copilot.client").is_disabled() then
     require("copilot.command").enable()
   else
     require("copilot.command").disable()
   end
 end, { desc = " Toggle Copilot AI" })
-vim.keymap.set("n", "<leader>aC", function()
+-- Cursor
+vim.keymap.set("n", "<leader>ar", function()
   local cwd = vim.fn.getcwd()
   local cmd = "open -a Cursor " .. cwd
   vim.fn.system(cmd)
