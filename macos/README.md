@@ -15,6 +15,7 @@ My personal MacOS settings and setup flow on a new machine.
   * [Mac App Store app installations](#mac-app-store-app-installations)
   * [GUI app configurations](#gui-app-configurations)
     * [License keys](#license-keys)
+    * [AirBuddy](#airbuddy)
     * [Amazon Q](#amazon-q)
     * [Raycast](#raycast)
     * [Amphetamine](#amphetamine)
@@ -67,6 +68,7 @@ My personal MacOS settings and setup flow on a new machine.
 
 Enable the following apps to launch at login/startup:
 
+* AirBuddy
 * Amazon Q
 * Amphetamine
 * BatFi
@@ -199,12 +201,23 @@ Install the following apps from the Mac App Store:
 
 Enter license keys found in my password manager for the following apps:
 
+* AirBuddy
 * BatFi
 * CleanShot X
 * Cold Turkey Blocker
 * Replacicon
 * Screen Studio
 * TablePlus
+
+#### AirBuddy
+
+Go to Settings > Devices > Double-click on each device > Battery Alerts >
+Low Battery > Enable these options:
+
+* Notify me when battery goes below: 10%
+* Notification type: "Standard macOS Notification"
+
+In System Preferences > Notifications > AirBuddyHelper > toggle the "Alerts" option.
 
 #### Amazon Q
 

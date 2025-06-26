@@ -1,7 +1,6 @@
 tap "buo/cask-upgrade"
 tap "gromgit/fuse"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "jesseduffield/lazygit"
 tap "nats-io/nats-tools"
 tap "osx-cross/arm"
@@ -92,6 +91,8 @@ brew "nats-io/nats-tools/nats"
 brew "potatolabs/git-redate/git-redate"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
+# AirPods companion app
+cask "airbuddy"
 # AI-powered productivity tool for the command-line
 cask "amazon-q"
 # Memory training application
@@ -105,13 +106,13 @@ cask "cleanshot"
 # Block websites, games and applications
 cask "cold-turkey-blocker"
 # Track and budget money
-cask "copilot"
+cask "copilot-money"
 # Write, edit, and chat about your code with AI
 cask "cursor"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerised applications and microservices
-cask "docker"
+cask "docker-desktop"
 # Web browser
 cask "firefox"
 cask "font-symbols-only-nerd-font"
@@ -163,25 +164,12 @@ cask "steam"
 cask "tableplus"
 # Calling and messaging application focusing on security
 cask "viber"
+# Open-source code editor
+cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
 # AI-powered app for recording, transcribing and summarising voice notes
 cask "voicenotes"
 # Video communication and virtual meeting platform
 cask "zoom"
-vscode "amazonwebservices.codewhisperer-for-command-line-companion"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-vscode-remote.remote-containers"
-vscode "redhat.java"
-vscode "visualstudioexptteam.intellicode-api-usage-examples"
-vscode "visualstudioexptteam.vscodeintellicode"
-vscode "vscjava.vscode-gradle"
-vscode "vscjava.vscode-java-debug"
-vscode "vscjava.vscode-java-dependency"
-vscode "vscjava.vscode-java-pack"
-vscode "vscjava.vscode-java-test"
-vscode "vscjava.vscode-maven"
-vscode "vscodevim.vim"
+vscode "ms-vsliveshare.vsliveshare"
