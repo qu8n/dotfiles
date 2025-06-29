@@ -33,7 +33,7 @@ My development environment configuration files, scripts, and tools on macOS.
 #### Vim Surround (via `mini-surround`)
 
 * Remove characters inside brackets or quotes: `ci(`, `ci"`, etc.
-  * Apply similar operations with [d]elete and [y]ank
+  * Apply similar operations with `[d]elete` and `[y]ank`
 * Add surrounding characters (normal and visual modes):
   * For the word under the cursor: `gs + aiw + <char>`
   * For the visually selected text: `gs + a + <char>`

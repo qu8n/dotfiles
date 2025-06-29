@@ -5,8 +5,8 @@
 -- AI
 vim.keymap.set("n", "<leader>a", "<Nop>", { desc = "AI" })
 -- CodeCompanion
-vim.keymap.set("v", "<leader>C", ":'<,'>CodeCompanion", { desc = " CodeCompanion Inline Assistant" })
-vim.keymap.set("n", "<leader>ac", ":CodeCompanionChat", { desc = " CodeCompanion Chat" })
+vim.keymap.set("v", "<leader>C", ":'<,'>CodeCompanion<CR>", { desc = " CodeCompanion Inline Assistant" })
+vim.keymap.set("n", "<leader>ac", ":CodeCompanionChat<CR>", { desc = " CodeCompanion Chat" })
 -- Copilot
 vim.keymap.set("n", "<leader>ap", function()
   if require("copilot.client").is_disabled() then

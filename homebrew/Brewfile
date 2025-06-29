@@ -140,6 +140,8 @@ cask "logitune"
 cask "lunar"
 # File system integration
 cask "macfuse"
+# Speech recognition tool
+cask "macwhisper"
 # Free and open-source RSS reader
 cask "netnewswire"
 # Knowledge base that works on top of a local folder of plain text Markdown files

@@ -79,12 +79,12 @@ Enable the following apps to launch at login/startup:
 * Ice
 * Logi Options+
 * Logi Tune
+* MacWhisper
 * NetNewsWire
 * Raycast
 * Rectangle
 * Things
 * Things Helper
-* Voicenotes
 
 ## Install software
 
@@ -299,12 +299,17 @@ Set each monitor's brightness and contrast to 70% and 75%, respectively.
 
 #### MacWhisper
 
-Update the app settings > Dictation as follows:
+Update the app settings as follows:
 
-* Enable "Dictation"
-* Set "Custom Keyboard Button" as "Custom"
-* Set "Custom Keyboard Shortcut" as `Shift + Command + ;`
-* Enable "Play Dictation Sounds"
+* General
+  * App visibility mode: "Menubar Only"
+* Dictation
+  * Custom Keyboard Button: "Custom"
+  * Custom Keyboard Shortcut: `Command + ;`
+  * Activation Mode: "Push to Talk"
+  * Enable "Play Dictation Sounds"
+* Advanced
+  * Analytics > Disable "Send Anonymous Analytics"
 
 #### NetNewsWire
 
