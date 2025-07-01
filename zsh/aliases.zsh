@@ -22,13 +22,11 @@ alias vig="vi $HOME/ghostty/config" # [vi] [g]hostty config
 alias vinit='python3 -m venv .venv'
 alias activate='source .venv/bin/activate'
 
-# Git
-# See oh-my-zsh git plugin's aliases before adding anything here: `alias | grep git`
+# Git (See oh-my-zsh git plugin's aliases before adding anything here with `alias | grep git`)
 alias gl='git log --oneline --graph --all'
 alias gbda='git branch | grep -v "master" | grep -v "main" | xargs git branch -D'
 
-# dotfile management following the "Git Bare Repo" pattern
-# Source: https://www.atlassian.com/git/tutorials/dotfiles
+# dotfile management following the "Git Bare Repo" pattern (atlassian.com/git/tutorials/dotfiles)
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias c='config'
 alias cst='config status'
@@ -46,8 +44,9 @@ alias cb='config blame main --' # usage: cb <file>
 
 # Shortcuts for common commands
 alias tp='trash-put' # safer rm
-alias l='eza -al --icons --color=always --group-directories-first | grep -v .DS_Store'
+alias l='eza -al --icons --color=always --group-directories-first'
 alias h='history'
+alias py='python3'
 alias python='python3'
 alias cat='bat' # cat clone with syntax highlighting
 
@@ -60,6 +59,5 @@ alias brg='brew list --versions | grep'
 
 # Miscellaneous
 alias yay='curl parrot.live'
-alias reload="exec ${SHELL} -l" # reload the shell, including login shell
 alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
 alias bbd="brew bundle dump --describe --force --file=$HOME/homebrew/Brewfile"

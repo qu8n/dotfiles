@@ -5,8 +5,8 @@ function cstf() {
 }
 
 # List files in a tree-like structure
+# Defaults to 3 levels deep, do more with `t <depth>` (e.g. `t 5`)
 function t() {
-  # Defaults to 3 levels deep, do more with e.g. `t 5`
   tree -I '.git|node_modules|.DS_Store' --dirsfirst --filelimit 30 -L ${1:-3} -aC $2
 }
 
@@ -113,7 +113,7 @@ function git() {
 }
 
 # Move a file from $HOME/Downloads to the current directory
-# "move from downloads"
+# "[m]ove [f]rom [d]ownloads"
 # Usage: `mfd filename` or `mfd "dirname"`
 function mfd() {
   local src="$HOME/Downloads/$1"

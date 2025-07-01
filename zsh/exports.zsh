@@ -1,7 +1,7 @@
 # System
 export EDITOR=nvim
 
-# avante.nvim
+# LLM APIs
 export OPENAI_API_KEY=$(pass APIKey/OpenAI)
 export ANTHROPIC_API_KEY=$(pass APIKey/Anthropic)
 export TAVILY_API_KEY=$(pass APIKey/Tavily)

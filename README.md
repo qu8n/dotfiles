@@ -6,6 +6,18 @@ My development environment configuration files, scripts, and tools on macOS.
 
 ## Shortcuts Cheatsheet
 
+### Terminal
+
+* Reference the argument of the previous command: `$!`
+  * e.g. Run `touch file.txt` and then run `cat $!` => `cat file.txt`
+* Reference the argument of the previous chain command: `$_`
+  * e.g. Run `touch file.txt && cat $_` to create and display the file
+* Search through previous commands: `Ctrl + r`
+* Delete previous word: `Ctrl + w`
+* Move cursor to the beginning of the line: `Ctrl + a`
+* Move cursor to the end of the line: `Ctrl + e`
+* Clear terminal screen: `Cmd + k`
+
 ### Vim / NeoVim / LazyVim
 
 #### Navigation
