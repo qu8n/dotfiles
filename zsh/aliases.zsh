@@ -17,6 +17,7 @@ alias vizz="cd && vi $HOME/.zshrc"
 alias viz="cd $HOME/zsh && vi" # [vi] [z]sh config
 alias viv="cd $HOME/nvim && vi" # [vi] neo[v]im config
 alias vig="vi $HOME/ghostty/config" # [vi] [g]hostty config
+alias vik="NVIM_APPNAME=kickstart-nvim nvim" # [vi] [k]ickstart
 
 # python venv
 alias vinit='python3 -m venv .venv'
@@ -61,3 +62,4 @@ alias brg='brew list --versions | grep'
 alias yay='curl parrot.live'
 alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
 alias bbd="brew bundle dump --describe --force --file=$HOME/homebrew/Brewfile"
+alias cld="claude"

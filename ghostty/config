@@ -55,6 +55,9 @@ maximize = true
 
 split-divider-color = #323437
 
+# Recommended settings for Claude Code
+keybind = shift+enter=text:\n
+
 # --------------------------------------------------------------------
 # TEMPORARY WORKAROUNDS FOR CURRENT ISSUES
 # --------------------------------------------------------------------
