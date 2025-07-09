@@ -1,36 +1,54 @@
--- Add custom configs to the built-in file picker plugin
--- Source: https://www.reddit.com/r/neovim/comments/1hhiidm/a_few_nice_fzflua_configurations_now_that_lazyvim
+-- Fuzzy find files, buffers, git commits, etc.
+-- https://github.com/ibhagwan/fzf-lua
+
+local fzf_keymaps = {
+  ['<leader>'] = { sub_cmd = 'files cwd=.', desc = 'Search files' },
+  -- Search
+  sb = { sub_cmd = 'buffers sort_mru=true sort_lastused=true', desc = '[B]uffers' },
+  sc = { sub_cmd = 'command_history', desc = '[C]ommand history' },
+  sC = { sub_cmd = 'commands', desc = '[C]ommands' },
+  sg = { sub_cmd = 'live_grep', desc = '[G]rep' },
+  sm = { sub_cmd = 'marks', desc = '[M]arks'},
+  so = { sub_cmd = 'colorschemes', desc = 'C[o]lorschemes'},
+  sr = { sub_cmd = 'oldfiles cwd_only=true', desc = '[R]ecent files' },
+  sR = { sub_cmd = 'resume', desc = '[R]esume' },
+  ss = { sub_cmd = 'search_history', desc = '[S]earch history' },
+  -- Git
+  gc = { sub_cmd = 'git_commits', desc = '[C]ommits' },
+  gs = { sub_cmd = 'git_status', desc = '[S]tatus' },
+}
+
+local keys = {}
+for k, v in pairs(fzf_keymaps) do
+  table.insert(keys, {
+    '<leader>' .. k,
+    '<cmd>FzfLua ' .. v.sub_cmd .. '<cr>',
+    desc = v.desc,
+  })
+end
+
 return {
-  "ibhagwan/fzf-lua",
+  'ibhagwan/fzf-lua',
+  keys = keys,
   opts = {
     oldfiles = {
-      -- In Telescope, when I used <leader>fr, it would load old buffers.
-      -- fzf lua does the same, but by default buffers visited in the current
-      -- session are not included. I use <leader>fr all the time to switch
-      -- back to buffers I was just in. If you missed this from Telescope,
-      -- give it a try.
+      -- Include old files from the current session in the old buffers view
       include_current_session = true,
     },
     previewers = {
       builtin = {
-        -- fzf-lua is very fast, but it really struggled to preview a couple files
-        -- in a repo. Those files were very big JavaScript files (1MB, minified, all on a single line).
-        -- It turns out it was Treesitter having trouble parsing the files.
-        -- With this change, the previewer will not add syntax highlighting to files larger than 100KB
-        -- (Yes, I know you shouldn't have 100KB minified files in source control.)
+        -- Improve performance by disabling syntax highlighting when previewing large files
         syntax_limit_b = 1024 * 100, -- 100KB
       },
     },
     grep = {
-      -- One thing I missed from Telescope was the ability to live_grep and the
-      -- run a filter on the filenames.
-      -- Ex: Find all occurrences of "enable" but only in the "plugins" directory.
-      -- With this change, I can sort of get the same behaviour in live_grep.
+      -- Enable live grepping filenames in a directory
+      -- Ex: Find all occurrences of "enable" but only in the "plugins" directory
       -- ex: > enable --*/plugins/*
-      -- I still find this a bit cumbersome. There's probably a better way of doing this.
+      -- Source: https://www.reddit.com/r/neovim/comments/1hhiidm/a_few_nice_fzflua_configurations_now_that_lazyvim
       rg_glob = true, -- enable glob parsing
-      glob_flag = "--iglob", -- case insensitive globs
-      glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
+      glob_flag = '--iglob', -- case insensitive globs
+      glob_separator = '%s%-%-', -- query separator pattern (lua): ' --'
     },
   },
 }
