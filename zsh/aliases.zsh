@@ -11,12 +11,11 @@ alias sconf="cd $HOME/dev/mskcc/smile-configuration"
 alias su="cd $HOME/dev/mskcc/smile-utils"
 alias sc="cd $HOME/dev/mskcc/smile-commons"
 
-# NeoVim
-alias vi='nvim'
-alias vizz="cd && vi $HOME/.zshrc"
-alias viz="cd $HOME/zsh && vi" # [vi] [z]sh config
-alias viv="cd $HOME/nvim && vi" # [vi] neo[v]im config
-alias vig="vi $HOME/ghostty/config" # [vi] [g]hostty config
+# Quick access to configs
+alias vizz="cd && nvim $HOME/.zshrc"
+alias viz="cd $HOME/zsh && nvim ." # [vi] [z]sh
+alias viv="cd $HOME/nvim && nvim ." # [vi] neo[v]im
+alias vig="nvim $HOME/ghostty/config" # [vi] [g]hostty
 
 # python venv
 alias vinit='python3 -m venv .venv'
@@ -26,21 +25,20 @@ alias activate='source .venv/bin/activate'
 alias gl='git log --oneline --graph --all'
 alias gbda='git branch | grep -v "master" | grep -v "main" | xargs git branch -D'
 
-# dotfile management following the "Git Bare Repo" pattern (atlassian.com/git/tutorials/dotfiles)
-alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias c='config'
-alias cst='config status'
-alias cdf='config diff'
-alias ca='config add'
-alias crs='config restore'
-alias crst='config restore --staged'
-alias cl='config log --oneline --graph --all'
-alias ccmsg='config commit --message'
-alias ccam='config commit --all --message'
-alias 'ccan!'='config commit --all --no-edit --amend'
-alias cps='config push'
-alias cop='config open'
-alias cb='config blame main --' # usage: cb <file>
+# dotfiles management following the "Git Bare Repo" pattern
+# https://www.atlassian.com/git/tutorials/dotfiles
+alias x="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias xst='x status'
+alias xd='x diff'
+alias xa='x add'
+alias xrs='x restore'
+alias xl='x log --oneline --graph --all'
+alias xcmsg='x commit --message'
+alias xcam='x commit --all --message'
+alias 'xcan!'='x commit --all --no-edit --amend'
+alias xp='x push'
+alias xop='x open'
+alias xb='x blame main --' # usage: cb <file>
 
 # Shortcuts for common commands
 alias tp='trash-put' # safer rm
@@ -57,8 +55,11 @@ alias ag="alias | grep"
 alias hg='history | grep'
 alias brg='brew list --versions | grep'
 
-# Miscellaneous
-alias yay='curl parrot.live'
-alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
+# Homebrew
 alias bbd="brew bundle dump --describe --force --file=$HOME/homebrew/Brewfile"
-alias cld="claude"
+alias bbi="brew bundle install --file=$HOME/homebrew/Brewfile --no-upgrade --no-lock"
+
+# Miscellaneous
+alias path='echo -e ${PATH//:/\\n}' # pretty print the PATH variables
+alias yay='curl parrot.live'
+alias c="claude"

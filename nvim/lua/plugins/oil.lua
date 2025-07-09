@@ -8,7 +8,6 @@ return {
     { '<leader>o', '<cmd>Oil --preview<cr>', desc = '[O]il' },
   },
   opts = {
-    default_file_explorer = true,
     view_options = {
       show_hidden = true,
       -- Always hide these files/directories even if `show_hidden` is enabled

@@ -1,7 +1,7 @@
-# Run this with cmds like `config add` or `config restore` to pick from `config status` files
-# [c]onfig [st]atus [f]zf
-function cstf() {
-  zsh -i -c "$1 $(config status -s | fzf --multi | awk '{print $2}')"
+# Run this with cmds like `x add` or `x restore` to pick from `x status` files
+# [x] [st]atus with [f]zf
+function xstf() {
+  zsh -i -c "$1 $(x status -s | fzf --multi | awk '{print $2}')"
 }
 
 # List files in a tree-like structure
@@ -25,21 +25,20 @@ function gop() {
   git open origin "$branch"
 }
 
-# Improve `config add --all` command
-# [c]onfig [a]dd [a]ll
-function caa() {
-  # `config add` all files currently tracked by `config`
-  config add $(config status -s | awk '{print $2}')
+# Improve `x add --all` command
+# [x] [a]dd [a]ll
+function xaa() {
+  # `x add` all files currently tracked by `x`
+  x add $(x status -s | awk '{print $2}')
 
-  # `config add` all directories currently tracked by `config`
-  # (`config` wouldn't know to track new files in these directories unless they
-  # are added explicitly)
+  # `x add` all directories currently tracked by `x`
+  # (`x` wouldn't know to track new files in these directories unless they are added explicitly)
   curr_dir=$(pwd)
   cd $HOME
-  for dir in $(config ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$'); do
+  for dir in $(x ls-files | awk -F'/' '{print $1}' | sort -u | grep -v '^$'); do
     if [[ -d $dir ]]; then
       echo "$HOME/$dir"
-      config add "$dir"
+      x add "$dir"
     fi
   done
   cd "$curr_dir"
