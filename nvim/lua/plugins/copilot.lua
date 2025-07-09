@@ -15,8 +15,8 @@ return {
         auto_refresh = true, -- refresh suggestions as you type
         hide_during_completion = false,
         keymap = {
-          accept = '<tab>',
-          dismiss = false,
+          accept = '<M-y>', -- [y]es to current suggestion
+          dismiss = '<M-n>', -- [n]o to current suggestion
           accept_word = '<M-w>', -- accept the next [w]ord
           accept_line = '<M-l>', -- accept the current [l]ine
           next = '<M-]>',

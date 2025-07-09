@@ -37,9 +37,9 @@ On the current machine, save the list of currently installed packages to `Brewfi
 brew bundle dump --describe --force --file=~/homebrew/Brewfile
 ```
 
-- `--describe` includes a description of each package
-- `--force` overwrites the existing `Brewfile`
-- `--file` specifies the path to the `Brewfile`
+* `--describe` includes a description of each package
+* `--force` overwrites the existing `Brewfile`
+* `--file` specifies the path to the `Brewfile`
 
 On a new machine, install packages from `Brewfile`:
 
