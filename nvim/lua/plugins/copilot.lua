@@ -15,13 +15,12 @@ return {
         auto_refresh = true, -- refresh suggestions as you type
         hide_during_completion = false,
         keymap = {
-          accept = '<C-.>',
-          dismiss = '<C-/>',
-          accept_word = '<M-w>',
-          accept_line = '<M-l>',
+          accept = '<tab>',
+          dismiss = false,
+          accept_word = '<M-w>', -- accept the next [w]ord
+          accept_line = '<M-l>', -- accept the current [l]ine
           next = '<M-]>',
           prev = '<M-[>',
-
         },
       },
       -- Override the default which disables select filetypes
