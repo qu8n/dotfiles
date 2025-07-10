@@ -42,13 +42,28 @@ return {
       },
     },
     grep = {
-      -- Enable live grepping filenames in a directory
-      -- Ex: Find all occurrences of "enable" but only in the "plugins" directory
-      -- ex: > enable --*/plugins/*
+      -- Enable `FzfLua live_grep` to search terms in specific directories
+      -- Example: Find occurrences of "enable" only in the "plugins" directory: `enable --*/plugins/*`
       -- Source: https://www.reddit.com/r/neovim/comments/1hhiidm/a_few_nice_fzflua_configurations_now_that_lazyvim
+      glob_separator = '%s%-%-', -- query separator pattern (lua): ' --'
       rg_glob = true, -- enable glob parsing
       glob_flag = '--iglob', -- case insensitive globs
-      glob_separator = '%s%-%-', -- query separator pattern (lua): ' --'
     },
   },
+  init = function()
+    -- View oldfiles on nvim startup
+    -- TODO: replace this with a picker that combines `oldfiles` and `files` upon the merge of PR
+    -- https://github.com/ibhagwan/fzf-lua/pull/2152. This will let us access non-old files in this
+    -- initial picker as well.
+    vim.api.nvim_create_autocmd('VimEnter', {
+      callback = function()
+        local ok = pcall(require, 'fzf-lua')
+        if ok then
+          vim.cmd 'FzfLua oldfiles cwd_only=true'
+        else
+          print 'fzf-lua not found. Please install it to use this feature.'
+        end
+      end,
+    })
+  end,
 }
