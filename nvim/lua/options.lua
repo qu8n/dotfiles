@@ -3,7 +3,6 @@
 -- Visual, display, and interaction settings
 vim.o.number = true -- Show line numbers
 vim.o.mouse = 'a' -- Enable mouse usage
-vim.o.showmode = false -- Hide mode, statusline handles this
 vim.o.signcolumn = 'yes' -- Always show signcolumn
 vim.o.breakindent = true -- Wrapped line repeats indent
 vim.o.cursorline = true -- Highlight current line
@@ -38,6 +37,12 @@ vim.opt.smartindent = true -- Enable smart indent
 vim.opt.shiftwidth = 2 -- Spaces per indent
 vim.opt.tabstop = 2 -- Spaces for <Tab>
 vim.opt.hidden = true -- Enable switching buffers without saving
+
+-- Enable folding
+vim.o.foldmethod = 'expr' -- Define folds using an expression
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use Treesitter for folding
+vim.o.foldlevel = 99 -- Open all folds by default upon opening a file
+vim.opt.foldtext = '' -- Syntax highlight first line of fold
 
 -- Language/Plugin specific
 vim.g.markdown_recommended_style = 0 -- Don't override user's markdown softtabstop

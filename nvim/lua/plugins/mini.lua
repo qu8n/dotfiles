@@ -48,41 +48,6 @@ return {
         -- Disable cursor path as it looks wonky when switching b/w split windows
         cursor = { enable = false },
       }
-
-      -- Custom statusline
-      -- https://github.com/echasnovski/mini.statusline/blob/main/lua/mini/statusline.lua
-      local statusline = require 'mini.statusline'
-      -- Change what section goes where by moving/adding/removing these local variables in the
-      -- `strings` section below
-      local active = function()
-        local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 100 }
-        local git = MiniStatusline.section_git { trunc_width = 40 }
-        -- local diff = MiniStatusline.section_diff { trunc_width = 75 }
-        -- local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
-        local lsp = MiniStatusline.section_lsp { trunc_width = 75 }
-        local filename = MiniStatusline.section_filename { trunc_width = 140 }
-        local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
-        local location = MiniStatusline.section_location { trunc_width = 75 }
-        -- local search = MiniStatusline.section_searchcount { trunc_width = 75 }
-        return MiniStatusline.combine_groups {
-          { hl = mode_hl, strings = { mode } },
-          { hl = 'MiniStatuslineDevinfo', strings = { git, lsp } },
-          '%<', -- Mark general truncate point
-          { hl = 'MiniStatuslineFilename', strings = { filename } },
-          '%=', -- End left alignment
-          -- { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-          { hl = mode_hl, strings = { location } },
-        }
-      end
-      require('mini.statusline').setup {
-        content = { active = active },
-        use_icons = vim.g.have_nerd_font,
-      }
-      -- Set location section as "current line number / total line number"
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return '%l/%L'
-      end
     end,
   },
 }

@@ -5,15 +5,15 @@ local fzf_keymaps = {
   ['<leader>'] = { sub_cmd = 'files cwd=.', desc = 'Search files' },
   sb = { sub_cmd = 'buffers sort_mru=true sort_lastused=true', desc = 'Buffers' },
   sc = { sub_cmd = 'commands', desc = 'Commands' },
+  sC = { sub_cmd = 'git_commits', desc = '(Git) commits' },
   sd = { sub_cmd = 'diagnostics_document', desc = 'Diagnostics of file' },
   sD = { sub_cmd = 'diagnostics_workspace', desc = 'Diagnostics of project' },
-  sg = { sub_cmd = 'git_status', desc = 'Git status' },
-  sG = { sub_cmd = 'git_commits', desc = 'Git commits' },
+  sg = { sub_cmd = 'live_grep', desc = 'Grep' },
   sm = { sub_cmd = 'marks', desc = 'Marks' },
-  sr = { sub_cmd = 'oldfiles cwd_only=true', desc = 'Recent files' },
-  sR = { sub_cmd = 'resume', desc = 'Resume' },
-  ss = { sub_cmd = 'live_grep', desc = 'Grep' },
-  su = { sub_cmd = 'colorschemes', desc = 'UI: Colorschemes' },
+  so = { sub_cmd = 'oldfiles cwd_only=true', desc = 'Old files' },
+  sr = { sub_cmd = 'resume', desc = 'Resume' },
+  sS = { sub_cmd = 'git_status', desc = '(Git) status' },
+  su = { sub_cmd = 'colorschemes', desc = 'Colorschemes' }, -- [U]I
   -- s_ = { sub_cmd = 'search_history', desc = 'Search history' }, -- use q/ or q? instead
   -- s_ = { sub_cmd = 'command_history', desc = 'Commands history' }, -- use q: instead
 }
@@ -51,6 +51,11 @@ return {
     },
   },
   init = function()
+    -- Make any plugin that uses vim.ui.select use FzfLua automatically
+    local ok, fzf_lua = pcall(require, 'fzf-lua')
+    if ok then
+      fzf_lua.register_ui_select()
+    end
     -- View oldfiles on nvim startup
     -- TODO: replace this with a picker that combines `oldfiles` and `files` upon the merge of PR
     -- https://github.com/ibhagwan/fzf-lua/pull/2152. This will let us access non-old files in this

@@ -72,17 +72,15 @@ return {
           end
 
           -- Add keymaps to navigate code with LSP
-          map('<leader>ca', vim.lsp.buf.code_action, 'Action')
+          map('<leader>ca', vim.lsp.buf.code_action, 'Actions')
           map('<leader>cr', vim.lsp.buf.rename, 'Rename')
           map('K', function()
             return vim.lsp.buf.hover()
           end, 'Hover')
           map('gd', vim.lsp.buf.definition, 'Definition')
           -- Set nowait=true to ignore nvim's built-in LSP keymaps like gra, grr, etc.
-          map('gr', vim.lsp.buf.references, 'References', 'n', { nowait = true })
+          map('gr', '<cmd>FzfLua lsp_references<cr>', 'References', 'n', { nowait = true })
           map('gI', vim.lsp.buf.implementation, 'Implementation')
-          map('gy', vim.lsp.buf.type_definition, 'Type definition')
-          map('gD', vim.lsp.buf.declaration, 'Declaration')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client

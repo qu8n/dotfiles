@@ -17,13 +17,11 @@ vim.keymap.set('i', '<A-Up>', '<esc><cmd>m .-2<cr>==gi')
 vim.keymap.set('n', '<leader>C', '<cmd>Lazy<cr>', { desc = 'Copy to clipboard' })
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 vim.keymap.set('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
--- NOTE: <C-w> for more window commands
 vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
 
 -- Groupings
 vim.keymap.set('n', '<leader>a', '<Nop>', { desc = 'AI' })
 vim.keymap.set('n', '<leader>c', '<Nop>', { desc = 'Code' })
-vim.keymap.set('n', '<leader>g', '<Nop>', { desc = 'Git' })
 vim.keymap.set('n', '<leader>s', '<Nop>', { desc = 'Search' })
 vim.keymap.set('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
 
@@ -36,6 +34,7 @@ end, { desc = 'Cursor: open cwd' })
 
 -- Toggle
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
+vim.keymap.set('n', '<leader>td', vim.diagnostic.open_float, { desc = 'Diagnostics under cursor' })
 
 ----------------------------------------------------------------------------------------------------
 -- Copy to clipboard
