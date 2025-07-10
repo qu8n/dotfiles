@@ -98,6 +98,6 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('BufRead', {
   pattern = 'COMMIT_EDITMSG',
   callback = function()
-    vim.opt_local.colorcolumn = '50, 72'
+    vim.opt_local.colorcolumn = '50,72'
   end,
 })

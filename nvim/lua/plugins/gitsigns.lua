@@ -28,7 +28,7 @@ return {
           else
             gitsigns.nav_hunk 'next'
           end
-        end, { desc = 'Git [c]hange' })
+        end, { desc = 'Git change' })
 
         map('n', '[c', function()
           if vim.wo.diff then
@@ -36,10 +36,10 @@ return {
           else
             gitsigns.nav_hunk 'prev'
           end
-        end, { desc = 'Git [c]hange' })
+        end, { desc = 'Git change' })
 
         -- Toggles
-        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[B]lame line' })
+        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Blame line' })
       end,
     },
   },

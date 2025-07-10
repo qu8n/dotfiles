@@ -13,12 +13,12 @@ return {
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = 'Format buffer',
       },
     },
     opts = {
       notify_on_error = false,
-      format_on_save = false,
+      format_on_save = true,
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Can run multiple formatters sequentially or run the first available formatter:

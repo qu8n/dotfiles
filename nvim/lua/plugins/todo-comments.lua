@@ -10,21 +10,21 @@ return {
         function()
           require('todo-comments.fzf').todo()
         end,
-        desc = '[T]odos',
+        desc = 'Todos',
       },
       {
         ']t',
         function()
           require('todo-comments').jump_next()
         end,
-        desc = '[T]odo comment',
+        desc = 'Todo comment',
       },
       {
         '[t',
         function()
           require('todo-comments').jump_prev()
         end,
-        desc = '[T]odo comment',
+        desc = 'Todo comment',
       },
     },
 

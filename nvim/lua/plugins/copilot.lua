@@ -6,8 +6,8 @@ return {
     'zbirenbaum/copilot.lua',
     event = 'InsertEnter',
     keys = {
-      { '<leader>tc', '<cmd>Copilot toggle<cr>', desc = '[C]opilot' },
-      { '<leader>ac', '<cmd>Copilot toggle<cr>', desc = '[C]opilot: toggle' },
+      { '<leader>tc', '<cmd>Copilot toggle<cr>', desc = 'Copilot' },
+      { '<leader>ac', '<cmd>Copilot toggle<cr>', desc = 'Copilot: toggle' },
     },
     opts = {
       suggestion = {

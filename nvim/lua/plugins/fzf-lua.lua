@@ -3,19 +3,19 @@
 
 local fzf_keymaps = {
   ['<leader>'] = { sub_cmd = 'files cwd=.', desc = 'Search files' },
-  -- Search
-  sb = { sub_cmd = 'buffers sort_mru=true sort_lastused=true', desc = '[B]uffers' },
-  sc = { sub_cmd = 'command_history', desc = '[C]ommand history' },
-  sC = { sub_cmd = 'commands', desc = '[C]ommands' },
-  sg = { sub_cmd = 'live_grep', desc = '[G]rep' },
-  sm = { sub_cmd = 'marks', desc = '[M]arks' },
-  so = { sub_cmd = 'colorschemes', desc = 'C[o]lorschemes' },
-  sr = { sub_cmd = 'oldfiles cwd_only=true', desc = '[R]ecent files' },
-  sR = { sub_cmd = 'resume', desc = '[R]esume' },
-  ss = { sub_cmd = 'search_history', desc = '[S]earch history' },
-  -- Git
-  gc = { sub_cmd = 'git_commits', desc = '[C]ommits' },
-  gs = { sub_cmd = 'git_status', desc = '[S]tatus' },
+  sb = { sub_cmd = 'buffers sort_mru=true sort_lastused=true', desc = 'Buffers' },
+  sc = { sub_cmd = 'commands', desc = 'Commands' },
+  sd = { sub_cmd = 'diagnostics_document', desc = 'Diagnostics of file' },
+  sD = { sub_cmd = 'diagnostics_workspace', desc = 'Diagnostics of project' },
+  sg = { sub_cmd = 'git_status', desc = 'Git status' },
+  sG = { sub_cmd = 'git_commits', desc = 'Git commits' },
+  sm = { sub_cmd = 'marks', desc = 'Marks' },
+  sr = { sub_cmd = 'oldfiles cwd_only=true', desc = 'Recent files' },
+  sR = { sub_cmd = 'resume', desc = 'Resume' },
+  ss = { sub_cmd = 'live_grep', desc = 'Grep' },
+  su = { sub_cmd = 'colorschemes', desc = 'UI: Colorschemes' },
+  -- s_ = { sub_cmd = 'search_history', desc = 'Search history' }, -- use q/ or q? instead
+  -- s_ = { sub_cmd = 'command_history', desc = 'Commands history' }, -- use q: instead
 }
 
 local keys = {}

@@ -14,28 +14,28 @@ vim.keymap.set('i', '<A-Up>', '<esc><cmd>m .-2<cr>==gi')
 ----------------------------------------------------------------------------------------------------
 
 -- Root level
-vim.keymap.set('n', '<leader>C', '<cmd>Lazy<cr>', { desc = '[C]opy to clipboard' })
-vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = '[L]azy' })
-vim.keymap.set('n', '<leader>r', '<cmd>e #<cr>', { desc = '[R]ecent buffer' })
+vim.keymap.set('n', '<leader>C', '<cmd>Lazy<cr>', { desc = 'Copy to clipboard' })
+vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
+vim.keymap.set('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
+-- NOTE: <C-w> for more window commands
 vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
-vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap = true })
 
 -- Groupings
-vim.keymap.set('n', '<leader>a', '<Nop>', { desc = '[A]I' })
-vim.keymap.set('n', '<leader>c', '<Nop>', { desc = '[C]ode' })
-vim.keymap.set('n', '<leader>g', '<Nop>', { desc = '[G]it' })
-vim.keymap.set('n', '<leader>s', '<Nop>', { desc = '[S]earch' })
-vim.keymap.set('n', '<leader>t', '<Nop>', { desc = '[T]oggle' })
+vim.keymap.set('n', '<leader>a', '<Nop>', { desc = 'AI' })
+vim.keymap.set('n', '<leader>c', '<Nop>', { desc = 'Code' })
+vim.keymap.set('n', '<leader>g', '<Nop>', { desc = 'Git' })
+vim.keymap.set('n', '<leader>s', '<Nop>', { desc = 'Search' })
+vim.keymap.set('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
 
 -- AI
 vim.keymap.set('n', '<leader>ar', function()
   local cwd = vim.fn.getcwd()
   local cmd = 'open -a Cursor ' .. cwd
   vim.fn.system(cmd)
-end, { desc = 'Cu[r]sor: open cwd' })
+end, { desc = 'Cursor: open cwd' })
 
 -- Toggle
-vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = '[W]rap line' })
+vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
 
 ----------------------------------------------------------------------------------------------------
 -- Copy to clipboard
@@ -59,9 +59,9 @@ local function copy_file_name()
   print('Copied: ' .. filename)
 end
 
-vim.keymap.set('n', '<leader>Ca', copy_full_path, { noremap = true, silent = true, desc = '[A]bsolute file path' })
-vim.keymap.set('n', '<leader>Cr', copy_rel_path, { noremap = true, silent = true, desc = '[R]elative file path' })
-vim.keymap.set('n', '<leader>Cn', copy_file_name, { noremap = true, silent = true, desc = 'File [n]ame' })
+vim.keymap.set('n', '<leader>Ca', copy_full_path, { noremap = true, silent = true, desc = 'Absolute file path' })
+vim.keymap.set('n', '<leader>Cr', copy_rel_path, { noremap = true, silent = true, desc = 'Relative file path' })
+vim.keymap.set('n', '<leader>Cf', copy_file_name, { noremap = true, silent = true, desc = 'File name' })
 
 ----------------------------------------------------------------------------------------------------
 -- Saner defaults
@@ -84,12 +84,12 @@ vim.keymap.set('v', '>', '>gv')
 
 -- n always searches forward and N backward, instead of depending on whether / or ? was used
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-vim.keymap.set('n', 'n', "'Nn'[v:searchforward].'zv'", { expr = true })
-vim.keymap.set('x', 'n', "'Nn'[v:searchforward]", { expr = true })
-vim.keymap.set('o', 'n', "'Nn'[v:searchforward]", { expr = true })
-vim.keymap.set('n', 'N', "'nN'[v:searchforward].'zv'", { expr = true })
-vim.keymap.set('x', 'N', "'nN'[v:searchforward]", { expr = true })
-vim.keymap.set('o', 'N', "'nN'[v:searchforward]", { expr = true })
+vim.keymap.set('n', 'n', "'Nn'v:searchforward.'zv'", { expr = true })
+vim.keymap.set('x', 'n', "'Nn'v:searchforward", { expr = true })
+vim.keymap.set('o', 'n', "'Nn'v:searchforward", { expr = true })
+vim.keymap.set('n', 'N', "'nN'v:searchforward.'zv'", { expr = true })
+vim.keymap.set('x', 'N', "'nN'v:searchforward", { expr = true })
+vim.keymap.set('o', 'N', "'nN'v:searchforward", { expr = true })
 
 ----------------------------------------------------------------------------------------------------
 -- Buffers
@@ -100,6 +100,7 @@ vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>')
 
 -- Ctrl+q to delete the current buffer
 vim.keymap.set('n', '<C-q>', '<cmd>bd<cr>')
+vim.keymap.set('t', '<C-q>', '<cmd>q!<cr>')
 
 -- Shift+<hl> to switch between adjacent buffers
 vim.keymap.set('n', '<S-h>', '<cmd>bprevious<cr>')
@@ -136,7 +137,7 @@ end
 vim.keymap.set('n', '<C-/>', open_terminal, { noremap = true, silent = true })
 
 -- Hide the terminal buffer without closing it
--- Return to the hidden buffer with `<leader>sb` ([s]earch [b]uffers)
+-- Return to the hidden buffer with `<leader>sb` (search buffers)
 vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { noremap = true, silent = true })
 
 -- Exit terminal mode with <Esc> and return to normal mode
