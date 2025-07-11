@@ -4,6 +4,7 @@
 return {
   {
     'folke/todo-comments.nvim',
+    event = 'VeryLazy',
     keys = {
       {
         '<leader>st',
@@ -27,8 +28,6 @@ return {
         desc = 'Todo comment',
       },
     },
-
-    event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
   },

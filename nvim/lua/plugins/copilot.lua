@@ -4,10 +4,10 @@
 return {
   {
     'zbirenbaum/copilot.lua',
-    event = 'InsertEnter',
+    event = 'BufReadPost',
     keys = {
       { '<leader>tc', '<cmd>Copilot toggle<cr>', desc = 'Copilot' },
-      { '<leader>ac', '<cmd>Copilot toggle<cr>', desc = 'Copilot: toggle' },
+      { '<leader>ac', '<cmd>Copilot toggle<cr>', desc = 'Copilot toggle' },
     },
     opts = {
       suggestion = {

@@ -11,6 +11,7 @@ vim.o.list = true -- Show whitespace characters
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- as these characters
 vim.wo.wrap = false -- Disable line wrap
 vim.o.inccommand = 'split' -- Live preview of :s commands
+vim.opt.fillchars = { eob = ' ' } -- No end-of-buffer tilde characters
 
 -- File handling, history, and clipboard
 vim.o.undofile = true -- Save undo history

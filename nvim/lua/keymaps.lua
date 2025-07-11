@@ -1,23 +1,12 @@
 -- [[ Basic Keymaps ]]
 -- To see where a keymap is defined or whether it exists, use `:FzfLua keymaps<cr>`
 
--- Alt+<up/down> to move the current line/selection
-vim.keymap.set('n', '<A-Down>', "<cmd>execute 'move .+' . v:count1<cr>==")
-vim.keymap.set('n', '<A-Up>', "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==")
-vim.keymap.set('v', '<A-Down>', ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv")
-vim.keymap.set('v', '<A-Up>', ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv")
-vim.keymap.set('i', '<A-Down>', '<esc><cmd>m .+1<cr>==gi')
-vim.keymap.set('i', '<A-Up>', '<esc><cmd>m .-2<cr>==gi')
-
-----------------------------------------------------------------------------------------------------
--- which-key.nvim
-----------------------------------------------------------------------------------------------------
-
 -- Root level
-vim.keymap.set('n', '<leader>C', '<cmd>Lazy<cr>', { desc = 'Copy to clipboard' })
+vim.keymap.set('n', '<leader>C', '<Nop>', { desc = 'Copy to clipboard' })
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 vim.keymap.set('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
 vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
+vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap = true })
 
 -- Groupings
 vim.keymap.set('n', '<leader>a', '<Nop>', { desc = 'AI' })
@@ -26,15 +15,15 @@ vim.keymap.set('n', '<leader>s', '<Nop>', { desc = 'Search' })
 vim.keymap.set('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
 
 -- AI
-vim.keymap.set('n', '<leader>ar', function()
+vim.keymap.set('n', '<leader>ao', function()
   local cwd = vim.fn.getcwd()
   local cmd = 'open -a Cursor ' .. cwd
   vim.fn.system(cmd)
-end, { desc = 'Cursor: open cwd' })
+end, { desc = 'Open in Cursor' })
 
 -- Toggle
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
-vim.keymap.set('n', '<leader>td', vim.diagnostic.open_float, { desc = 'Diagnostics under cursor' })
+vim.keymap.set('n', '<leader>td', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 
 ----------------------------------------------------------------------------------------------------
 -- Copy to clipboard
