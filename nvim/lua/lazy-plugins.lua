@@ -2,15 +2,8 @@
 
 require('lazy').setup {
   spec = {
-    -- TODO: install these plugins in their own files and specify trigger events
-    --
-    -- Install plugins with no custom configs
-    'NMAC427/guess-indent.nvim', -- detect tabstop and shiftwidth automatically
-    'danilamihailov/beacon.nvim', -- flash cursor position when going to a new buffer or location
-    'cappyzawa/trim.nvim', -- automatically trim trailing whitespace and lines upon saving a file
-
-    -- Install plugins with custom configs
-    { import = 'plugins' }, -- auto-install all plugins specified in the 'plugins/' directory
+    -- Auto-install plugins specified in the 'plugins/' directory
+    { import = 'plugins' },
   },
   -- Auto check for plugin updates
   checker = {

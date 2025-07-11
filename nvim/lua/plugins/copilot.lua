@@ -1,7 +1,8 @@
--- GitHub Copilot completion
--- https://github.com/zbirenbaum/copilot.lua
+-- Copilot text completion and chat integration for Neovim
 
 return {
+  -- GitHub Copilot completion
+  -- https://github.com/zbirenbaum/copilot.lua
   {
     'zbirenbaum/copilot.lua',
     event = 'BufReadPost',
@@ -32,5 +33,55 @@ return {
       -- Panel lets you preview suggestions in a split window. Not needed
       panel = { enabled = false },
     },
+  },
+
+  -- Chat with Copilot
+  -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    event = 'VeryLazy',
+    dependencies = {
+      { 'zbirenbaum/copilot.lua' },
+      -- For curl, log and async functions
+      { 'nvim-lua/plenary.nvim', branch = 'master' },
+    },
+    keys = {
+      -- AI group
+      { '<leader>aC', '<cmd>CopilotChatToggle<cr>', desc = 'CopilotChat toggle' },
+      { '<leader>as', '<cmd>CopilotChatStop<cr>', desc = 'Stop output (CC)' },
+      { '<leader>ar', '<cmd>CopilotChatReset<cr>', desc = 'Reset window (CC)' },
+      { '<leader>ap', '<cmd>CopilotChatPrompts<cr>', desc = 'Prompts picker (CC)' },
+      { '<leader>am', '<cmd>CopilotChatModels<cr>', desc = 'Models picker (CC)' },
+      -- Toggle group
+      { '<leader>tC', '<cmd>CopilotChatToggle<cr>', desc = 'CopilotChat' },
+    },
+    -- Customize the Copilot Chat UI
+    opts = function()
+      return {
+        auto_insert_mode = true,
+        question_header = '  User ',
+        answer_header = '  Copilot ',
+        window = {
+          width = 0.4,
+          footer = 'test',
+        },
+      }
+    end,
+    -- Required for macOS
+    build = 'make tiktoken',
+    config = function(_, opts)
+      -- Recommended by the docs for the best autocompletion experience
+      vim.opt.completeopt:append 'popup'
+      -- Hide line numbers in the chat buffer
+      local chat = require 'CopilotChat'
+      vim.api.nvim_create_autocmd('BufEnter', {
+        pattern = 'copilot-chat',
+        callback = function()
+          vim.opt_local.relativenumber = false
+          vim.opt_local.number = false
+        end,
+      })
+      chat.setup(opts)
+    end,
   },
 }

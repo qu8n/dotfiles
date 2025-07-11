@@ -1,5 +1,6 @@
 -- [[ Basic Keymaps ]]
 -- To see where a keymap is defined or whether it exists, use `:FzfLua keymaps<cr>`
+-- This files contains only non-plugin keymaps
 
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 vim.keymap.set('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })

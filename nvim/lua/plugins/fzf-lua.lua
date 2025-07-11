@@ -4,7 +4,7 @@
 local fzf_keymaps = {
   -- TODO: replace this and the oldfiles search with a picker that combines both `oldfiles` and `files`
   -- upon the merge of PR https://github.com/ibhagwan/fzf-lua/pull/2152
-  ['<leader>'] = { sub_cmd = '<cmd>FzfLua files cwd=.<cr>', desc = 'Search files (Fzf)' },
+  ['<leader>'] = { sub_cmd = '<cmd>FzfLua files cwd=.<cr>', desc = 'Search files' },
   o = { sub_cmd = '<cmd>FzfLua oldfiles cwd_only=true<cr>', desc = 'Old files' },
   -- Search
   s = { sub_cmd = '<Nop>', desc = 'Search' },
@@ -13,11 +13,12 @@ local fzf_keymaps = {
   sC = { sub_cmd = '<cmd>FzfLua colorschemes<cr>', desc = 'Colorschemes' },
   sd = { sub_cmd = '<cmd>FzfLua diagnostics_document<cr>', desc = 'Diagnostics of file' },
   sD = { sub_cmd = '<cmd>FzfLua diagnostics_workspace<cr>', desc = 'Diagnostics of project' },
+  sf = { sub_cmd = '<cmd>FzfLua builtin<cr>', desc = 'FzfLua commands' },
   sg = { sub_cmd = '<cmd>FzfLua live_grep<cr>', desc = 'Grep' },
   sm = { sub_cmd = '<cmd>FzfLua marks<cr>', desc = 'Marks' },
   sr = { sub_cmd = '<cmd>FzfLua resume<cr>', desc = 'Resume' },
   -- Git
-  gc = { sub_cmd = '<cmd>FzfLua git_commits<cr>', desc = 'Commits' },
+  gl = { sub_cmd = '<cmd>FzfLua git_commits<cr>', desc = 'Log' },
   gs = { sub_cmd = '<cmd>FzfLua git_status<cr>', desc = 'Status' },
   gb = { sub_cmd = '<cmd>FzfLua git_blame<cr>', desc = 'Blame' },
   -- Exlusions
