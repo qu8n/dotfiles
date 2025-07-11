@@ -4,27 +4,33 @@
 local fzf_keymaps = {
   -- TODO: replace this and the oldfiles search with a picker that combines both `oldfiles` and `files`
   -- upon the merge of PR https://github.com/ibhagwan/fzf-lua/pull/2152
-  ['<leader>'] = { sub_cmd = 'files cwd=.', desc = 'Search files (Fzf)' },
-  o = { sub_cmd = 'oldfiles cwd_only=true', desc = 'Old files' },
-  sb = { sub_cmd = 'buffers sort_mru=true sort_lastused=true', desc = 'Buffers' },
-  sc = { sub_cmd = 'commands', desc = 'Commands' },
-  sC = { sub_cmd = 'git_commits', desc = 'Commits (git)' },
-  sd = { sub_cmd = 'diagnostics_document', desc = 'Diagnostics of file' },
-  sD = { sub_cmd = 'diagnostics_workspace', desc = 'Diagnostics of project' },
-  sg = { sub_cmd = 'live_grep', desc = 'Grep' },
-  sm = { sub_cmd = 'marks', desc = 'Marks' },
-  sr = { sub_cmd = 'resume', desc = 'Resume' },
-  ss = { sub_cmd = 'git_status', desc = 'Status (git)' },
-  su = { sub_cmd = 'colorschemes', desc = 'Colorschemes' }, -- [U]I
-  -- s_ = { sub_cmd = 'search_history', desc = 'Search history' }, -- use q/ or q? instead
-  -- s_ = { sub_cmd = 'command_history', desc = 'Commands history' }, -- use q: instead
+  ['<leader>'] = { sub_cmd = '<cmd>FzfLua files cwd=.<cr>', desc = 'Search files (Fzf)' },
+  o = { sub_cmd = '<cmd>FzfLua oldfiles cwd_only=true<cr>', desc = 'Old files' },
+  -- Search
+  s = { sub_cmd = '<Nop>', desc = 'Search' },
+  sb = { sub_cmd = '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>', desc = 'Buffers' },
+  sc = { sub_cmd = '<cmd>FzfLua commands<cr>', desc = 'Commands' },
+  sC = { sub_cmd = '<cmd>FzfLua colorschemes<cr>', desc = 'Colorschemes' },
+  sd = { sub_cmd = '<cmd>FzfLua diagnostics_document<cr>', desc = 'Diagnostics of file' },
+  sD = { sub_cmd = '<cmd>FzfLua diagnostics_workspace<cr>', desc = 'Diagnostics of project' },
+  sg = { sub_cmd = '<cmd>FzfLua live_grep<cr>', desc = 'Grep' },
+  sm = { sub_cmd = '<cmd>FzfLua marks<cr>', desc = 'Marks' },
+  sr = { sub_cmd = '<cmd>FzfLua resume<cr>', desc = 'Resume' },
+  -- Git
+  gc = { sub_cmd = '<cmd>FzfLua git_commits<cr>', desc = 'Commits' },
+  gs = { sub_cmd = '<cmd>FzfLua git_status<cr>', desc = 'Status' },
+  gb = { sub_cmd = '<cmd>FzfLua git_blame<cr>', desc = 'Blame' },
+  -- Exlusions
+  -- Note: Use Vim's built-in commands instead of these FzfLua commands
+  -- s_ = { sub_cmd = '<cmd>FzfLua search_history<cr>', desc = 'Search history' }, -- use q/ or q? instead
+  -- s_ = { sub_cmd = '<cmd>FzfLua command_history<cr>', desc = 'Commands history' }, -- use q: instead
 }
 
 local keys = {}
 for k, v in pairs(fzf_keymaps) do
   table.insert(keys, {
     '<leader>' .. k,
-    '<cmd>FzfLua ' .. v.sub_cmd .. '<cr>',
+    v.sub_cmd,
     desc = v.desc,
   })
 end

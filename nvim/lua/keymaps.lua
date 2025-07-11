@@ -1,33 +1,57 @@
 -- [[ Basic Keymaps ]]
 -- To see where a keymap is defined or whether it exists, use `:FzfLua keymaps<cr>`
 
--- Root level
-vim.keymap.set('n', '<leader>C', '<Nop>', { desc = 'Copy to clipboard' })
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 vim.keymap.set('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
 vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
 vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap = true })
 
--- Groupings
 vim.keymap.set('n', '<leader>a', '<Nop>', { desc = 'AI' })
-vim.keymap.set('n', '<leader>c', '<Nop>', { desc = 'Code' })
-vim.keymap.set('n', '<leader>s', '<Nop>', { desc = 'Search' })
-vim.keymap.set('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
-
--- AI
 vim.keymap.set('n', '<leader>ao', function()
   local cwd = vim.fn.getcwd()
   local cmd = 'open -a Cursor ' .. cwd
   vim.fn.system(cmd)
 end, { desc = 'Open in Cursor' })
 
--- Toggle
+vim.keymap.set('n', '<leader>c', '<Nop>', { desc = 'Code' })
+
+vim.keymap.set('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
 vim.keymap.set('n', '<leader>td', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 
 ----------------------------------------------------------------------------------------------------
--- Copy to clipboard
+-- Git keymaps
 ----------------------------------------------------------------------------------------------------
+
+vim.keymap.set('n', '<leader>g', '<Nop>', { desc = 'Git' })
+
+local function git_open_remote(remote)
+  local cur_win = vim.api.nvim_get_current_win()
+  vim.system({ 'git', 'open', remote }, { text = true }, function(obj)
+    vim.schedule(function()
+      if obj.code ~= 0 then
+        vim.notify('git open ' .. remote .. ' failed:\n' .. obj.stderr, vim.log.levels.ERROR)
+      end
+      if vim.api.nvim_win_is_valid(cur_win) then
+        vim.api.nvim_set_current_win(cur_win)
+      end
+    end)
+  end)
+end
+
+vim.keymap.set('n', '<leader>gr', function() -- r for remote
+  git_open_remote 'origin'
+end, { desc = 'Browse origin' })
+
+vim.keymap.set('n', '<leader>gR', function()
+  git_open_remote 'upstream'
+end, { desc = 'Browse upstream' })
+
+----------------------------------------------------------------------------------------------------
+-- Copy to clipboard keymaps
+----------------------------------------------------------------------------------------------------
+
+vim.keymap.set('n', '<leader>C', '<Nop>', { desc = 'Copy to clipboard' })
 
 local function copy_full_path()
   local full_path = vim.fn.expand '%:p'
