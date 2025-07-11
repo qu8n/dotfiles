@@ -5,7 +5,7 @@ return {
   'stevearc/oil.nvim',
   keys = {
     -- Open Oil with preview and float modes pre-enabled
-    { '<leader>o', '<cmd>Oil --preview<cr>', desc = 'Oil' },
+    { '<leader>e', '<cmd>Oil --preview<cr>', desc = 'Explore files (Oil)' },
   },
   opts = {
     default_file_explorer = true,

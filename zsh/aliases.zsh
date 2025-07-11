@@ -33,12 +33,15 @@ alias xd='x diff'
 alias xa='x add'
 alias xrs='x restore'
 alias xl='x log --oneline --graph --all'
+alias xc='x commit'
+alias 'xc!'='x commit --verbose --amend'
 alias xcmsg='x commit --message'
 alias xcam='x commit --all --message'
 alias 'xcan!'='x commit --all --no-edit --amend'
 alias xp='x push'
+alias xpf='x push --force'
 alias xop='x open'
-alias xb='x blame main --' # usage: cb <file>
+alias xb='x blame main --' # usage: xb <file>
 
 # Shortcuts for common commands
 alias tp='trash-put' # safer rm
