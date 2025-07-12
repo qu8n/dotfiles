@@ -45,5 +45,11 @@ vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use Treesitter for foldi
 vim.o.foldlevel = 99 -- Open all folds by default upon opening a file
 vim.opt.foldtext = '' -- Syntax highlight first line of fold
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwSettings = 1
+vim.g.loaded_netrwFileHandlers = 1
+
 -- Language/Plugin specific
 vim.g.markdown_recommended_style = 0 -- Don't override user's markdown softtabstop

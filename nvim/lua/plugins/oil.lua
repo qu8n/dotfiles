@@ -8,7 +8,7 @@ return {
     { '<leader>e', '<cmd>Oil --preview<cr>', desc = 'Explore with Oil' },
   },
   opts = {
-    default_file_explorer = true,
+    default_file_explorer = false,
     view_options = {
       show_hidden = true,
       -- Always hide these files/directories even if `show_hidden` is enabled
