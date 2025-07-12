@@ -26,4 +26,13 @@ return {
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+  -- Required for mini.ai's custom textobjects
+  -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    event = { 'BufReadPost', 'BufNewFile' },
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+  },
 }

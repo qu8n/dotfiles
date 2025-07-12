@@ -4,6 +4,9 @@
 return {
   {
     'echasnovski/mini.nvim',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects', -- required for mini.ai's custom textobjects below
+    },
     config = function()
       -- Better Around/Inside textobjects
       -- https://github.com/echasnovski/mini.ai
@@ -11,7 +14,29 @@ return {
       --  - va)  - [V]isually select [A]round [)]paren
       --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
       --  - ci'  - [C]hange [I]nside [']quote
-      require('mini.ai').setup { n_lines = 500 }
+      local ai = require 'mini.ai'
+      local gen_ai_spec = require('mini.extra').gen_ai_spec
+      ai.setup {
+        n_lines = 500, -- max number of lines to search for textobjects
+        -- Add additional capabilities
+        custom_textobjects = {
+          g = gen_ai_spec.buffer(), -- entire buffer (g for "global")
+          o = ai.gen_spec.treesitter { -- code bl[o]ck
+            a = { '@block.outer', '@conditional.outer', '@loop.outer' },
+            i = { '@block.inner', '@conditional.inner', '@loop.inner' },
+          },
+          f = ai.gen_spec.treesitter { a = '@function.outer', i = '@function.inner' }, -- function
+          c = ai.gen_spec.treesitter { a = '@class.outer', i = '@class.inner' }, -- class
+          t = { '<([%p%w]-)%f[^<%w][^<>]->.-</%1>', '^<.->().*()</[^/]->$' }, -- tags
+          d = { '%f[%d]%d+' }, -- digits
+          e = { -- word with case
+            { '%u[%l%d]+%f[^%l%d]', '%f[%S][%l%d]+%f[^%l%d]', '%f[%P][%l%d]+%f[^%l%d]', '^[%l%d]+%f[^%l%d]' },
+            '^().*()$',
+          },
+          u = ai.gen_spec.function_call(), -- u for "usage"
+          U = ai.gen_spec.function_call { name_pattern = '[%w_]' }, -- without dot in function name
+        },
+      }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       -- https://github.com/echasnovski/mini.surround

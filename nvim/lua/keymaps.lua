@@ -2,7 +2,7 @@
 -- To see where a keymap is defined or whether it exists, use `:FzfLua keymaps<cr>`
 -- This files contains only non-plugin keymaps
 
-vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
+vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
 vim.keymap.set('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
 vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
 vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap = true })

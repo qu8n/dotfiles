@@ -6,6 +6,7 @@ local fzf_keymaps = {
   -- upon the merge of PR https://github.com/ibhagwan/fzf-lua/pull/2152
   ['<leader>'] = { sub_cmd = '<cmd>FzfLua files cwd=.<cr>', desc = 'Search files' },
   o = { sub_cmd = '<cmd>FzfLua oldfiles cwd_only=true<cr>', desc = 'Old files' },
+
   -- Search
   s = { sub_cmd = '<Nop>', desc = 'Search' },
   sb = { sub_cmd = '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>', desc = 'Buffers' },
@@ -17,6 +18,7 @@ local fzf_keymaps = {
   sg = { sub_cmd = '<cmd>FzfLua live_grep<cr>', desc = 'Grep' },
   sm = { sub_cmd = '<cmd>FzfLua marks<cr>', desc = 'Marks' },
   sr = { sub_cmd = '<cmd>FzfLua resume<cr>', desc = 'Resume' },
+  sR = { sub_cmd = '<cmd>FzfLua registers<cr>', desc = 'Registers' },
   -- Git
   gl = { sub_cmd = '<cmd>FzfLua git_commits<cr>', desc = 'Log' },
   gs = { sub_cmd = '<cmd>FzfLua git_status<cr>', desc = 'Status' },
