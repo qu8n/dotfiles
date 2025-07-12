@@ -7,7 +7,7 @@ return {
   opts = {},
   keys = {
     {
-      '<tab>',
+      '/',
       mode = { 'n' },
       function()
         require('flash').jump()

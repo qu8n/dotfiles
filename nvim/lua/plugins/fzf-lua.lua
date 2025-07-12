@@ -6,19 +6,17 @@ local fzf_keymaps = {
   -- upon the merge of PR https://github.com/ibhagwan/fzf-lua/pull/2152
   ['<leader>'] = { sub_cmd = '<cmd>FzfLua files cwd=.<cr>', desc = 'Search files' },
   o = { sub_cmd = '<cmd>FzfLua oldfiles cwd_only=true<cr>', desc = 'Old files' },
-
+  ['/'] = { sub_cmd = '<cmd>FzfLua lgrep_curbuf<cr>', desc = 'Grep buffer' },
   -- Search
   s = { sub_cmd = '<Nop>', desc = 'Search' },
   sb = { sub_cmd = '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>', desc = 'Buffers' },
   sc = { sub_cmd = '<cmd>FzfLua commands<cr>', desc = 'Commands' },
-  sC = { sub_cmd = '<cmd>FzfLua colorschemes<cr>', desc = 'Colorschemes' },
-  sd = { sub_cmd = '<cmd>FzfLua diagnostics_document<cr>', desc = 'Diagnostics of file' },
-  sD = { sub_cmd = '<cmd>FzfLua diagnostics_workspace<cr>', desc = 'Diagnostics of project' },
+  sd = { sub_cmd = '<cmd>FzfLua diagnostics_workspace<cr>', desc = 'Diagnostics' },
   sf = { sub_cmd = '<cmd>FzfLua builtin<cr>', desc = 'FzfLua commands' },
   sg = { sub_cmd = '<cmd>FzfLua live_grep<cr>', desc = 'Grep' },
   sm = { sub_cmd = '<cmd>FzfLua marks<cr>', desc = 'Marks' },
   sr = { sub_cmd = '<cmd>FzfLua resume<cr>', desc = 'Resume' },
-  sR = { sub_cmd = '<cmd>FzfLua registers<cr>', desc = 'Registers' },
+  su = { sub_cmd = '<cmd>FzfLua colorschemes<cr>', desc = 'Colorschemes' },
   -- Git
   gl = { sub_cmd = '<cmd>FzfLua git_commits<cr>', desc = 'Log' },
   gs = { sub_cmd = '<cmd>FzfLua git_status<cr>', desc = 'Status' },
