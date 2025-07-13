@@ -6,6 +6,7 @@ vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
 vim.keymap.set('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
 vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
 vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap = true })
+vim.keymap.set('n', '<leader>q', '<cmd>wqa<cr>', { desc = 'Quit' })
 
 vim.keymap.set('n', '<leader>a', '<Nop>', { desc = 'AI' })
 vim.keymap.set('n', '<leader>ao', function()
@@ -140,18 +141,37 @@ vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>')
 -- Terminal
 ----------------------------------------------------------------------------------------------------
 
--- Open a terminal in a new split window at the bottom
-local function open_terminal()
-  vim.cmd 'botright new'
-  vim.cmd 'resize 10'
-  vim.cmd 'terminal'
-  vim.cmd 'startinsert'
+-- Ctrl+/ to toggle the same, single terminal buffer
+-- Note: this keeps terminal usage inside NeoVim simple. More complex terminal management should be
+-- done in a separate Ghostty tab/window
+local terminal_bufnr = nil
+local terminal_winid = nil
+local function toggle_terminal()
+  -- If terminal is open, close it
+  if terminal_winid and vim.api.nvim_win_is_valid(terminal_winid) then
+    vim.api.nvim_win_close(terminal_winid, true)
+    terminal_winid = nil
+  else
+    -- If terminal buffer doesn't exist or is invalid, create a new one
+    if not terminal_bufnr or not vim.api.nvim_buf_is_valid(terminal_bufnr) then
+      vim.cmd 'botright new'
+      vim.cmd 'resize 10'
+      vim.cmd 'terminal'
+      terminal_bufnr = vim.api.nvim_get_current_buf()
+      terminal_winid = vim.api.nvim_get_current_win()
+      vim.cmd 'startinsert'
+    else
+      -- Reopen the existing terminal buffer in a new split
+      vim.cmd('botright sbuffer ' .. terminal_bufnr)
+      vim.cmd 'resize 10'
+      terminal_winid = vim.api.nvim_get_current_win()
+      vim.cmd 'startinsert'
+    end
+  end
 end
-vim.keymap.set('n', '<C-/>', open_terminal, { noremap = true, silent = true })
-
--- Hide the terminal buffer without closing it
--- Return to the hidden buffer with `<leader>sb` (search buffers)
-vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { noremap = true, silent = true })
+vim.keymap.set({ 't', 'n' }, '<C-/>', function()
+  toggle_terminal()
+end, { noremap = true, silent = true })
 
 -- Exit terminal mode with <Esc> and return to normal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
