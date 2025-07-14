@@ -2,10 +2,19 @@
 
 -- Highlight when yanking (copying) text (See `:help vim.hl.on_yank()`)
 vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
+  end,
+})
+
+-- Automatically trim select whitespaces on buffer save
+vim.api.nvim_create_autocmd('BufWritePre', {
+  callback = function()
+    local curr_cursor_position = vim.api.nvim_win_get_cursor(0)
+    vim.cmd [[%s/\s\+$//e]] -- trailing whitespace at the end of each line
+    vim.cmd [[%s/\%^\n\+//e]] -- blank lines at the start of the file
+    vim.cmd [[%s/\($\n\s*\)\+\%$//e]] -- blank lines at the end of the file
+    vim.api.nvim_win_set_cursor(0, curr_cursor_position)
   end,
 })
 

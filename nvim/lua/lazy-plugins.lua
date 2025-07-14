@@ -7,8 +7,8 @@ require('lazy').setup {
   },
   -- Auto check for plugin updates
   checker = {
-    enabled = true, -- check for plugin updates periodically
-    notify = false, -- notify on update
+    enabled = true,
+    notify = true,
   },
   -- Disable config change confirmation dialog
   change_detection = { notify = false },

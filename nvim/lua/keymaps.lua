@@ -2,30 +2,32 @@
 -- To see where a keymap is defined or whether it exists, use `:FzfLua keymaps<cr>`
 -- This files contains only non-plugin keymaps
 
-vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
-vim.keymap.set('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
-vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
-vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap = true })
-vim.keymap.set('n', '<leader>q', '<cmd>wqa<cr>', { desc = 'Quit' })
+local map = vim.keymap.set
 
-vim.keymap.set('n', '<leader>a', '<Nop>', { desc = 'AI' })
-vim.keymap.set('n', '<leader>ao', function()
+map('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
+map('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
+map('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
+map('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap = true })
+map('n', '<leader>q', '<cmd>wqa<cr>', { desc = 'Quit' })
+
+map('n', '<leader>a', '<Nop>', { desc = 'AI' })
+map('n', '<leader>ao', function()
   local cwd = vim.fn.getcwd()
   local cmd = 'open -a Cursor ' .. cwd
   vim.fn.system(cmd)
 end, { desc = 'Open in Cursor' })
 
-vim.keymap.set('n', '<leader>c', '<Nop>', { desc = 'Code' })
+map('n', '<leader>c', '<Nop>', { desc = 'Code' })
 
-vim.keymap.set('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
-vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
-vim.keymap.set('n', '<leader>td', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
+map('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
+map('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
+map('n', '<leader>td', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 
 ----------------------------------------------------------------------------------------------------
 -- Git keymaps
 ----------------------------------------------------------------------------------------------------
 
-vim.keymap.set('n', '<leader>g', '<Nop>', { desc = 'Git' })
+map('n', '<leader>g', '<Nop>', { desc = 'Git' })
 
 local function git_open_remote(remote)
   local cur_win = vim.api.nvim_get_current_win()
@@ -41,11 +43,11 @@ local function git_open_remote(remote)
   end)
 end
 
-vim.keymap.set('n', '<leader>gr', function() -- r for remote
+map('n', '<leader>gr', function() -- r for remote
   git_open_remote 'origin'
 end, { desc = 'Browse origin' })
 
-vim.keymap.set('n', '<leader>gR', function()
+map('n', '<leader>gR', function()
   git_open_remote 'upstream'
 end, { desc = 'Browse upstream' })
 
@@ -53,7 +55,7 @@ end, { desc = 'Browse upstream' })
 -- Copy to clipboard keymaps
 ----------------------------------------------------------------------------------------------------
 
-vim.keymap.set('n', '<leader>C', '<Nop>', { desc = 'Copy to clipboard' })
+map('n', '<leader>C', '<Nop>', { desc = 'Copy to clipboard' })
 
 local function copy_full_path()
   local full_path = vim.fn.expand '%:p'
@@ -73,52 +75,52 @@ local function copy_file_name()
   print('Copied: ' .. filename)
 end
 
-vim.keymap.set('n', '<leader>Ca', copy_full_path, { noremap = true, silent = true, desc = 'Absolute file path' })
-vim.keymap.set('n', '<leader>Cr', copy_rel_path, { noremap = true, silent = true, desc = 'Relative file path' })
-vim.keymap.set('n', '<leader>Cf', copy_file_name, { noremap = true, silent = true, desc = 'File name' })
+map('n', '<leader>Ca', copy_full_path, { noremap = true, silent = true, desc = 'Absolute file path' })
+map('n', '<leader>Cr', copy_rel_path, { noremap = true, silent = true, desc = 'Relative file path' })
+map('n', '<leader>Cf', copy_file_name, { noremap = true, silent = true, desc = 'File name' })
 
 ----------------------------------------------------------------------------------------------------
 -- Saner defaults
 ----------------------------------------------------------------------------------------------------
 
 -- When text is wrapped, move up/down by display lines, not logical lines
-vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-vim.keymap.set({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-vim.keymap.set({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 -- (See `:help hlsearch`)
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
+map('n', '<Esc>', '<cmd>nohlsearch<cr>')
 
 -- Prevent selection from being reset after indenting in visual mode, allowing indenting multiple
 -- times without reselecting
-vim.keymap.set('v', '<', '<gv')
-vim.keymap.set('v', '>', '>gv')
+map('v', '<', '<gv')
+map('v', '>', '>gv')
 
 -- n always searches forward and N backward, instead of depending on whether / or ? was used
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-vim.keymap.set('n', 'n', "'Nn'v:searchforward.'zv'", { expr = true })
-vim.keymap.set('x', 'n', "'Nn'v:searchforward", { expr = true })
-vim.keymap.set('o', 'n', "'Nn'v:searchforward", { expr = true })
-vim.keymap.set('n', 'N', "'nN'v:searchforward.'zv'", { expr = true })
-vim.keymap.set('x', 'N', "'nN'v:searchforward", { expr = true })
-vim.keymap.set('o', 'N', "'nN'v:searchforward", { expr = true })
+map('n', 'n', "'Nn'v:searchforward.'zv'", { expr = true })
+map('x', 'n', "'Nn'v:searchforward", { expr = true })
+map('o', 'n', "'Nn'v:searchforward", { expr = true })
+map('n', 'N', "'nN'v:searchforward.'zv'", { expr = true })
+map('x', 'N', "'nN'v:searchforward", { expr = true })
+map('o', 'N', "'nN'v:searchforward", { expr = true })
 
 ----------------------------------------------------------------------------------------------------
 -- Buffers
 ----------------------------------------------------------------------------------------------------
 
 -- Ctrl+s to save the current buffer
-vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>')
+map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>')
 
 -- Ctrl+q to delete the current buffer
-vim.keymap.set('n', '<C-q>', '<cmd>bd<cr>')
-vim.keymap.set('t', '<C-q>', '<cmd>q!<cr>')
+map('n', '<C-q>', '<cmd>bd<cr>')
+map('t', '<C-q>', '<cmd>q!<cr>')
 
 -- Shift+<hl> to switch between adjacent buffers
-vim.keymap.set('n', '<S-h>', '<cmd>bprevious<cr>')
-vim.keymap.set('n', '<S-l>', '<cmd>bnext<cr>')
+map('n', '<S-h>', '<cmd>bprevious<cr>')
+map('n', '<S-l>', '<cmd>bnext<cr>')
 
 ----------------------------------------------------------------------------------------------------
 -- Split windows
@@ -126,16 +128,16 @@ vim.keymap.set('n', '<S-l>', '<cmd>bnext<cr>')
 
 -- Ctrl+<hjkl> to switch between split windows
 -- (See `:help wincmd` for all window commands)
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>')
+map('n', '<C-h>', '<C-w><C-h>')
+map('n', '<C-l>', '<C-w><C-l>')
+map('n', '<C-j>', '<C-w><C-j>')
+map('n', '<C-k>', '<C-w><C-k>')
 
 -- Ctrl+<arrow> to resize the current split window
-vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<cr>')
-vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>')
-vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>')
-vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>')
+map('n', '<C-Up>', '<cmd>resize +2<cr>')
+map('n', '<C-Down>', '<cmd>resize -2<cr>')
+map('n', '<C-Left>', '<cmd>vertical resize -2<cr>')
+map('n', '<C-Right>', '<cmd>vertical resize +2<cr>')
 
 ----------------------------------------------------------------------------------------------------
 -- Terminal
@@ -169,9 +171,9 @@ local function toggle_terminal()
     end
   end
 end
-vim.keymap.set({ 't', 'n' }, '<C-/>', function()
+map({ 't', 'n' }, '<C-/>', function()
   toggle_terminal()
 end, { noremap = true, silent = true })
 
 -- Exit terminal mode with <Esc> and return to normal mode
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
+map('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
