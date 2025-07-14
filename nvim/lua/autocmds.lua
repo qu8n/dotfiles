@@ -14,7 +14,18 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.cmd [[%s/\s\+$//e]] -- trailing whitespace at the end of each line
     vim.cmd [[%s/\%^\n\+//e]] -- blank lines at the start of the file
     vim.cmd [[%s/\($\n\s*\)\+\%$//e]] -- blank lines at the end of the file
-    vim.api.nvim_win_set_cursor(0, curr_cursor_position)
+    -- Restore cursor position after trimming and handle the edge case where the cursor is at a
+    -- line that gets deleted
+    local line_count = vim.api.nvim_buf_line_count(0)
+    local clamped_line = math.min(curr_cursor_position[1], line_count)
+    vim.api.nvim_win_set_cursor(0, { clamped_line, curr_cursor_position[2] })
+  end,
+})
+
+-- Set minimum lines above/below cursor when scrolling on non-terminal buffers
+vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter', 'CursorMoved' }, {
+  callback = function()
+    vim.o.scrolloff = (vim.bo.buftype == 'terminal') and 0 or 3
   end,
 })
 

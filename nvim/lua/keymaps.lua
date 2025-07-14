@@ -100,10 +100,14 @@ map('v', '>', '>gv')
 
 -- n always searches forward and N backward, instead of depending on whether / or ? was used
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-map('n', 'n', "'Nn'v:searchforward.'zv'", { expr = true })
+map('n', 'n', function()
+  return vim.v.searchforward == 1 and 'nzzzv' or 'Nzzzv'
+end, { expr = true, desc = 'Next search result' })
 map('x', 'n', "'Nn'v:searchforward", { expr = true })
 map('o', 'n', "'Nn'v:searchforward", { expr = true })
-map('n', 'N', "'nN'v:searchforward.'zv'", { expr = true })
+map('n', 'N', function()
+  return vim.v.searchforward == 1 and 'Nzzzv' or 'nzzzv'
+end, { expr = true, desc = 'Prev search result' })
 map('x', 'N', "'nN'v:searchforward", { expr = true })
 map('o', 'N', "'nN'v:searchforward", { expr = true })
 

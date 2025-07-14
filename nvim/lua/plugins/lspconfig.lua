@@ -82,6 +82,7 @@ return {
           -- Set nowait=true to ignore nvim's built-in LSP keymaps like gra, grr, etc.
           map('gr', '<cmd>FzfLua lsp_references<cr>', 'References', 'n', { nowait = true })
           map('gI', vim.lsp.buf.implementation, 'Implementation')
+          map('gy', '<cmd>FzfLua lsp_typedefs<cr>', 'Type Definitions')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client

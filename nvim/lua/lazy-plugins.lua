@@ -5,14 +5,11 @@ require('lazy').setup {
     -- Auto-install plugins specified in the 'plugins/' directory
     { import = 'plugins' },
   },
-  -- Auto check for plugin updates
-  checker = {
-    enabled = true,
-    notify = true,
-  },
+  -- Disable automatic plugin updates
+  checker = { enabled = false },
   -- Disable config change confirmation dialog
   change_detection = { notify = false },
-  -- LuaRocks is a package manager for Lua modules. We don't have a need for it
-  -- Re-enable it if luarocks is a dependency for installed plugins
+  -- Disable the requirement for LuaRocks, a package manager for Lua modules.
+  -- Re-enable it if it's a dependency for future installed plugins
   rocks = { enabled = false },
 }

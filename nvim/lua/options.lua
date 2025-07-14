@@ -17,7 +17,6 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- ...as these c
 vim.wo.wrap = false -- Disable line wrap
 vim.o.inccommand = 'split' -- Live preview of :s commands
 vim.opt.fillchars = { eob = ' ' } -- No end-of-buffer tilde characters
-vim.o.scrolloff = 3 -- Minimum lines above/below cursor when scrolling
 
 -- Search behavior
 vim.o.ignorecase = true -- Case-insensitive search...
