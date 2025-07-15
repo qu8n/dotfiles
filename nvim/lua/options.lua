@@ -1,54 +1,79 @@
 -- [[ Setting options ]]
 
+-- Aliases for convenience
+local o = vim.o
+local opt = vim.opt
+local wo = vim.wo
+local g = vim.g
+
+-- Set <space> as the leader key (must happen before any plugins are loaded)
+g.mapleader = ' '
+g.maplocalleader = ' '
+
 -- Saner defaults
-vim.o.undofile = true -- Save undo history
-vim.o.confirm = true -- Confirm on unsaved changes
-vim.schedule(function() -- Sync Vim's clipboard with OS' (delayed for better compatibility)
-  vim.o.clipboard = 'unnamedplus'
-end)
-vim.o.mouse = 'a' -- Enable mouse usage
+o.undofile = true -- Save undo history
+o.confirm = true -- Confirm on unsaved changes
+o.clipboard = 'unnamedplus' -- Sync with system clipboard
+o.mouse = 'a' -- Enable mouse usage
+o.autoread = true -- Automatically refresh buffer when changed outside of Vim
 
 -- Visual and display
-vim.o.number = true -- Show line numbers
-vim.o.signcolumn = 'yes' -- Always show signcolumn
-vim.o.cursorline = true -- Highlight current line
-vim.o.list = true -- Replace whitespaces...
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- ...as these characters
-vim.wo.wrap = false -- Disable line wrap
-vim.o.inccommand = 'split' -- Live preview of :s commands
-vim.opt.fillchars = { eob = ' ' } -- No end-of-buffer tilde characters
+g.have_nerd_font = true -- Use Nerd Font for icons
+o.number = true -- Show line numbers
+o.relativenumber = true -- Show relative line numbers
+o.signcolumn = 'yes' -- Always show signcolumn
+o.cursorline = true -- Highlight current line
+o.list = true -- Replace whitespaces...
+o.inccommand = 'split' -- Show live preview of in-progress :s commands
+o.ls = 0 -- Hide the status line that shows the filepath...
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- ...as these characters
+opt.fillchars = { eob = ' ' } -- No end-of-buffer tilde characters
+opt.winbar = '%m %f' -- ...and show the filepath at the top of the buffer instead
+wo.wrap = false -- Disable line wrap
 
 -- Search behavior
-vim.o.ignorecase = true -- Case-insensitive search...
-vim.o.smartcase = true -- ...unless uppercase in search
+o.ignorecase = true -- Case-insensitive search...
+o.smartcase = true -- ...unless uppercase in search
 
 -- Performance and timing
-vim.o.updatetime = 250 -- Faster update time for plugins
-vim.o.timeoutlen = 300 -- Shorter mapping timeout
+o.updatetime = 500 -- Faster update time for plugins
+o.timeoutlen = 300 -- Shorter mapping timeout
 
 -- Splits and window management
-vim.o.splitright = true -- New splits open right
-vim.o.splitbelow = true -- New splits open below
+o.splitright = true -- New splits open right
+o.splitbelow = true -- New splits open below
 
 -- Indentation and tabs
-vim.opt.expandtab = true -- Use spaces instead of tabs
-vim.opt.smartindent = true -- Enable smart indent
-vim.opt.shiftwidth = 2 -- Spaces per indent
-vim.opt.tabstop = 2 -- Spaces for <Tab>
-vim.opt.hidden = true -- Enable switching buffers without saving
-vim.o.breakindent = true -- Wrapped line repeats indent
+o.breakindent = true -- Wrapped line repeats indent
+opt.expandtab = true -- Use spaces instead of tabs
+opt.smartindent = true -- Enable smart indent
+opt.shiftwidth = 2 -- Spaces per indent
+opt.tabstop = 2 -- Spaces for <Tab>
+opt.hidden = true -- Enable switching buffers without saving
 
 -- Enable folding
-vim.o.foldmethod = 'expr' -- Define folds using an expression
-vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use Treesitter for folding
-vim.o.foldlevel = 99 -- Open all folds by default upon opening a file
-vim.opt.foldtext = '' -- Syntax highlight first line of fold
+o.foldmethod = 'expr' -- Define folds using an expression
+o.foldlevel = 99 -- Open all folds by default upon opening a file
+opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use Treesitter for folding
+opt.foldtext = '' -- Syntax highlight first line of fold
 
 -- Disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrwSettings = 1
-vim.g.loaded_netrwFileHandlers = 1
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+g.loaded_netrwSettings = 1
+g.loaded_netrwFileHandlers = 1
+
+-- Disable file backup when saving
+o.backup = false
+o.writebackup = false
 
 -- Language/Plugin specific
-vim.g.markdown_recommended_style = 0 -- Don't override user's markdown softtabstop
+g.markdown_recommended_style = 0 -- Don't override user's markdown softtabstop
+for _, plugin in pairs { -- Disable unused built-in Neovim plugins
+  'netrwFileHandlers',
+  '2html_plugin',
+  'spellfile_plugin',
+  'matchit',
+} do
+  vim.g['loaded_' .. plugin] = 1
+end

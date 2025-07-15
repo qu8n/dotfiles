@@ -7,11 +7,12 @@ return {
   opts = {},
   keys = {
     {
-      '/',
+      '<leader>n',
       mode = { 'n' },
       function()
         require('flash').jump()
       end,
+      desc = 'Navigate (Flash)',
     },
   },
 }

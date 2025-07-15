@@ -6,7 +6,6 @@ local fzf_keymaps = {
   -- upon the merge of PR https://github.com/ibhagwan/fzf-lua/pull/2152
   ['<leader>'] = { sub_cmd = '<cmd>FzfLua files cwd=.<cr>', desc = 'Search files' },
   o = { sub_cmd = '<cmd>FzfLua oldfiles cwd_only=true<cr>', desc = 'Old files' },
-  ['/'] = { sub_cmd = '<cmd>FzfLua lgrep_curbuf<cr>', desc = 'Grep buffer' },
   -- Search
   s = { sub_cmd = '<Nop>', desc = 'Search' },
   sb = { sub_cmd = '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>', desc = 'Buffers' },

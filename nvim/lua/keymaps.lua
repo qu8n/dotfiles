@@ -8,7 +8,6 @@ map('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
 map('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
 map('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
 map('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap = true })
-map('n', '<leader>q', '<cmd>wqa<cr>', { desc = 'Quit' })
 
 map('n', '<leader>a', '<Nop>', { desc = 'AI' })
 map('n', '<leader>ao', function()
@@ -18,10 +17,15 @@ map('n', '<leader>ao', function()
 end, { desc = 'Open in Cursor' })
 
 map('n', '<leader>c', '<Nop>', { desc = 'Code' })
+map('n', '<leader>cm', '<cmd>Mason<cr>', { desc = 'Mason menu' })
 
 map('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
 map('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
 map('n', '<leader>td', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
+map('n', '<leader>tr', function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+  vim.notify('Relative line numbers: ' .. (vim.wo.relativenumber and 'on' or 'off'), vim.log.levels.INFO)
+end, { desc = 'Relative line numbers' })
 
 ----------------------------------------------------------------------------------------------------
 -- Git keymaps
@@ -43,7 +47,7 @@ local function git_open_remote(remote)
   end)
 end
 
-map('n', '<leader>gr', function() -- r for remote
+map('n', '<leader>gr', function() -- [r]emote
   git_open_remote 'origin'
 end, { desc = 'Browse origin' })
 

@@ -18,9 +18,7 @@ return {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
     dependencies = {
-      -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
-      -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
       { 'mason-org/mason.nvim', opts = {} },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -227,29 +225,43 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- format Lua code
-        'bash-language-server',
-        'black',
-        'clang-format',
-        'clangd',
-        'eslint-lsp',
-        'gofumpt',
-        'goimports',
-        'gopls',
-        'jdtls',
-        'json-lsp',
-        'lua-language-server',
-        'markdown-toc',
-        'marksman',
-        'prettier',
-        'pyright',
-        'ruff',
-        'shellcheck',
-        'shfmt',
-        'stylua',
-        'tailwindcss-language-server',
-        'taplo',
-        'vtsls',
+        -- Lua
+        'lua-language-server', -- LSP
+        'stylua', -- formatter
+
+        -- Bash/Shell
+        'bash-language-server', -- LSP
+        'shellcheck', -- linter
+        'shfmt', -- formatter
+
+        -- Python
+        'pyright', -- LSP
+        'black', -- formatter
+        'ruff', -- linter
+
+        -- C/C++
+        'clangd', -- LSP
+        'clang-format', -- formatter
+
+        -- JavaScript / TypeScript / Web
+        'vtsls', -- Typescript LSP
+        'eslint-lsp', -- LSP
+        'prettier', -- formatter
+        'tailwindcss-language-server', -- LSP
+
+        -- Go
+        'gofumpt', -- formatter
+        'gopls', -- LSP
+
+        -- Java
+        'jdtls', -- LSP
+
+        -- JSON
+        'json-lsp', -- LSP
+
+        -- Markdown
+        'marksman', -- LSP
+        'markdown-toc', -- toc generator
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

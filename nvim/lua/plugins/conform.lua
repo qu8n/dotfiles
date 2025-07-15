@@ -20,12 +20,13 @@ return {
       notify_on_error = false,
       format_on_save = true,
       formatters_by_ft = {
-        lua = { 'stylua' },
-        typescript = { 'prettier' },
-        typescriptreact = { 'prettier' },
         -- Can run multiple formatters sequentially or run the first available formatter:
         -- python = { "isort", "black" },
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        lua = { 'stylua' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        python = { 'black' },
       },
       formatters = {
         -- Require a prettierrc config file for prettier to run to avoid using w/e default prettierrc
