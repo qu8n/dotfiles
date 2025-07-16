@@ -6,10 +6,20 @@ return {
   {
     'zbirenbaum/copilot.lua',
     event = 'BufReadPost',
-    keys = {
-      { '<leader>tc', '<cmd>Copilot toggle<cr>', desc = 'Copilot' },
-      { '<leader>ac', '<cmd>Copilot toggle<cr>', desc = 'Copilot toggle' },
-    },
+    config = function(_, opts)
+      local copilot = require 'copilot'
+      -- Because :Copilot toggle doesn't work reliably
+      local function toggle_copilot()
+        if require('copilot.client').is_disabled() then
+          require('copilot.command').enable()
+        else
+          require('copilot.command').disable()
+        end
+      end
+      vim.keymap.set('n', '<leader>tc', toggle_copilot, { desc = 'Toggle Copilot' })
+      vim.keymap.set('n', '<leader>ac', toggle_copilot, { desc = 'Toggle Copilot' })
+      copilot.setup(opts)
+    end,
     opts = {
       suggestion = {
         auto_trigger = true, -- start suggesting on INSERT mode
