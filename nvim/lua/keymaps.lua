@@ -4,20 +4,20 @@
 
 local map = vim.keymap.set
 
-map('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
+map('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 map('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
-map('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
-map('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap = true })
+map('n', '<leader>|', '<C-W>v', { desc = 'Split window →', remap = true })
+map('n', '<leader>-', '<C-W>s', { desc = 'Split window ↓', remap = true })
 
 map('n', '<leader>a', '<Nop>', { desc = 'AI' })
-map('n', '<leader>ao', function()
+map('n', '<leader>ar', function()
   local cwd = vim.fn.getcwd()
   local cmd = 'open -a Cursor ' .. cwd
   vim.fn.system(cmd)
 end, { desc = 'Open in Cursor' })
 
 map('n', '<leader>c', '<Nop>', { desc = 'Code' })
-map('n', '<leader>cm', '<cmd>Mason<cr>', { desc = 'Mason menu' })
+map('n', '<leader>cm', '<cmd>Mason<cr>', { desc = 'Mason' })
 
 map('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
 map('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
@@ -59,29 +59,25 @@ end, { desc = 'Browse upstream' })
 -- Copy to clipboard keymaps
 ----------------------------------------------------------------------------------------------------
 
-map('n', '<leader>C', '<Nop>', { desc = 'Copy to clipboard' })
+map('n', '<leader>y', '<Nop>', { desc = 'Yank to clipboard' })
 
-local function copy_full_path()
-  local full_path = vim.fn.expand '%:p'
-  vim.fn.setreg('+', full_path)
-  print('Copied: ' .. full_path)
+local function copy_to_clipboard(expand_pattern, label)
+  local value = vim.fn.expand(expand_pattern)
+  vim.fn.setreg('+', value)
+  print('Copied: ' .. value .. (label and (' (' .. label .. ')') or ''))
 end
 
-local function copy_rel_path()
-  local rel_path = vim.fn.expand '%:.'
-  vim.fn.setreg('+', rel_path)
-  print('Copied: ' .. rel_path)
-end
+map('n', '<leader>ya', function()
+  copy_to_clipboard('%:p', 'absolute path')
+end, { noremap = true, silent = true, desc = 'Absolute file path' })
 
-local function copy_file_name()
-  local filename = vim.fn.expand '%:t'
-  vim.fn.setreg('+', filename)
-  print('Copied: ' .. filename)
-end
+map('n', '<leader>yr', function()
+  copy_to_clipboard('%:.', 'relative path')
+end, { noremap = true, silent = true, desc = 'Relative file path' })
 
-map('n', '<leader>Ca', copy_full_path, { noremap = true, silent = true, desc = 'Absolute file path' })
-map('n', '<leader>Cr', copy_rel_path, { noremap = true, silent = true, desc = 'Relative file path' })
-map('n', '<leader>Cf', copy_file_name, { noremap = true, silent = true, desc = 'File name' })
+map('n', '<leader>yn', function()
+  copy_to_clipboard('%:t', 'file name')
+end, { noremap = true, silent = true, desc = 'Name of file' })
 
 ----------------------------------------------------------------------------------------------------
 -- Saner defaults

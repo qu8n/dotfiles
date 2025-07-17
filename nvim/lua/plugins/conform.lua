@@ -29,11 +29,13 @@ return {
         python = { 'black' },
       },
       formatters = {
-        -- Require a prettierrc config file for prettier to run to avoid using w/e default prettierrc
-        -- that conform.nvim provides
+        -- Require a config file to run to avoid using w/e the defaults are that conform.nvim provides
         -- https://github.com/stevearc/conform.nvim/issues/407
         prettier = {
-          require_cwd = true,
+          require_cwd = true, -- requires prettierrc
+        },
+        black = {
+          require_cwd = true, -- requires pyproject.toml (TODO: confirm this)
         },
       },
     },

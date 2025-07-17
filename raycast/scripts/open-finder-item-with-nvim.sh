@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Open with NeoVim
+# @raycast.title Open Finder item with NeoVim
 # @raycast.mode silent
 
 # Optional parameters:
@@ -15,7 +15,7 @@
 FILEPATH=$(osascript -e 'tell application "Finder" to get POSIX path of (selection as alias)')
 
 osascript <<EOF
-tell application "iTerm"
+tell application "Ghostty"
     activate
     try
         set currentWindow to current window

@@ -8,7 +8,7 @@ return {
     event = 'BufReadPost',
     config = function(_, opts)
       local copilot = require 'copilot'
-      -- Because :Copilot toggle doesn't work reliably
+      -- Because `:Copilot toggle` doesn't work reliably
       local function toggle_copilot()
         if require('copilot.client').is_disabled() then
           require('copilot.command').enable()
@@ -16,8 +16,8 @@ return {
           require('copilot.command').disable()
         end
       end
-      vim.keymap.set('n', '<leader>tc', toggle_copilot, { desc = 'Toggle Copilot' })
       vim.keymap.set('n', '<leader>ac', toggle_copilot, { desc = 'Toggle Copilot' })
+      vim.keymap.set('n', '<leader>tc', toggle_copilot, { desc = 'Copilot' })
       copilot.setup(opts)
     end,
     opts = {
@@ -58,10 +58,11 @@ return {
     keys = {
       -- AI group
       { '<leader>aC', '<cmd>CopilotChatToggle<cr>', desc = 'CopilotChat toggle' },
-      { '<leader>as', '<cmd>CopilotChatStop<cr>', desc = 'Stop output (CC)' },
-      { '<leader>ar', '<cmd>CopilotChatReset<cr>', desc = 'Reset window (CC)' },
-      { '<leader>ap', '<cmd>CopilotChatPrompts<cr>', desc = 'Prompts picker (CC)' },
-      { '<leader>am', '<cmd>CopilotChatModels<cr>', desc = 'Models picker (CC)' },
+      { '<leader>aa', '<Nop>', desc = 'CopilotChat' },
+      { '<leader>aas', '<cmd>CopilotChatStop<cr>', desc = 'Stop output' },
+      { '<leader>aar', '<cmd>CopilotChatReset<cr>', desc = 'Reset window' },
+      { '<leader>aap', '<cmd>CopilotChatPrompts<cr>', desc = 'Prompts' },
+      { '<leader>aam', '<cmd>CopilotChatModels<cr>', desc = 'Models' },
       -- Toggle group
       { '<leader>tC', '<cmd>CopilotChatToggle<cr>', desc = 'CopilotChat' },
     },

@@ -1,9 +1,5 @@
 # [Homebrew](https://brew.sh/)
 
-Makes it easy to install and manage packages on MacOS. Along with Bundle, we
-can document existing packages and install them on a new machine with a single
-command.
-
 > [!IMPORTANT]
 > Apps, including custom fonts, should be installed when possible via `brew` or
 > `brew cask`. Search if apps are available via `brew search`. Only download apps
@@ -12,7 +8,7 @@ command.
 <!-- mtoc-start -->
 
 * [Usage guide](#usage-guide)
-  * [Updating Homebrew casks automatically](#updating-homebrew-casks-automatically)
+  * [Updating Homebrew packages automatically](#updating-homebrew-packages-automatically)
   * [Exporting and importing Homebrew packages](#exporting-and-importing-homebrew-packages)
   * [Keeping Homebrew packages organized](#keeping-homebrew-packages-organized)
     * [Automatic cleanup](#automatic-cleanup)
@@ -23,9 +19,10 @@ command.
 
 ## Usage guide
 
-### Updating Homebrew casks automatically
+### Updating Homebrew packages automatically
 
 ```zsh
+brew upgrade # update all non-cask packages
 brew cu --all # update all casks, including those with auto-updates
 ```
 

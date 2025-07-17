@@ -2,19 +2,29 @@
 -- https://github.com/ibhagwan/fzf-lua
 
 local fzf_keymaps = {
-  -- TODO: replace this and the oldfiles search with a picker that combines both `oldfiles` and `files`
-  -- upon the merge of PR https://github.com/ibhagwan/fzf-lua/pull/2152
-  ['<leader>'] = { sub_cmd = '<cmd>FzfLua files cwd=.<cr>', desc = 'Search files' },
-  o = { sub_cmd = '<cmd>FzfLua oldfiles cwd_only=true<cr>', desc = 'Old files' },
+  ['<leader>'] = { sub_cmd = '<cmd>FzfLua combine pickers=oldfiles,files cwd_only=true<cr>', desc = 'Files' },
+  b = { sub_cmd = '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>', desc = 'Buffers' },
   -- Search
   s = { sub_cmd = '<Nop>', desc = 'Search' },
-  sb = { sub_cmd = '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>', desc = 'Buffers' },
   sc = { sub_cmd = '<cmd>FzfLua commands<cr>', desc = 'Commands' },
   sd = { sub_cmd = '<cmd>FzfLua diagnostics_workspace<cr>', desc = 'Diagnostics' },
-  sf = { sub_cmd = '<cmd>FzfLua builtin<cr>', desc = 'FzfLua commands' },
+  sb = { sub_cmd = '<cmd>FzfLua builtin<cr>', desc = 'Builtin' },
   sg = { sub_cmd = '<cmd>FzfLua live_grep<cr>', desc = 'Grep' },
   sm = { sub_cmd = '<cmd>FzfLua marks<cr>', desc = 'Marks' },
   sr = { sub_cmd = '<cmd>FzfLua resume<cr>', desc = 'Resume' },
+  ss = {
+    sub_cmd = function()
+      require('fzf-lua').lsp_document_symbols {
+        regex_filter = function(entry)
+          if entry.kind == 'Function' and string.find(entry.text, '<function>') then
+            return false
+          end
+          return true
+        end,
+      }
+    end,
+    desc = 'Symbols',
+  },
   su = { sub_cmd = '<cmd>FzfLua colorschemes<cr>', desc = 'Colorschemes' },
   -- Git
   gl = { sub_cmd = '<cmd>FzfLua git_commits<cr>', desc = 'Log' },
@@ -52,7 +62,6 @@ return {
     grep = {
       -- Enable `FzfLua live_grep` to search terms in specific directories
       -- Example: Find occurrences of "enable" only in the "plugins" directory: `enable --*/plugins/*`
-      -- Source: https://www.reddit.com/r/neovim/comments/1hhiidm/a_few_nice_fzflua_configurations_now_that_lazyvim
       glob_separator = '%s%-%-', -- query separator pattern (lua): ' --'
       rg_glob = true, -- enable glob parsing
       glob_flag = '--iglob', -- case insensitive globs
