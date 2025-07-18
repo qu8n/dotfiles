@@ -13,7 +13,7 @@ return {
       show_hidden = true,
       -- Always hide these files/directories even if `show_hidden` is enabled
       is_always_hidden = function(name)
-        return name == '.DS_Store' or name == '.git'
+        return name == '.DS_Store' or name == '.git' or name == '..'
       end,
     },
     delete_to_trash = true, -- instead of deleting them permanently

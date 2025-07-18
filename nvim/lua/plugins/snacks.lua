@@ -3,11 +3,22 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    -- indent = { enabled = true },
-    picker = { enabled = true },
-    -- quickfile = { enabled = true },
-    -- scope = { enabled = true },
-    -- scroll = { enabled = true },
+    picker = {
+      enabled = true,
+      -- Press `<Esc>` once to close the picker
+      -- (Default is `<Esc>` once to normal mode, `<Esc>` twice to close the picker)
+      win = {
+        input = {
+          keys = {
+            ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
+          },
+        },
+      },
+    },
+    -- Add indentation guides - thin vertical lines that help you see the nesting of code blocks
+    indent = { enabled = true },
+    -- `nvim <file>` renders file quickly before loading plugins
+    quickfile = { enabled = true },
   },
   keys = {
     {
@@ -26,7 +37,9 @@ return {
       desc = 'Buffers',
     },
 
+    ------------------------------------------------------------------------------------------------
     -- Search
+    ------------------------------------------------------------------------------------------------
     {
       '<leader>s',
       '<Nop>',
@@ -82,7 +95,9 @@ return {
       desc = 'Colorschemes',
     },
 
+    ------------------------------------------------------------------------------------------------
     -- Git
+    ------------------------------------------------------------------------------------------------
     {
       '<leader>g',
       '<Nop>',
@@ -124,7 +139,9 @@ return {
       desc = 'Status',
     },
 
+    ------------------------------------------------------------------------------------------------
     -- LSP
+    ------------------------------------------------------------------------------------------------
     {
       'gd',
       function()

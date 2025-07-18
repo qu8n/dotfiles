@@ -27,18 +27,6 @@ map('n', '<leader>tr', function()
   vim.notify('Relative line numbers: ' .. (vim.wo.relativenumber and 'on' or 'off'), vim.log.levels.INFO)
 end, { desc = 'Relative line numbers' })
 
--- Activate CLI `gh markdown-preview <current file>` on keymap <leader>tm`
-map('n', '<leader>tm', function()
-  local file = vim.fn.expand '%'
-  if file == '' then
-    vim.notify('No file to preview', vim.log.levels.WARN)
-    return
-  end
-  local cmd = 'gh markdown-preview ' .. file
-  vim.fn.system(cmd)
-  -- Ctrl+C
-end, { desc = 'Markdown preview' })
-
 ----------------------------------------------------------------------------------------------------
 -- Git keymaps
 ----------------------------------------------------------------------------------------------------
