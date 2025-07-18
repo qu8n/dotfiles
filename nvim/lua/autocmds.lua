@@ -31,6 +31,16 @@ a.nvim_create_autocmd({ 'BufEnter', 'WinEnter', 'CursorMoved' }, {
   end,
 })
 
+-- Neovim detects `.env` files as having the `sh` (shell script) filetype. This leads to diagnostics
+-- of "<variable> appears unused" for each variable in the `.env`. This disable those messages.
+-- Setting the filetype to some custom type also works, but we'd lose syntax highlighting, etc.
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
+  pattern = '.env*',
+  callback = function(e)
+    vim.diagnostic.enable(false, { bufnr = e.buf })
+  end,
+})
+
 ----------------------------------------------------------------------------------------------------
 -- Saner defaults
 ----------------------------------------------------------------------------------------------------

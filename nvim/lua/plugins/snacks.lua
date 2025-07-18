@@ -14,11 +14,28 @@ return {
           },
         },
       },
+      -- Restrict smart file picker to the current project, show recent files first then the rest after
+      sources = {
+        smart = {
+          multi = { 'recent', 'files' },
+          filter = { cwd = true },
+          matcher = {
+            frecency = false,
+            sort_empty = false,
+          },
+        },
+      },
     },
     -- Add indentation guides - thin vertical lines that help you see the nesting of code blocks
     indent = { enabled = true },
     -- `nvim <file>` renders file quickly before loading plugins
     quickfile = { enabled = true },
+    scratch = {
+      enabled = true,
+      -- Set markdown as the default filetype for scratch buffers
+      -- Otherwise, it will match the current buffer's filetype (why?)
+      ft = 'markdown',
+    },
   },
   keys = {
     {
@@ -36,6 +53,13 @@ return {
       end,
       desc = 'Buffers',
     },
+    {
+      '<leader>.',
+      function()
+        Snacks.scratch()
+      end,
+      desc = 'Scratch',
+    },
 
     ------------------------------------------------------------------------------------------------
     -- Search
@@ -44,6 +68,13 @@ return {
       '<leader>s',
       '<Nop>',
       desc = 'Search',
+    },
+    {
+      '<leader>s.',
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = 'Scratches',
     },
     {
       '<leader>sc',

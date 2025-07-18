@@ -58,10 +58,10 @@ return {
     keys = {
       -- AI group
       { '<leader>aC', '<cmd>CopilotChatToggle<cr>', desc = 'CopilotChat toggle' },
-      { '<leader>aa', '<Nop>', desc = 'CopilotChat' },
+      { '<leader>aa', '<Nop>', mode = { 'n', 'v' }, desc = 'CopilotChat' },
       { '<leader>aas', '<cmd>CopilotChatStop<cr>', desc = 'Stop output' },
       { '<leader>aar', '<cmd>CopilotChatReset<cr>', desc = 'Reset window' },
-      { '<leader>aap', '<cmd>CopilotChatPrompts<cr>', desc = 'Prompts' },
+      { '<leader>aap', '<cmd>CopilotChatPrompts<cr>', mode = { 'n', 'v' }, desc = 'Prompts' },
       { '<leader>aam', '<cmd>CopilotChatModels<cr>', desc = 'Models' },
       -- Toggle group
       { '<leader>tC', '<cmd>CopilotChatToggle<cr>', desc = 'CopilotChat' },

@@ -9,23 +9,68 @@ map('n', '<leader>r', '<cmd>e #<cr>', { desc = 'Recent buffer' })
 map('n', '<leader>|', '<C-W>v', { desc = 'Split window →', remap = true })
 map('n', '<leader>-', '<C-W>s', { desc = 'Split window ↓', remap = true })
 
+----------------------------------------------------------------------------------------------------
+-- AI keymaps
+----------------------------------------------------------------------------------------------------
+
 map('n', '<leader>a', '<Nop>', { desc = 'AI' })
+
 map('n', '<leader>ar', function()
   local cwd = vim.fn.getcwd()
   local cmd = 'open -a Cursor ' .. cwd
   vim.fn.system(cmd)
 end, { desc = 'Open in Cursor' })
 
-map('n', '<leader>c', '<Nop>', { desc = 'Code' })
+----------------------------------------------------------------------------------------------------
+-- Code keymaps
+----------------------------------------------------------------------------------------------------
+
+map({ 'n', 'v' }, '<leader>c', '<Nop>', { desc = 'Code' })
+
 map('n', '<leader>cm', '<cmd>Mason<cr>', { desc = 'Mason' })
 
-map('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
-map('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
-map('n', '<leader>td', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
-map('n', '<leader>tr', function()
-  vim.wo.relativenumber = not vim.wo.relativenumber
-  vim.notify('Relative line numbers: ' .. (vim.wo.relativenumber and 'on' or 'off'), vim.log.levels.INFO)
-end, { desc = 'Relative line numbers' })
+-- Table mapping file extensions to their log/print statement formats
+local log_statements_by_language = {
+  ['.js'] = 'console.log("%s:", %s);',
+  ['.ts'] = 'console.log("%s:", %s);',
+  ['.tsx'] = 'console.log("%s:", %s);',
+  ['.py'] = 'print("%s: ", %s)',
+  ['.java'] = 'System.out.println("%s: " + %s);',
+}
+local function add_log()
+  -- Get the variable name under the cursor
+  local var_name = vim.fn.expand '<cword>'
+  local row = vim.api.nvim_win_get_cursor(0)[1]
+  -- Get buffer name and file extension
+  local bufname = vim.api.nvim_buf_get_name(0)
+  local ext = bufname:match '^.+(%.[^%.]+)$' or ''
+  -- Reference the print statement table
+  local log_template = log_statements_by_language[ext]
+  if not log_template then
+    vim.api.nvim_echo({ { 'Unsupported file extension: ' .. ext, 'ErrorMsg' } }, false, {})
+    return
+  end
+  local log_line = string.format(log_template, var_name, var_name)
+  -- Find next empty line after cursor
+  local lines = vim.api.nvim_buf_get_lines(0, row, -1, false)
+  local insert_row = row
+  for i, l in ipairs(lines) do
+    if l:match '^%s*$' then
+      insert_row = row + i
+      break
+    end
+  end
+  -- Insert log line and an empty line
+  vim.api.nvim_buf_set_lines(0, insert_row, insert_row, false, { log_line, '' })
+  -- Save original cursor position
+  local orig_pos = vim.api.nvim_win_get_cursor(0)
+  -- Move cursor to the inserted log line and indent it
+  vim.api.nvim_win_set_cursor(0, { insert_row + 1, 0 })
+  vim.cmd 'normal! =='
+  -- Restore original cursor position
+  vim.api.nvim_win_set_cursor(0, orig_pos)
+end
+vim.keymap.set('n', '<leader>cl', add_log, { desc = 'Add log' })
 
 ----------------------------------------------------------------------------------------------------
 -- Git keymaps
@@ -56,7 +101,19 @@ map('n', '<leader>gO', function()
 end, { desc = 'Browse upstream' })
 
 ----------------------------------------------------------------------------------------------------
--- Copy to clipboard keymaps
+-- Toggle keymaps
+----------------------------------------------------------------------------------------------------
+
+map('n', '<leader>t', '<Nop>', { desc = 'Toggle' })
+map('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Wrap line' })
+map('n', '<leader>td', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
+map('n', '<leader>tr', function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+  vim.notify('Relative line numbers: ' .. (vim.wo.relativenumber and 'on' or 'off'), vim.log.levels.INFO)
+end, { desc = 'Relative line numbers' })
+
+----------------------------------------------------------------------------------------------------
+-- Yank to clipboard keymaps
 ----------------------------------------------------------------------------------------------------
 
 map('n', '<leader>y', '<Nop>', { desc = 'Yank to clipboard' })
