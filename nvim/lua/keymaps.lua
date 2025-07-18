@@ -27,6 +27,18 @@ map('n', '<leader>tr', function()
   vim.notify('Relative line numbers: ' .. (vim.wo.relativenumber and 'on' or 'off'), vim.log.levels.INFO)
 end, { desc = 'Relative line numbers' })
 
+-- Activate CLI `gh markdown-preview <current file>` on keymap <leader>tm`
+map('n', '<leader>tm', function()
+  local file = vim.fn.expand '%'
+  if file == '' then
+    vim.notify('No file to preview', vim.log.levels.WARN)
+    return
+  end
+  local cmd = 'gh markdown-preview ' .. file
+  vim.fn.system(cmd)
+  -- Ctrl+C
+end, { desc = 'Markdown preview' })
+
 ----------------------------------------------------------------------------------------------------
 -- Git keymaps
 ----------------------------------------------------------------------------------------------------
@@ -47,11 +59,11 @@ local function git_open_remote(remote)
   end)
 end
 
-map('n', '<leader>gr', function() -- [r]emote
+map('n', '<leader>go', function() -- [r]emote
   git_open_remote 'origin'
 end, { desc = 'Browse origin' })
 
-map('n', '<leader>gR', function()
+map('n', '<leader>gO', function()
   git_open_remote 'upstream'
 end, { desc = 'Browse upstream' })
 

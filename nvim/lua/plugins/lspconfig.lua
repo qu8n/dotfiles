@@ -69,20 +69,13 @@ return {
             opts.desc = desc
             vim.keymap.set(mode, keys, func, opts)
           end
-
-          -- Add keymaps to navigate code with LSP
           map('<leader>ca', vim.lsp.buf.code_action, 'Actions')
           map('<leader>cr', vim.lsp.buf.rename, 'Rename')
           map('K', function()
             return vim.lsp.buf.hover()
           end, 'Hover')
-          map('gd', vim.lsp.buf.definition, 'Definition')
-          -- Set nowait=true to ignore nvim's built-in LSP keymaps like gra, grr, etc.
-          map('gr', '<cmd>FzfLua lsp_references<cr>', 'References', 'n', { nowait = true })
-          map('gI', vim.lsp.buf.implementation, 'Implementation')
-          map('gy', '<cmd>FzfLua lsp_typedefs<cr>', 'Type Definitions')
 
-          -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
+          -- Resolve a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
           ---@param bufnr? integer some lsp support methods only in specific files
@@ -124,10 +117,6 @@ return {
             })
           end
 
-          -- The following code creates a keymap to toggle inlay hints in your
-          -- code, if the language server you are using supports them
-          --
-          -- This may be unwanted, since they displace some of your code
           if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             map('<leader>ti', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
