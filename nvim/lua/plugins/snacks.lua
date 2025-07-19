@@ -30,12 +30,15 @@ return {
     indent = { enabled = true },
     -- `nvim <file>` renders file quickly before loading plugins
     quickfile = { enabled = true },
+    -- Get access to project- and branch-specific scratch buffers
     scratch = {
       enabled = true,
       -- Set markdown as the default filetype for scratch buffers
       -- Otherwise, it will match the current buffer's filetype (why?)
       ft = 'markdown',
     },
+    -- Enable smooth scrolling
+    scroll = { enabled = true },
   },
   keys = {
     {

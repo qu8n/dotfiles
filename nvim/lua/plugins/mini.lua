@@ -58,21 +58,6 @@ return {
         -- better deal with markdown code blocks
         markdown = true,
       }
-
-      -- Animate nvim actions like cursor paths, smooth scrolling, window opening/closing/resizing
-      -- https://github.com/echasnovski/mini.animate
-      local animate = require 'mini.animate'
-      animate.setup {
-        -- Override the scrolling defaults to make it feel smoother
-        scroll = {
-          -- How long to animate the scrolling (default is 250ms)
-          timing = animate.gen_timing.linear { duration = 100, unit = 'total' },
-          -- Number of animation steps per scroll (default is 60)
-          subscroll = animate.gen_subscroll.equal { max_output_steps = 120 },
-        },
-        -- Disable cursor path as it looks wonky when switching b/w split windows
-        cursor = { enable = false },
-      }
     end,
   },
 }
